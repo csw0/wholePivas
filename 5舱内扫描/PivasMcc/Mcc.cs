@@ -130,6 +130,14 @@ namespace PivasMcc
             打开屏ToolStripMenuItem.Visible = showScreen;
             关闭屏连接ToolStripMenuItem.Visible = showScreen;
 
+            bool showMoxa = screenType == StaticDictionary.WINDOWS_SCREEN ? false : true;//微软屏，不需Moxa界面操作
+            moxaToolStripMenuItem.Visible = showMoxa;
+            toolStripMenuItem1.Visible = showMoxa;
+            toolStripMenuItem2.Visible = showMoxa;
+
+            if (!showMoxa)
+                listViewMain.Columns[1].Width = 0;//隐藏端口状态
+
             try
             {
                 loadalready();
@@ -1394,13 +1402,27 @@ namespace PivasMcc
             {
                 if (!string.IsNullOrEmpty(list_LvMain_Model[index].ScreenIP))
                 {
-                    if (displayController.DisplayOpen(list_LvMain_Model[index].ScreenIP, list_LvMain_Model[index].ScreenPort))
+                    if (screenType == StaticDictionary.DIWEN_SCREEN)
                     {
-                        displayController.ReConnnect = true;//用户在界面上开启了连接（不管结果），就开启重连
-                    }
-                    else
+                        if (displayController.DisplayOpen(list_LvMain_Model[index].ScreenIP, list_LvMain_Model[index].ScreenPort))
+                            displayController.ReConnnect = true;//用户在界面上开启了连接（不管结果），就开启重连
+                        else
+                            UpdateListViewPort("屏IP:" + list_LvMain_Model[index].ScreenIP + "；" + "端口:" + list_LvMain_Model[index].ScreenPort + "；无法打开");
+                    } 
+                    else if(screenType == StaticDictionary.WINDOWS_SCREEN)
                     {
-                        UpdateListViewPort("屏IP:" + list_LvMain_Model[index].ScreenIP + "；" + "端口:" + list_LvMain_Model[index].ScreenPort + "；无法打开");
+                        if (screenClientController.ScreenOpen(list_LvMain_Model[index].ScreenIP, list_LvMain_Model[index].ScreenPort))
+                            screenClientController.ReConnnect = true;//用户在界面上开启了连接（不管结果），就开启重连                            
+                        else
+                        {
+                            listViewMain.SafeAction(() =>
+                            {
+                                listViewMain.Items[index].BackColor = Color.Pink;//打开端口失败，背景色粉
+                            });
+                            UpdateListViewPort("屏IP:" + list_LvMain_Model[index].ScreenIP + "；" + "端口:" 
+                                + list_LvMain_Model[index].ScreenPort + "；无法打开");
+                        }
+                            
                     }
                 }
             }
@@ -1420,9 +1442,18 @@ namespace PivasMcc
             {
                 if (!string.IsNullOrEmpty(list_LvMain_Model[index].ScreenIP))
                 {
-                    displayController.DisplayClose(list_LvMain_Model[index].ScreenIP, list_LvMain_Model[index].ScreenPort);
-                    UpdateListViewPort(string.Format("屏 IP:{0}；端口:{1}；断开连接",
-                        list_LvMain_Model[index].ScreenIP, list_LvMain_Model[index].ScreenPort));
+                    if (screenType == StaticDictionary.DIWEN_SCREEN)
+                    {
+                        displayController.DisplayClose(list_LvMain_Model[index].ScreenIP, list_LvMain_Model[index].ScreenPort);
+                        UpdateListViewPort(string.Format("屏 IP:{0}；端口:{1}；断开连接",
+                            list_LvMain_Model[index].ScreenIP, list_LvMain_Model[index].ScreenPort));
+                    }
+                    else if (screenType == StaticDictionary.WINDOWS_SCREEN)
+                    {
+                        screenClientController.ScreenClose(list_LvMain_Model[index].ScreenIP, list_LvMain_Model[index].ScreenPort);
+                        UpdateListViewPort(string.Format("屏 IP:{0}；端口:{1}；断开连接",
+                            list_LvMain_Model[index].ScreenIP, list_LvMain_Model[index].ScreenPort));
+                    }
                 }
             }
             catch (Exception ex)
@@ -1866,6 +1897,7 @@ namespace PivasMcc
         {
             UpdateListViewPort(string.Format("屏 IP:{0}；端口:{1}；连接成功",
                    e.Value.ServerIp, e.Value.ServerPort));
+
         }
         #endregion 微软屏事件
 
@@ -1896,6 +1928,6 @@ namespace PivasMcc
                 }
                 catch { }
             }
-        }       
+        }
     }
 }

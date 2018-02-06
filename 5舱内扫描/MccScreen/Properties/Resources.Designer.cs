@@ -63,9 +63,19 @@ namespace MccScreen.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Bitmap 背景图 {
+        internal static System.Drawing.Bitmap erase {
             get {
-                object obj = ResourceManager.GetObject("背景图", resourceCulture);
+                object obj = ResourceManager.GetObject("erase", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 横向底图比例 {
+            get {
+                object obj = ResourceManager.GetObject("横向底图比例", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

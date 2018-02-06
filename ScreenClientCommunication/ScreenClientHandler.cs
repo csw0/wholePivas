@@ -72,12 +72,12 @@ namespace Communication.screenTcp
                         msgScreenInfo.MsgType = (short)MsgType.ScrennInfo;
                         msgScreenInfo.ChargeMessage = chargeMsg;
                         msgScreenInfo.ChargeResult = chargeRtnValue;
-                        msgScreenInfo.EmployeeName = employeeName;
+                        msgScreenInfo.EmployeeName = employeeName.Trim();
                         msgScreenInfo.LabelNo = labelNo;
                         msgScreenInfo.MixCount = mixCount;
-                        msgScreenInfo.PatientName = dsLableInfo.Tables[0].Rows[0]["PatName"].ToString();
+                        msgScreenInfo.PatientName = dsLableInfo.Tables[0].Rows[0]["PatName"].ToString().Trim();
                         msgScreenInfo.ShowTime = DateTime.Now.ToString("HH:mm:ss MM/dd");
-                        msgScreenInfo.WardName = dsLableInfo.Tables[0].Rows[0]["WardName"].ToString();
+                        msgScreenInfo.WardName = dsLableInfo.Tables[0].Rows[0]["WardName"].ToString().Trim();
                         msgScreenInfo.Drugs = new List<MsgDrugRowInfo>();
                         msgScreenInfo.Methods = new List<string>();
 
@@ -90,10 +90,10 @@ namespace Communication.screenTcp
 
                             MsgDrugRowInfo msgDrugRowInfo = new MsgDrugRowInfo();
                             msgDrugRowInfo.DrugIndex = listIndex[i + 1];//从1开始
-                            msgDrugRowInfo.DrugName = dsLableInfo.Tables[0].Rows[i]["DrugName"].ToString();
-                            msgDrugRowInfo.DrugSpec = dsLableInfo.Tables[0].Rows[i]["Spec"].ToString();
-                            msgDrugRowInfo.DrugDose = dsLableInfo.Tables[0].Rows[i]["Dosage"].ToString();
-                            msgDrugRowInfo.DrugCount = dsLableInfo.Tables[0].Rows[i]["DgNo"].ToString();
+                            msgDrugRowInfo.DrugName = dsLableInfo.Tables[0].Rows[i]["DrugName"].ToString().Trim();
+                            msgDrugRowInfo.DrugSpec = dsLableInfo.Tables[0].Rows[i]["Spec"].ToString().Trim();
+                            msgDrugRowInfo.DrugDose = dsLableInfo.Tables[0].Rows[i]["Dosage"].ToString().Trim();
+                            msgDrugRowInfo.DrugCount = dsLableInfo.Tables[0].Rows[i]["DgNo"].ToString().Trim();
                             msgScreenInfo.Drugs.Add(msgDrugRowInfo);
                         }
 

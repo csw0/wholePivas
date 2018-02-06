@@ -48,7 +48,7 @@ namespace Communication.DisplayTcp
 
         private void Client_DataSent(object sender, AsyncSocketSessionEventArgs e)
         {
-            InternalLogger.Log.Info(String.Format("DisplayTcpClient({0}:{1}[{2}])发送数据{3}成功:",
+            InternalLogger.Log.Info(String.Format("DisplayTcpClient({0}:{1}[{2}])发送数据{3}成功",
                    this.serverIp, this.serverPort, this.sessionId,e.DataTransferred.BytesToHexString()));
         }
 
@@ -63,7 +63,7 @@ namespace Communication.DisplayTcp
         {
             try
             {
-                InternalLogger.Log.Info(String.Format("DisplayTcpClient({0}:{1}[{2}])已经连接成功:",
+                InternalLogger.Log.Info(String.Format("DisplayTcpClient({0}:{1}[{2}])已经连接成功",
                     this.serverIp, this.serverPort, this.sessionId));
                 connectStatus = true;
                 if (Connected != null)

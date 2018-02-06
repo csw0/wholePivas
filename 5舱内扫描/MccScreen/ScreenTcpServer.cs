@@ -19,7 +19,16 @@ namespace MccScreen
         /// <summary>
         /// 用于端口关闭后重启监听
         /// </summary>
-        public bool IsListening  { get { return IsListening; }   }
+        public bool IsListening
+        {
+            get
+            {
+                if (server != null)
+                    return server.IsListening;
+                else
+                    return false;
+            }
+        }
 
         public ScreenTcpServer(int port, int bufferSize = 8192, bool useIPv6 = false)
         {
@@ -108,7 +117,7 @@ namespace MccScreen
 
         private void Server_DataSent(object sender, AsyncSocketSessionEventArgs e)
         {
-            InternalLogger.Log.Info(String.Format("ScreenTcpServer向{0}:{1}[{2}]发送数据{3}成功:",
+            InternalLogger.Log.Info(String.Format("ScreenTcpServer向{0}:{1}[{2}]发送数据{3}成功",
                    this.currentClient == null ? null : currentClient.Address,
                    this.currentClient == null ? 0 : currentClient.Port,
                    this.sessionId, Encoding.Default.GetString(e.DataTransferred)));

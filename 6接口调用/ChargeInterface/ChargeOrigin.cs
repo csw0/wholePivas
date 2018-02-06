@@ -19,7 +19,7 @@ namespace ChargeInterface
         /// <returns></returns>
         public override string Charge(string labelno, string UserID, out string msg)
         {
-            msg = "";
+            msg = "计费成功";
             return "1";
         }
 

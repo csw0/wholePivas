@@ -10,6 +10,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace MccScreen
@@ -34,27 +35,28 @@ namespace MccScreen
             {
                 tbLabel.Text = codes.Result;
             });
-            //发送瓶签号给客户端去处理
-            if (tcpServer != null)
+
+            new Thread(() => 
             {
-                tcpServer.Send(codes.Result.Trim());
-            }
-            else
-            {
-                string str = "TCP链路断开，请重启";
-                InternalLogger.Log.Warn(str);
-                UpdateLabelResult(str);
-            }
+                //发送瓶签号给客户端去处理
+                if (tcpServer != null)
+                {
+                    tcpServer.Send(codes.Result.Trim());
+                }
+                else
+                {
+                    string str = "TCP链路断开，请重启";
+                    InternalLogger.Log.Warn(str);
+                    UpdateLabelResult(str);
+                }
+            }).Start();
         }
 
         private void MainFrm_Load(object sender, EventArgs e)
         {
             try
             {
-                panelLogin.Visible = true;
-                panelMain.Visible = false;
-                panelLogin.Dock = DockStyle.Fill;
-
+                HideShow(true);
                 listener.Start();
 
                 int port = Int32.Parse(db.IniReadValuePivas("SCREEN", "ServerPort").Trim());
@@ -73,6 +75,8 @@ namespace MccScreen
                 controller.ListenStoped += TcpServer_Stopped;
 
                 InitListview();
+                ShowTipCenter();
+                this.lblLoginResult.Invalidate(true);
             }
             catch (Exception ex)
             {
@@ -149,6 +153,17 @@ namespace MccScreen
         }
 
         /// <summary>
+        /// 将提示信息居中显示
+        /// </summary>
+        private void ShowTipCenter()
+        {
+            Point tipPoint = new Point();
+            tipPoint.X = this.panelLogin.Width / 2 - lblLoginResult.Width / 2;
+            tipPoint.Y = this.panelLogin.Height / 5;
+            lblLoginResult.Location = tipPoint;
+        }
+
+        /// <summary>
         /// 更新配置方法行
         /// </summary>
         private void UpdateListMethod(List<string> list)
@@ -183,6 +198,8 @@ namespace MccScreen
             {
                 this.SafeAction(() =>
                 {
+                    //更换结果颜色
+                    lblResult.ForeColor = e.Value.ChargeResult == StaticDictionary.CHARGE_RESULT_SUCCESS ? Color.Green : Color.Red;
                     UpdateLabelResult(e.Value.ChargeMessage);
 
                     this.lblWardName.Text = e.Value.WardName;
@@ -293,5 +310,15 @@ namespace MccScreen
             this.listViewConfigMethod.EndUpdate();
         }
         #endregion 临时测试
+
+        private void panelLoginClose_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void panelMainClose_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }

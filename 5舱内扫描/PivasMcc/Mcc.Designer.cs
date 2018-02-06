@@ -43,6 +43,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.打开屏ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.关闭屏连接ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listViewPort = new System.Windows.Forms.ListView();
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -91,8 +93,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.Panel_Max_None = new System.Windows.Forms.Panel();
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
-            this.打开屏ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.关闭屏连接ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -126,9 +126,10 @@
             this.listViewMain.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.listViewMain.FullRowSelect = true;
             this.listViewMain.Location = new System.Drawing.Point(0, 0);
+            this.listViewMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listViewMain.MultiSelect = false;
             this.listViewMain.Name = "listViewMain";
-            this.listViewMain.Size = new System.Drawing.Size(1040, 216);
+            this.listViewMain.Size = new System.Drawing.Size(1387, 271);
             this.listViewMain.TabIndex = 1;
             this.listViewMain.UseCompatibleStateImageBehavior = false;
             this.listViewMain.View = System.Windows.Forms.View.Details;
@@ -181,27 +182,42 @@
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.toolStripMenuItem2,
             this.打开屏ToolStripMenuItem,
             this.关闭屏连接ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(154, 100);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(153, 24);
             this.toolStripMenuItem1.Text = "打开端口";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(153, 24);
             this.toolStripMenuItem2.Text = "关闭端口";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // 打开屏ToolStripMenuItem
+            // 
+            this.打开屏ToolStripMenuItem.Name = "打开屏ToolStripMenuItem";
+            this.打开屏ToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
+            this.打开屏ToolStripMenuItem.Text = "打开屏连接";
+            this.打开屏ToolStripMenuItem.Click += new System.EventHandler(this.打开屏ToolStripMenuItem_Click);
+            // 
+            // 关闭屏连接ToolStripMenuItem
+            // 
+            this.关闭屏连接ToolStripMenuItem.Name = "关闭屏连接ToolStripMenuItem";
+            this.关闭屏连接ToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
+            this.关闭屏连接ToolStripMenuItem.Text = "关闭屏连接";
+            this.关闭屏连接ToolStripMenuItem.Click += new System.EventHandler(this.关闭屏连接ToolStripMenuItem_Click);
             // 
             // listViewPort
             // 
@@ -212,9 +228,10 @@
             this.listViewPort.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewPort.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.listViewPort.FullRowSelect = true;
-            this.listViewPort.Location = new System.Drawing.Point(3, 3);
+            this.listViewPort.Location = new System.Drawing.Point(4, 4);
+            this.listViewPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listViewPort.Name = "listViewPort";
-            this.listViewPort.Size = new System.Drawing.Size(1026, 180);
+            this.listViewPort.Size = new System.Drawing.Size(1371, 228);
             this.listViewPort.TabIndex = 3;
             this.listViewPort.UseCompatibleStateImageBehavior = false;
             this.listViewPort.View = System.Windows.Forms.View.Details;
@@ -241,8 +258,9 @@
             this.label1.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1040, 51);
+            this.label1.Size = new System.Drawing.Size(1387, 64);
             this.label1.TabIndex = 4;
             this.label1.Text = "  舱内扫描";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -254,9 +272,10 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(167)))), ((int)(((byte)(218)))));
-            this.label2.Location = new System.Drawing.Point(0, 506);
+            this.label2.Location = new System.Drawing.Point(0, 632);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1045, 23);
+            this.label2.Size = new System.Drawing.Size(1393, 29);
             this.label2.TabIndex = 5;
             this.label2.Text = "label2";
             // 
@@ -270,28 +289,31 @@
             // 
             // contextMenuStrip2
             // 
+            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.CMSexit});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(125, 26);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(139, 28);
             // 
             // CMSexit
             // 
             this.CMSexit.Name = "CMSexit";
-            this.CMSexit.Size = new System.Drawing.Size(124, 22);
+            this.CMSexit.Size = new System.Drawing.Size(138, 24);
             this.CMSexit.Text = "系统退出";
             this.CMSexit.Click += new System.EventHandler(this.CMSexit_Click);
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.菜单ToolStripMenuItem,
             this.舱内屏操作ToolStripMenuItem,
             this.moxaToolStripMenuItem,
             this.帮助ToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 51);
+            this.menuStrip1.Location = new System.Drawing.Point(0, 64);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1040, 25);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1387, 28);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "菜单";
             // 
@@ -301,20 +323,20 @@
             this.同步ToolStripMenuItem,
             this.设置ToolStripMenuItem});
             this.菜单ToolStripMenuItem.Name = "菜单ToolStripMenuItem";
-            this.菜单ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.菜单ToolStripMenuItem.Size = new System.Drawing.Size(51, 24);
             this.菜单ToolStripMenuItem.Text = "菜单";
             // 
             // 同步ToolStripMenuItem
             // 
             this.同步ToolStripMenuItem.Name = "同步ToolStripMenuItem";
-            this.同步ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.同步ToolStripMenuItem.Size = new System.Drawing.Size(129, 26);
             this.同步ToolStripMenuItem.Text = "关同步";
             this.同步ToolStripMenuItem.Click += new System.EventHandler(this.同步ToolStripMenuItem_Click);
             // 
             // 设置ToolStripMenuItem
             // 
             this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
-            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(129, 26);
             this.设置ToolStripMenuItem.Text = "设置";
             this.设置ToolStripMenuItem.Click += new System.EventHandler(this.Set_Click);
             // 
@@ -324,20 +346,20 @@
             this.MenuItemOpenAllScreen,
             this.MenuItemCloseAllScreen});
             this.舱内屏操作ToolStripMenuItem.Name = "舱内屏操作ToolStripMenuItem";
-            this.舱内屏操作ToolStripMenuItem.Size = new System.Drawing.Size(80, 21);
+            this.舱内屏操作ToolStripMenuItem.Size = new System.Drawing.Size(96, 24);
             this.舱内屏操作ToolStripMenuItem.Text = "舱内屏操作";
             // 
             // MenuItemOpenAllScreen
             // 
             this.MenuItemOpenAllScreen.Name = "MenuItemOpenAllScreen";
-            this.MenuItemOpenAllScreen.Size = new System.Drawing.Size(136, 22);
+            this.MenuItemOpenAllScreen.Size = new System.Drawing.Size(159, 26);
             this.MenuItemOpenAllScreen.Text = "打开所有屏";
             this.MenuItemOpenAllScreen.Click += new System.EventHandler(this.MenuItemOpenAllScreen_Click);
             // 
             // MenuItemCloseAllScreen
             // 
             this.MenuItemCloseAllScreen.Name = "MenuItemCloseAllScreen";
-            this.MenuItemCloseAllScreen.Size = new System.Drawing.Size(136, 22);
+            this.MenuItemCloseAllScreen.Size = new System.Drawing.Size(159, 26);
             this.MenuItemCloseAllScreen.Text = "关闭所有屏";
             this.MenuItemCloseAllScreen.Click += new System.EventHandler(this.MenuItemCloseAllScreen_Click);
             // 
@@ -347,20 +369,20 @@
             this.MenuItemOpenAllPort,
             this.MenuItemCloseAllPort});
             this.moxaToolStripMenuItem.Name = "moxaToolStripMenuItem";
-            this.moxaToolStripMenuItem.Size = new System.Drawing.Size(101, 21);
+            this.moxaToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
             this.moxaToolStripMenuItem.Text = "Moxa设备操作";
             // 
             // MenuItemOpenAllPort
             // 
             this.MenuItemOpenAllPort.Name = "MenuItemOpenAllPort";
-            this.MenuItemOpenAllPort.Size = new System.Drawing.Size(148, 22);
+            this.MenuItemOpenAllPort.Size = new System.Drawing.Size(174, 26);
             this.MenuItemOpenAllPort.Text = "打开所有端口";
             this.MenuItemOpenAllPort.Click += new System.EventHandler(this.MenuItemOpenAllPort_Click);
             // 
             // MenuItemCloseAllPort
             // 
             this.MenuItemCloseAllPort.Name = "MenuItemCloseAllPort";
-            this.MenuItemCloseAllPort.Size = new System.Drawing.Size(148, 22);
+            this.MenuItemCloseAllPort.Size = new System.Drawing.Size(174, 26);
             this.MenuItemCloseAllPort.Text = "关闭所有端口";
             this.MenuItemCloseAllPort.Click += new System.EventHandler(this.MenuItemCloseAllPort_Click);
             // 
@@ -369,13 +391,13 @@
             this.帮助ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItemAbout});
             this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
-            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(51, 24);
             this.帮助ToolStripMenuItem.Text = "帮助";
             // 
             // ToolStripMenuItemAbout
             // 
             this.ToolStripMenuItemAbout.Name = "ToolStripMenuItemAbout";
-            this.ToolStripMenuItemAbout.Size = new System.Drawing.Size(128, 22);
+            this.ToolStripMenuItemAbout.Size = new System.Drawing.Size(149, 26);
             this.ToolStripMenuItemAbout.Text = "关于MCC";
             this.ToolStripMenuItemAbout.Click += new System.EventHandler(this.ToolStripMenuItemAbout_Click);
             // 
@@ -395,8 +417,9 @@
             this.columnHeader12});
             this.listViewDeskInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewDeskInfo.Location = new System.Drawing.Point(0, 0);
+            this.listViewDeskInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listViewDeskInfo.Name = "listViewDeskInfo";
-            this.listViewDeskInfo.Size = new System.Drawing.Size(523, 180);
+            this.listViewDeskInfo.Size = new System.Drawing.Size(698, 228);
             this.listViewDeskInfo.TabIndex = 17;
             this.listViewDeskInfo.UseCompatibleStateImageBehavior = false;
             this.listViewDeskInfo.View = System.Windows.Forms.View.Details;
@@ -437,8 +460,9 @@
             this.columnHeader19});
             this.listViewSendPLCInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewSendPLCInfo.Location = new System.Drawing.Point(0, 0);
+            this.listViewSendPLCInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listViewSendPLCInfo.Name = "listViewSendPLCInfo";
-            this.listViewSendPLCInfo.Size = new System.Drawing.Size(499, 180);
+            this.listViewSendPLCInfo.Size = new System.Drawing.Size(668, 228);
             this.listViewSendPLCInfo.TabIndex = 18;
             this.listViewSendPLCInfo.UseCompatibleStateImageBehavior = false;
             this.listViewSendPLCInfo.View = System.Windows.Forms.View.Details;
@@ -480,18 +504,20 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1040, 212);
+            this.tabControl1.Size = new System.Drawing.Size(1387, 267);
             this.tabControl1.TabIndex = 19;
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.listViewLabelScan);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1032, 186);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Size = new System.Drawing.Size(1379, 238);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "瓶签扫描信息";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -505,9 +531,10 @@
             this.listViewLabelScan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewLabelScan.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.listViewLabelScan.FullRowSelect = true;
-            this.listViewLabelScan.Location = new System.Drawing.Point(3, 3);
+            this.listViewLabelScan.Location = new System.Drawing.Point(4, 4);
+            this.listViewLabelScan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listViewLabelScan.Name = "listViewLabelScan";
-            this.listViewLabelScan.Size = new System.Drawing.Size(1026, 180);
+            this.listViewLabelScan.Size = new System.Drawing.Size(1371, 230);
             this.listViewLabelScan.TabIndex = 4;
             this.listViewLabelScan.UseCompatibleStateImageBehavior = false;
             this.listViewLabelScan.View = System.Windows.Forms.View.Details;
@@ -530,10 +557,11 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.listViewPort);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1032, 186);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Size = new System.Drawing.Size(1379, 236);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "操作信息";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -541,10 +569,11 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.splitContainerPLC);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1032, 186);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Size = new System.Drawing.Size(1379, 236);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "磨砂/PLC";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -552,7 +581,8 @@
             // splitContainerPLC
             // 
             this.splitContainerPLC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerPLC.Location = new System.Drawing.Point(3, 3);
+            this.splitContainerPLC.Location = new System.Drawing.Point(4, 4);
+            this.splitContainerPLC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainerPLC.Name = "splitContainerPLC";
             // 
             // splitContainerPLC.Panel1
@@ -562,8 +592,9 @@
             // splitContainerPLC.Panel2
             // 
             this.splitContainerPLC.Panel2.Controls.Add(this.listViewSendPLCInfo);
-            this.splitContainerPLC.Size = new System.Drawing.Size(1026, 180);
-            this.splitContainerPLC.SplitterDistance = 523;
+            this.splitContainerPLC.Size = new System.Drawing.Size(1371, 228);
+            this.splitContainerPLC.SplitterDistance = 698;
+            this.splitContainerPLC.SplitterWidth = 5;
             this.splitContainerPLC.TabIndex = 19;
             // 
             // panel2
@@ -572,9 +603,10 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(179)))), ((int)(((byte)(253)))));
             this.panel2.BackgroundImage = global::PivasMcc.Properties.Resources.最小化;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel2.Location = new System.Drawing.Point(966, -1);
+            this.panel2.Location = new System.Drawing.Point(1288, -1);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(24, 28);
+            this.panel2.Size = new System.Drawing.Size(32, 35);
             this.panel2.TabIndex = 7;
             this.panel2.Click += new System.EventHandler(this.panel2_Click);
             this.panel2.MouseLeave += new System.EventHandler(this.panel2_MouseLeave);
@@ -586,9 +618,10 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(179)))), ((int)(((byte)(253)))));
             this.panel1.BackgroundImage = global::PivasMcc.Properties.Resources._211;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel1.Location = new System.Drawing.Point(1014, -1);
+            this.panel1.Location = new System.Drawing.Point(1352, -1);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(24, 28);
+            this.panel1.Size = new System.Drawing.Size(32, 35);
             this.panel1.TabIndex = 6;
             this.panel1.Click += new System.EventHandler(this.panel1_Click);
             this.panel1.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
@@ -601,9 +634,10 @@
             this.Panel_Max_None.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(179)))), ((int)(((byte)(253)))));
             this.Panel_Max_None.BackgroundImage = global::PivasMcc.Properties.Resources._20;
             this.Panel_Max_None.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.Panel_Max_None.Location = new System.Drawing.Point(992, -1);
+            this.Panel_Max_None.Location = new System.Drawing.Point(1323, -1);
+            this.Panel_Max_None.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Panel_Max_None.Name = "Panel_Max_None";
-            this.Panel_Max_None.Size = new System.Drawing.Size(24, 28);
+            this.Panel_Max_None.Size = new System.Drawing.Size(32, 35);
             this.Panel_Max_None.TabIndex = 16;
             this.Panel_Max_None.Click += new System.EventHandler(this.Panel_Max_None_Click);
             this.Panel_Max_None.MouseLeave += new System.EventHandler(this.Panel_Max_None_MouseLeave);
@@ -612,7 +646,8 @@
             // splitContainerMain
             // 
             this.splitContainerMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerMain.Location = new System.Drawing.Point(0, 76);
+            this.splitContainerMain.Location = new System.Drawing.Point(0, 92);
+            this.splitContainerMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainerMain.Name = "splitContainerMain";
             this.splitContainerMain.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -623,29 +658,16 @@
             // splitContainerMain.Panel2
             // 
             this.splitContainerMain.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainerMain.Size = new System.Drawing.Size(1040, 432);
-            this.splitContainerMain.SplitterDistance = 216;
+            this.splitContainerMain.Size = new System.Drawing.Size(1387, 543);
+            this.splitContainerMain.SplitterDistance = 271;
+            this.splitContainerMain.SplitterWidth = 5;
             this.splitContainerMain.TabIndex = 20;
-            // 
-            // 打开屏ToolStripMenuItem
-            // 
-            this.打开屏ToolStripMenuItem.Name = "打开屏ToolStripMenuItem";
-            this.打开屏ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.打开屏ToolStripMenuItem.Text = "打开屏连接";
-            this.打开屏ToolStripMenuItem.Click += new System.EventHandler(this.打开屏ToolStripMenuItem_Click);
-            // 
-            // 关闭屏连接ToolStripMenuItem
-            // 
-            this.关闭屏连接ToolStripMenuItem.Name = "关闭屏连接ToolStripMenuItem";
-            this.关闭屏连接ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.关闭屏连接ToolStripMenuItem.Text = "关闭屏连接";
-            this.关闭屏连接ToolStripMenuItem.Click += new System.EventHandler(this.关闭屏连接ToolStripMenuItem_Click);
             // 
             // frmMcc
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1040, 508);
+            this.ClientSize = new System.Drawing.Size(1387, 635);
             this.ContextMenuStrip = this.contextMenuStrip2;
             this.Controls.Add(this.splitContainerMain);
             this.Controls.Add(this.panel2);
@@ -656,6 +678,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmMcc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "舱内扫描";

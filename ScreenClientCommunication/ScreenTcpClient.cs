@@ -52,7 +52,7 @@ namespace Communication.DisplayTcp
 
         private void Client_DataSent(object sender, AsyncSocketSessionEventArgs e)
         {
-            InternalLogger.Log.Info(String.Format("ScreenTcpClient({0}:{1}[{2}])发送数据{3}成功:",
+            InternalLogger.Log.Info(String.Format("ScreenTcpClient({0}:{1}[{2}])发送数据{3}成功",
                    this.serverIp, this.serverPort, this.sessionId,
                    Encoding.Default.GetString(e.DataTransferred)));
         }
@@ -67,7 +67,7 @@ namespace Communication.DisplayTcp
         {
             try
             {
-                InternalLogger.Log.Info(String.Format("ScreenTcpClient({0}:{1}[{2}])已经连接成功:",
+                InternalLogger.Log.Info(String.Format("ScreenTcpClient({0}:{1}[{2}])已经连接成功",
                     this.serverIp, this.serverPort, this.sessionId));
                 connectStatus = true;
                 if (Connected != null)
@@ -123,7 +123,7 @@ namespace Communication.DisplayTcp
                     InternalLogger.Log.Warn("接收到瓶签号数据为空，不处理");
                     return;
                 }
-                string data = Encoding.Default.GetString(e.DataTransferred);
+                string data = Encoding.Default.GetString(e.DataTransferred).Replace(StaticDictionary.SPLITTER,"");//过滤一下回传换行符
                 InternalLogger.Log.Debug("接收到原始的瓶签号数据：" + data);
 
                 ParseMoxaData(data);

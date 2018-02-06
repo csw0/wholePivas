@@ -70,7 +70,7 @@ namespace Communication.MOXATcp
         {
             try
             {
-                InternalLogger.Log.Info(String.Format("MOXATcpClient({0}:{1}[{2}])已经连接成功:",
+                InternalLogger.Log.Info(String.Format("MOXATcpClient({0}:{1}[{2}])已经连接成功",
                     this.serverIp, this.serverPort, this.sessionId));
                 connectStatus = true;
                 if (Connected != null)

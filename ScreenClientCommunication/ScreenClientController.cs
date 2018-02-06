@@ -52,7 +52,7 @@ namespace Communication.screenTcp
         /// <param name="remoteIP"></param>
         /// <param name="remotePort"></param>
         /// <returns>返回端口号;为了兼容</returns>
-        public void screenClose(string remoteIP, int remotePort)
+        public void ScreenClose(string remoteIP, int remotePort)
         {
             ScreenTcpClient ScreenTcpClient = null;
             bool bContainScreenTcpClient = ContainTcpClient(remoteIP, remotePort, out ScreenTcpClient);
@@ -68,7 +68,7 @@ namespace Communication.screenTcp
         /// <param name="remoteIP">ip</param>
         /// <param name="remotePort">端口号</param>
         /// <returns>返回端口号;为了兼容</returns>
-        public bool screenOpen(string remoteIP, int remotePort)
+        public bool ScreenOpen(string remoteIP, int remotePort)
         {
             ScreenTcpClient screenTcpClient = null;
             bool bContainScreenTcpClient = ContainTcpClient(remoteIP, remotePort, out screenTcpClient);

@@ -6,7 +6,7 @@ namespace PIVAsCommon.BarcodeScanner
 {
     public class ScanerCodes
     {
-        private int ts = 300; // 指定输入间隔为300毫秒以内时为连续输入  
+        private int ts = 5000; // 指定输入间隔为300毫秒以内时为连续输入  
         private List<List<EventMsg>> _keys = new List<List<EventMsg>>();
         private List<int> _keydown = new List<int>();   // 保存组合键状态  
         private List<string> _result = new List<string>();  // 返回结果集  
