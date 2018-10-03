@@ -1,0 +1,60 @@
+﻿<Window x:Class="TPNReview.WinMonitorCom"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:TPNReview"
+        Title="通用审核设置" Height="400" Width="600"
+        ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:ConverterInt2Bool x:Key="cnvtInt2Bool" />
+    </Window.Resources>
+    <DockPanel>
+        <Grid DockPanel.Dock="Bottom">
+            <StackPanel Height="40" Orientation="Horizontal">
+                <Button Content="新增" Click="btnAdd_Click" Height="23" Width="60" Margin="6,0" />
+                <Button Content="删除" Click="btnDel_Click" Height="23" Width="60" />
+            </StackPanel>
+            <Button Content="确定" Click="btnOK_Click" HorizontalAlignment="Right" Height="23" Width="60" Margin="6,0" />
+        </Grid>
+        <DataGrid x:Name="grdMonitor" AutoGenerateColumns="False"
+                  CanUserAddRows="False" GridLinesVisibility="Horizontal" Margin="6,0">
+            <DataGrid.RowStyle>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="Height" Value="24" />
+                    <Setter Property="BorderBrush" Value="Gray" />
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="特定药品" Width="160" IsReadOnly="True" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DockPanel>
+                                <Button DockPanel.Dock="Right" Content="..." Tag="{Binding AlwayCheckID}" 
+                                        Click="btnSelDrug_Click" ToolTip="选择药品" Margin="2,0" />
+                                <TextBlock Text="{Binding Drug}" />
+                            </DockPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="TPN项目" Width="120" IsReadOnly="True" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DockPanel>
+                                <Button DockPanel.Dock="Right" Content="..." Tag="{Binding AlwayCheckID}" 
+                                        Click="btnSelItem_Click" ToolTip="选择TPN项目" Margin="2,0" />
+                                <TextBlock Text="{Binding ItemName}" />
+                            </DockPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn> 
+                <DataGridTextColumn Header="正常值" Binding="{Binding NormalValue}" Width="90" />
+                <DataGridCheckBoxColumn Header="须含糖" Binding="{Binding Path=RequireSugar, Converter={StaticResource cnvtInt2Bool}}" Width="50" />
+                <DataGridCheckBoxColumn Header="须含氨基酸" Binding="{Binding Path=RequireAA, Converter={StaticResource cnvtInt2Bool}}" Width="50" />
+                <DataGridCheckBoxColumn Header="须含脂肪乳" Binding="{Binding Path=RequireFat, Converter={StaticResource cnvtInt2Bool}}" Width="50" />
+                <DataGridTextColumn Header="顺序" Binding="{Binding SeqNo}" Width="40" />
+                <DataGridTextColumn Header="维护时间" Binding="{Binding Path=InputTime, StringFormat={}{0:yyyy-M-d H:mm:ss}}" 
+                                    Width="130" IsReadOnly="True" />
+                <DataGridTextColumn Header="维护人" Binding="{Binding Inputer}" Width="50" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</Window>

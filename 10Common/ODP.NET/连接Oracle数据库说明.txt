@@ -1,0 +1,11 @@
+1、引用dll
+2、连接字符串
+　　<add name="default" connectionString="user id=zhao;password=xxxx;data source=127.0.0.1:1521/USERINFO"/>
+
+3、注意点
+3.1、表中数据区分大小写
+3.2、OracleParameter采用:，而不是@
+3.3、语句的顺序要和OracleParameter的必须保持高度一致
+
+4、Oracle.ManagedDataAccess.dll需要.net4
+5、.netCore用于非windows平台的

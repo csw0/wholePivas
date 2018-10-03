@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lxf>
+	<db_config>
+		<db_type>sqlserver</db_type>
+		<server_name>.</server_name>
+		<user_name>sa</user_name>
+		<password>61C2B5BBBCA693</password>
+		<database>hospitaldata</database>
+		<extended></extended>
+	</db_config>
+
+	<CPMATE>
+		<db_type>sqlserver</db_type>
+		<server_name>.</server_name>
+		<user_name>sa</user_name>
+		<password>61C2B5BBBCA693</password>
+		<database>cpmate</database>
+		<extended></extended>
+	</CPMATE>
+</lxf>

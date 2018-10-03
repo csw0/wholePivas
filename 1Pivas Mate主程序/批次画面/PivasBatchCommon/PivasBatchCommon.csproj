@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A247986F-9919-44F2-9014-6F385DBFC6D1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PivasBatchCommon</RootNamespace>
+    <AssemblyName>PivasBatchCommon</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="InsertSql.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="pvb.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelectSql.cs" />
+    <Compile Include="UpdateSql.cs" />
+    <Compile Include="Wait.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wait.Designer.cs">
+      <DependentUpon>Wait.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wait.resx">
+      <DependentUpon>Wait.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DatabaseCopyDatabaseFile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gear_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\K_L.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printed.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\按钮.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\边框横线.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\边框竖线.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\边框掩盖.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\病区选中.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\病人信息.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\打印.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\打印.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\发送.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\批次.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\批次标题.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\批次关闭.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\批次关闭选中状态.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\设置.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\设置保存.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\设置取消.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\设置确定.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\生成.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\时间边框.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\时间下拉.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\搜索栏.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\未打印.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\选中批次.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\药品横线.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\液体总量.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\液体总量横线.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\阴影.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\右上角.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\重排.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\左上角.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\10Common\PIVAsCommon\PIVAsCommon.csproj">
+      <Project>{FAB76740-C6E8-42B0-8E97-52DBC3BFB8F1}</Project>
+      <Name>PIVAsCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

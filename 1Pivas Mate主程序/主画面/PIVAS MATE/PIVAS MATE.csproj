@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2AEA1A92-C41B-435A-9578-89DD84091E96}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PIVAS_MATE</RootNamespace>
+    <AssemblyName>PIVAS MATE</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <ApplicationIcon>主画面图标.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\11Output\PivasMate\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\_output\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Win32Resource>
+    </Win32Resource>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\10Common\Log4net\net35-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\10Common\import DLL\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="PowerList">
+      <HintPath>..\..\..\8个性化需求\PowerList\bin\debug\PowerList.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="qqClient">
+      <HintPath>..\..\..\4护士工作站\聊天记录\qqClient\bin\debug\qqClient.exe</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Control_welcome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control_welcome.Designer.cs">
+      <DependentUpon>Control_welcome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNotify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNotify.Designer.cs">
+      <DependentUpon>frmNotify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PageType.cs" />
+    <Compile Include="PIVASMate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PIVASMate.Designer.cs">
+      <DependentUpon>PIVASMate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Resources\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Control_welcome.resx">
+      <DependentUpon>Control_welcome.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNotify.resx">
+      <DependentUpon>frmNotify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PIVASMate.resx">
+      <DependentUpon>PIVASMate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="bl_server.lcf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="ConfigFile\ConsumablesStatic.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="ConfigFile\CountItem.Dat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="ConfigFile\HelpShow.Dat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="IMEQPIVAs.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="IMEQPIVAsHIS.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\you14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Log.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1背景.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\头.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\中.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\底.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\未标题-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\统计按下时效果.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\打印按下时效果.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="主画面图标.ico" />
+    <Content Include="安装部署说明书.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\TPN审方按下效果.png" />
+    <None Include="Resources\TPN审方.png" />
+    <None Include="Resources\TPN审方按下时效果.png" />
+    <None Include="Resources\4.png" />
+    <None Include="Resources\3.ico" />
+    <None Include="Resources\34.png" />
+    <None Include="Resources\37.png" />
+    <Content Include="ConfigFile\LabelAuthorityXml.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ConfigFile\Notice.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ConfigFile\PivasDrugCash.exe.CodeAnalysisLog.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ConfigFile\PivasIVRPrint.dll.CodeAnalysisLog.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ConfigFile\PivasLimitDES.dll.CodeAnalysisLog.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ConfigFile\PivasSignIn.exe.CodeAnalysisLog.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ConfigFile\WorkStatic.exe.CodeAnalysisLog.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\444.jpg" />
+    <Content Include="Resources\555.jpg" />
+    <Content Include="Resources\A-1%2520009.png" />
+    <Content Include="Resources\advanced.png" />
+    <None Include="Resources\gear_16.png" />
+    <None Include="Resources\Bolongimeq_Logo_英文.png" />
+    <None Include="Resources\DatabaseCopyDatabaseFile.png" />
+    <None Include="Resources\ControlSetControlDefaults.png" />
+    <Content Include="Resources\PatientFile.png" />
+    <Content Include="Resources\Pills.png" />
+    <None Include="Resources\pivas登陆界面2.jpg" />
+    <Content Include="Resources\png-0026.png" />
+    <Content Include="Resources\png-1286.png" />
+    <Content Include="Resources\png-1853.png" />
+    <Content Include="Resources\stock-find-and-replace.png" />
+    <Content Include="Resources\Syringe.png" />
+    <Content Include="Properties\Unlock.ico" />
+    <None Include="Resources\未命名.jpg" />
+    <None Include="Resources\空白.ico" />
+    <None Include="Resources\还原按下时按钮.png" />
+    <None Include="Resources\最小化.png" />
+    <None Include="Resources\最小化按下时按钮.png" />
+    <None Include="Resources\还原.png" />
+    <None Include="Resources\工具按下效果.png" />
+    <None Include="Resources\审方按下效果.png.png" />
+    <None Include="Resources\打印.png" />
+    <None Include="Resources\打印按下效果.png" />
+    <None Include="Resources\统计.png" />
+    <None Include="Resources\统计按下效果.png" />
+    <None Include="Resources\核对.png" />
+    <None Include="Resources\核对按下效果.png" />
+    <None Include="Resources\批次.png" />
+    <None Include="Resources\批次按下效果.png" />
+    <None Include="Resources\审方.png" />
+    <None Include="Resources\同步.png" />
+    <None Include="Resources\同步按下效果.png" />
+    <None Include="Resources\工具.png" />
+    <None Include="Resources\核对按下时效果.png" />
+    <None Include="Resources\审方按下时效果.png" />
+    <None Include="Resources\工具按下时效果.png" />
+    <None Include="Resources\批次按下时效果.png" />
+    <None Include="Resources\同步按下时效果.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\10Common\CommonUI\CommonUI.csproj">
+      <Project>{76422bb2-27fa-4e76-9543-31de5c21351b}</Project>
+      <Name>CommonUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\10Common\PIVAsCommon\PIVAsCommon.csproj">
+      <Project>{fab76740-c6e8-42b0-8e97-52dbc3bfb8f1}</Project>
+      <Name>PIVAsCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\2Pivas加密程序\PivasLimitDES\PivasLimitDES.csproj">
+      <Project>{8902815E-5E70-4B8C-9AD5-1A76F98D1AAB}</Project>
+      <Name>PivasLimitDES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TPN审方画面\TPNPrescriptionCheck\TPNReview.csproj">
+      <Project>{345188a8-4a20-4b9a-986c-0d7d8ffdf40c}</Project>
+      <Name>TPNReview</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\同步画面\同步界面\PivasSynSet\PivasSynSet.csproj">
+      <Project>{2be32caa-0d6e-4aef-a479-7c98cc839937}</Project>
+      <Name>PivasSynSet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\审方界面\审方画面\PivasRevPre\PivasRevPre.csproj">
+      <Project>{29855d28-6c76-4705-bd52-0a533c1f3d3b}</Project>
+      <Name>PivasRevPre</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\工具画面\非统计\pivas说明书\PivasInfor-white\PivasInfor.csproj">
+      <Project>{9a1e1320-5b7a-4338-836c-7fb306a2789f}</Project>
+      <Name>PivasInfor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\工具画面\非统计\工具界面\PivasTool\PivasTool.csproj">
+      <Project>{40461d1c-1423-4cce-8182-91eb11f45ebc}</Project>
+      <Name>PivasTool</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\打印画面\打印\PivasIVRPrint\PivasIVRPrint.csproj">
+      <Project>{f9593683-107e-45e4-8df2-6041c97f6fe0}</Project>
+      <Name>PivasIVRPrint</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\批次画面\病区列表模式\PivasBatch\PivasBatch.csproj">
+      <Project>{2cbad18d-d0b7-4d30-b323-0a2912977cbe}</Project>
+      <Name>PivasBatch</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\核对画面\PivasLabelCheck\PivasLabelCheck.csproj">
+      <Project>{482a8299-4d3b-42e7-bf86-fc3e13ac5647}</Project>
+      <Name>PivasLabelCheck</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

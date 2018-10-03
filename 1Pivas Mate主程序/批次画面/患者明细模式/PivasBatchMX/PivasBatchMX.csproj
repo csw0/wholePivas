@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D4435DD6-37D9-4D01-B3D2-2EB3990660C5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PivasBatchMX</RootNamespace>
+    <AssemblyName>PivasBatchMX</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>发布\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BatchInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BatchInfo.designer.cs">
+      <DependentUpon>BatchInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrugSum.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrugSum.designer.cs">
+      <DependentUpon>DrugSum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientInfo.designer.cs">
+      <DependentUpon>PatientInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pivas_setBatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pivas_setBatch.Designer.cs">
+      <DependentUpon>Pivas_setBatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SetBatch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SetBatch.designer.cs">
+      <DependentUpon>SetBatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BatchInfo.resx">
+      <DependentUpon>BatchInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DrugSum.resx">
+      <DependentUpon>DrugSum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientInfo.resx">
+      <DependentUpon>PatientInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pivas_setBatch.resx">
+      <DependentUpon>Pivas_setBatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetBatch.resx">
+      <DependentUpon>SetBatch.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\K_L.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\边框横线.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\边框竖线.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\边框掩盖.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\发送.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\批次.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\选中批次.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\药品横线.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\液体总量.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\液体总量横线.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\阴影.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\右上角.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\左上角.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\重排.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\K_L1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\批次标题.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\批次关闭.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\批次关闭选中状态.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\未打印.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\打印.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printed.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\10Common\PIVAsCommon\PIVAsCommon.csproj">
+      <Project>{FAB76740-C6E8-42B0-8E97-52DBC3BFB8F1}</Project>
+      <Name>PIVAsCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PivasBatchCommon\PivasBatchCommon.csproj">
+      <Project>{a247986f-9919-44f2-9014-6f385dbfc6d1}</Project>
+      <Name>PivasBatchCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

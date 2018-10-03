@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>1、在串口网络服务器设置中配置MOXA IP地址，一个MOXA对应一个ip
+2、点击单个MOXA，配置相对应的多个PLC地址
+PLC地址：三菱plc配置为Y开始,加plc序号，如Y1、Y2...Y11.等
+         博龙plc直接为序号，如1、2、3...等
+红、绿灯地址：为数字，如 红灯0，绿灯1，依次排列
+
+
+
+
+3、在plc和信号灯设置中配置串口号、波特率、plc类型
+   串口号：在电脑-&gt;设备管理器-&gt;端口中查看连接的plc串口号
+   波特率：一般为9600
+   plc类型：选择SL-PLC(三菱plc)、博龙BL-PLC(博龙plc)
+
+
+4、配置是否计费
+   在IMEQPIVAs.ini中[IsCharge]节点，PZ=1为计费，0为不计费</value>
+  </data>
+  <data name="richTextBox2.Text" xml:space="preserve">
+    <value>ALTER PROCEDURE  [dbo].[bl_synPZCheck]
+(@Type int)
+AS
+BEGIN
+    if(@Type=0)
+    BEGIN
+        if not EXISTS(select 1 from IVRecord_Scan5 where DATEDIFF(ss,UpdateTime,GETDATE())&lt;5)
+         BEGIN
+         
+          --更新 IVRecord_Scan5里已有瓶签状态的各种状态
+          update IVRecord_Scan5 set IVStatus=iv.IVStatus,Batch=iv.Batch,BedNo=iv.BedNo,WardCode=iv.WardCode
+          ,TeamNumber=iv.TeamNumber,LabelOver=iv.LabelOver,WardRetreat=iv.WardRetreat
+          ,ThirdLabelNo=iv.Remark6,UpdateTime=GETDATE()
+            from IVRecord iv  where iv.LabelNo=IVRecord_Scan5.LabelNo and DATEDIFF(dd,iv.InfusionDT,GETDATE())&lt;1
+            and iv.IVStatus&gt;IVRecord_Scan5.IVStatus
+            
+            --更新瓶签表的状态
+             update IVRecord set IVStatus=IVRecord_Scan5.IVStatus
+            from IVRecord_Scan5  where IVRecord.LabelNo=IVRecord_Scan5.LabelNo and DATEDIFF(dd,IVRecord.InfusionDT,GETDATE())&lt;1
+            and IVRecord.IVStatus&lt;IVRecord_Scan5.IVStatus
+            
+         --将新的达到要求的瓶签同步到 IVRecord_Scan5
+	      insert into IVRecord_Scan5 ([LabelNo],IVStatus,[Batch],[InfusionDT],[PatCode],[BedNo],[GroupNo]
+          ,[WardCode],[WardName],[PrescriptionID],[FreqCode],[TeamNumber],[LabelOver],[WardRetreat],ThirdLabelNo
+          ,[LongorShort],[Confirm],Updatetime)
+          select iv.[LabelNo],iv.IVStatus,iv.[Batch],iv.[InfusionDT] ,iv.[PatCode],iv.[BedNo],iv.[GroupNo],iv.[WardCode],iv.[WardName]
+          ,iv.[PrescriptionID],iv.[FreqCode],iv.[TeamNumber],iv.[LabelOver],iv.[WardRetreat],Remark6,Remark5,0 ,GETDATE ()
+           from ivrecord iv where labelno in(
+          select LabelNo from IVRecord where DATEDIFF(DD,InfusionDT,GETDATE())&lt;1
+          except
+          select labelno from IVRecord_Scan5 where DATEDIFF(DD,InfusionDT,GETDATE())&lt;1)
+         
+         ----将新瓶签中已核对状态的瓶签更新为已核对
+         -- update IVRecord_Scan5 set Confirm=2 where  IVStatus=9 and Confirm=0 
+     
+         ----将已核对的瓶签的状态更新到瓶签表
+         -- update IVRecord set IVStatus=9 where LabelNo in (select LabelNo from IVRecord_Scan5 where Confirm=1)
+       
+         ----将IVRecord_Scan5里刚签收的瓶签更新为旧瓶签
+         -- update IVRecord_Scan5 set Confirm=2 where Confirm=1 
+	     END
+		delete from IVRecord_Scan5 where DATEDIFF(DD,InfusionDT,GETDATE())&gt;2
+	END
+END
+
+
+
+
+
+
+
+</value>
+  </data>
+  <data name="richTextBox3.Text" xml:space="preserve">
+    <value>ALTER procedure [dbo].[bl_Label_PZ5](@Lid varchar(32) ,@labelNo varchar(32),@DWard varchar(max),@WardArea varchar(32),@Location varchar(32),@Type smallint,@CheckMode varchar(4))
+as 
+begin 
+  DECLARE @have int
+  DECLARE @LSTATUS int
+  declare @sql nvarchar(max)
+  if @DWard!=''
+  begin
+  set @DWard=replace(@DWard,';',''',''')
+  
+  
+  if @CheckMode = 1
+	begin
+	set @sql='select @a=COUNT(1)  from IVRecord_Scan5 IVR left join IVRecord_Print IVRP on IVR.LabelNo = IVRP.LabelNo  where 1=1 and IVR.labelNo ='+ @labelNo +' and IVR.WardCode in ('''+ @DWard+''') and  IVR.WardRetreat!=''1'' and IVR.WardRetreat!=''2'' and IVR.LabelOver=0 '
+	exec sp_executesql  @sql,N'@a varchar(1) output',@have output
+	end
+  else
+	begin
+	set @sql='select @a=COUNT(1)  from IVRecord_Scan5 IVR left join IVRecord_Print IVRP on IVR.LabelNo = IVRP.LabelNo  where 1=1 and IVR.labelNo ='+ @labelNo +' and (IVRP.DrugQRCode in ('''+ @DWard+''') or IVRP.OrderQRCode in ('''+ @DWard+''')) and  IVR.WardRetreat!=''1'' and IVR.WardRetreat!=''2'' and IVR.LabelOver=0 '
+	exec sp_executesql  @sql,N'@a varchar(1) output',@have output
+	end
+  end
+  
+  else if @WardArea!=''
+  SELECT @have = COUNT(1) from IVRecord_Scan5 
+     where labelNo = @labelNo and WardCode in (select WardCode from DWard where WardArea=@WardArea) 
+       and  WardRetreat!='1'  and  WardRetreat!='2' and LabelOver=0
+
+  else
+  select @have=COUNT(1) from IVRecord_Scan5 
+     where labelNo = @labelNo and  WardRetreat!='1'  and  WardRetreat!='2' and LabelOver=0
+  
+--閹绘帒鍙嗛柊宥囩枂閹殿偅寮块弫鐗堝祦
+if @have&gt;0 and (SELECT IVStatus FROM IVRecord_Scan5 where labelNo = @labelNo) between 3 and 13 and (select COUNT(1) from IVRecord_DB where IVrecordID = @labelNo and Invalid is null)=0
+  begin
+  update  IVRecord_Scan5 set IVStatus=9 where labelNo = @labelNo
+  insert into IVRecord_PZ(IVrecordID,PZDT,ScanCount,pcode,Location,[Type]) 
+   values(@labelNo,getdate(),(SELECT  COUNT(1) from IVRecord_PZ where IVrecordID = @labelNo and Invalid is null),@Lid,@Location,@Type)
+
+  return 1
+end
+else if(@LSTATUS&gt;0)
+begin
+
+	 return 2
+	end
+else 
+begin
+
+  return 0
+  end
+end</value>
+  </data>
+  <data name="richTextBox4.Text" xml:space="preserve">
+    <value>USE [0101]
+GO
+
+/****** Object:  Table [dbo].[IVRecord_Scan5]    Script Date: 06/10/2015 11:44:41 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[IVRecord_Scan5](
+	[LabelNo] [varchar](32) NOT NULL,
+	[IVStatus] [tinyint] NULL,
+	[Batch] [varchar](32) NULL,
+	[BedNo] [varchar](16) NULL,
+	[InfusionDT] [datetime] NULL,
+	[PatCode] [varchar](64) NULL,
+	[GroupNo] [varchar](64) NULL,
+	[WardCode] [varchar](32) NULL,
+	[WardName] [varchar](64) NULL,
+	[PrescriptionID] [bigint] NULL,
+	[FreqCode] [varchar](32) NULL,
+	[LabelOver] [int] NULL,
+	[WardRetreat] [int] NULL,
+	[TeamNumber] [int] NULL,
+	[ThirdLabelNo] [varchar](256) NULL,
+	[LongorShort] [varchar](256) NULL,
+	[Confirm] [int] NULL,
+	[UpdateTime] [datetime] NULL,
+ CONSTRAINT [PK_IVRecord_Scan5] PRIMARY KEY CLUSTERED 
+(
+	[LabelNo] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = ON, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, FILLFACTOR = 80) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[IVRecord_Scan5] ADD  CONSTRAINT [DF_IVRecord_Scan5_LabelOver]  DEFAULT ((0)) FOR [LabelOver]
+GO
+
+ALTER TABLE [dbo].[IVRecord_Scan5] ADD  CONSTRAINT [DF_IVRecord_Scan5_WardRetreat]  DEFAULT ((0)) FOR [WardRetreat]
+GO
+
+</value>
+  </data>
+  <data name="richTextBox5.Text" xml:space="preserve">
+    <value>USE [0101]
+GO
+
+/****** Object:  Index [PK_IVRecord_DB]    Script Date: 06/10/2015 11:45:30 ******/
+ALTER TABLE [dbo].[IVRecord_DB] ADD  CONSTRAINT [PK_IVRecord_DB] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = ON, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, FILLFACTOR = 80) ON [PRIMARY]
+GO
+</value>
+  </data>
+</root>

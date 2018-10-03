@@ -1,0 +1,21 @@
+Release Notes for BarcodeLib.dll
+================================
+1.0.0.7
+- Fixed a bug that allowed non-numeric data to be encoded with Code128-C, a check has been put in place to handle this.  It throws an error EC128-6 now if found to contain something that isnt in Code128-C.
+- Fixed a bug in GetEncoding() for C128.  This would allow Code128-B to switch and dynamically use Code128-A if it couldnt find a char in its set.
+1.0.0.6
+- Fixed a bug in Code128-A and Code128-B that would cause it to encode incorrectly due to incorrectly trying to compact the barcode for Code128-C.  This functionality is now bypassed if Code128-A or Code128-B is selected.
+- Removed a useless variable bEncoded from BarcodeLib.cs
+- Static methods now support generating the data label (required addition of a parameter to 3 of the 5 static methods used to encode).
+- Property now available to retrieve the amount of time (EncodingTime) it took to encode and generate the image. (Might be helpful for diagnostics)
+- Modified a few error messages to be more descriptive about correcting the problem with data length.
+- Barcode class now inherits from IDisposable
+- XML export functionality added to BarcodeLib to allow the data, encoded data and other properties to be exported in XML along with the Image in Base64String format.  This includes functionality to GetXML() and GetImageFromXML(BarcodeXML).
+- To go along with the XML functionality there is now a dataset included that has the basic layout of the XML data, to make importing and exporting easy.
+- ImageFormat is now a property to set to select what type of image you want returned (JPEG is default).  This can help speed of transferring data if using a webservice.
+- ITF-14 now draws the label with the proper background color instead of always being white.
+1.0.0.5
+- Fixed bug in Code 128C that would not insert a 0 in front of an odd length string of raw data.
+- Fixed a bug in Code 39 that let the user encode * in the string of data.  This should only be used for starting characters and is now handled.
+- Fixed a bug in Code 39 that was inserting an extra 0 on the end of the encoded string.  This didnt affect the validity of the barcodes it was just not supposed to be there.
+- Added a new property to the library called FormattedData.  This value is what is actually encoded.  It is formatted for certain types of barcodes for example Code 39 requires * in front and behind the barcode.

@@ -1,0 +1,12 @@
+[2013-8-13 10:39:29]
+PIVAs库返回DataSet失败EXEC [bl_getCPcountbyarea]System.Security.Cryptography.CryptographicException: 不正确的数据。
+
+   在 System.Security.Cryptography.CryptographicException.ThrowCryptogaphicException(Int32 hr)
+   在 System.Security.Cryptography.Utils._DecryptData(SafeKeyHandle hKey, Byte[] data, Int32 ib, Int32 cb, Byte[]& outputBuffer, Int32 outputOffset, PaddingMode PaddingMode, Boolean fDone)
+   在 System.Security.Cryptography.CryptoAPITransform.TransformFinalBlock(Byte[] inputBuffer, Int32 inputOffset, Int32 inputCount)
+   在 System.Security.Cryptography.CryptoStream.FlushFinalBlock()
+   在 PIVAsDBhelp.DB_Help.Decrypt(String Text, String sKey)
+   在 PIVAsDBhelp.DB_Help.Decrypt(String Text)
+   在 PIVAsDBhelp.DB_Help.DatebasePIVAsInfo()
+   在 PIVAsDBhelp.DB_Help.GetPIVAsDB(String SqlStr)
+    

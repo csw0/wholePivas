@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="01/12/2014 15:59:03" ReportInfo.Modified="01/13/2014 12:23:25" ReportInfo.CreatorVersion="2013.1.8.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void Data1_BeforePrint(object sender, EventArgs e)
+    {
+       Picture1.Image = ((Image)Report.GetColumnValue(&quot;DT.Picture&quot;));
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <Parameter Name="WardName" DataType="System.String"/>
+    <Parameter Name="time" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="80" PaperHeight="35" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" Guides="699.3,708.75">
+    <ReportTitleBand Name="ReportTitle1" Width="264.6"/>
+    <PageHeaderBand Name="PageHeader1" Top="4" Width="264.6"/>
+    <DataBand Name="Data1" Top="8" Width="264.6" Height="66.15" BeforePrintEvent="Data1_BeforePrint">
+      <TextObject Name="Text8" Top="47.25" Width="56.7" Height="18.9" Text="[time]" Font="宋体, 9pt"/>
+      <TextObject Name="Text9" Left="47.25" Top="47.25" Width="103.95" Height="18.9" Text="[DT.InterType]" Font="宋体, 9pt"/>
+      <TextObject Name="Text5" Top="18.9" Width="245.7" Height="28.35" Text="[DT.ItemName]" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text6" Left="207.9" Top="18.9" Width="37.8" Height="28.35" Text="[DT.Qty]" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text1" Width="66.15" Height="18.9" Text="[WardName]/" Font="宋体, 9pt"/>
+      <TextObject Name="Text2" Left="47.25" Width="37.8" Height="18.9" Text="[DT.BedNo]" Font="宋体, 9pt"/>
+      <TextObject Name="Text10" Left="75.6" Width="47.25" Height="18.9" Text="[DT.Name]" Font="宋体, 9pt"/>
+      <TextObject Name="Text3" Left="132.3" Width="66.15" Height="18.9" Text="[DT.HospNo]" Font="宋体, 9pt"/>
+      <TextObject Name="Text4" Left="189" Width="28.35" Height="18.9" Text="IV" Font="宋体, 9pt"/>
+      <PictureObject Name="Picture1" Left="103.95" Top="47.25" Width="141.75" Height="18.9"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="78.15" Width="264.6"/>
+  </ReportPage>
+</Report>

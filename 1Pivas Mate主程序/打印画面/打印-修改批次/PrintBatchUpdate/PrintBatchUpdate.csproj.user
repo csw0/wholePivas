@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Users\admin\Desktop\项目\修改批次\打印批次修改\PrintBatchUpdate2014-11-12\PrintBatchUpdate2014-07-27\PrintBatchUpdate\bin\Debug\PIVAS MATE.exe</StartProgram>
+  </PropertyGroup>
+</Project>

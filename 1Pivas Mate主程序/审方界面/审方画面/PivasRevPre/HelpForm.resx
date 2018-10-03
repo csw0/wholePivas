@@ -1,0 +1,705 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>USE [Pivas20141019]
+GO
+/****** Object:  StoredProcedure [dbo].[bl_getCPcountbyarea]张衡 2014-11-03    Script Date: 11/03/2014 14:56:05 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+
+
+
+
+
+
+
+ALTER PROCEDURE [dbo].[bl_getCPcountbyarea]
+@DT datetime,
+@Per varchar(16),--1：人工未审p；全部
+@Empty bit,       --显示空数据病区1、显示；、不显示
+@Open bit,       --显示未开放病区1、显示；、不显示 
+@WardAreaName varchar(16)--显示当前病区组的病区
+AS
+BEGIN
+  DECLARE @OrderLabelCountByArea TABLE (
+    WardCode varchar(50),
+    WardName varchar(50),
+    UnCheckCount int,
+    TotalCount int,
+    IsOpen bit)
+    
+      DECLARE @OrderLabelCountByArea1 TABLE (
+    WardCode varchar(50),
+    WardName varchar(50),
+    UnCheckCount int,
+    TotalCount int,
+    IsOpen bit)
+    
+  --IF @Per&lt;&gt;'1'
+  IF @Per='1,3'
+  BEGIN
+		  IF @Open=1
+		  BEGIN
+			  INSERT @OrderLabelCountByArea
+			  SELECT 
+				D.WardCode,
+				D.WardSimName,    
+				SUM(case when P.PStatus=1 or P.PStatus = 3 then 1 else 0 end) AS UnCheckCount,
+				SUM(Case when DATEDIFF(DD, P.InceptDT, @DT) =0 then 1 else 0 end) AS TotalCount,
+				--COUNT(DISTINCT P.PrescriptionID) AS TotalCount,
+				IsOpen
+			  FROM DWard D --INNER JOIN Patient Pa ON D.WardCode = Pa.WardCode    
+					INNER JOIN Prescription P ON D.WardCode = P.WardCode--Pa.PatCode=P.PatientCode  
+					INNER JOIN Patient Pa ON Pa.PatCode = P.PatientCode
+			  WHERE
+				P.PStatus in(1, 2, 3 )    
+				AND DATEDIFF(DD, P.InceptDT, @DT) &gt;=0 AND Pa.PatStatus = 1
+			  GROUP BY D.WardCode, D.WardSimName ,IsOpen
+			  
+			  IF @Empty=1
+			  BEGIN
+				  INSERT @OrderLabelCountByArea
+				  SELECT WardCode, WardSimName, 0 ,0 ,IsOpen
+				  FROM DWard 
+				  WHERE WardCode NOT IN (SELECT WardCode FROM @OrderLabelCountByArea)
+			  END
+		  END
+		  
+		  ELSE
+		  BEGIN
+			  INSERT @OrderLabelCountByArea
+			  SELECT 
+				D.WardCode,
+				D.WardSimName,    
+				SUM(case when P.PStatus=1 or P.PStatus = 3 then 1 else 0 end) AS UnCheckCount,
+				SUM(Case when DATEDIFF(DD, P.InceptDT, @DT) =0 then 1 else 0 end) AS TotalCount,
+				--COUNT(DISTINCT P.PrescriptionID) AS TotalCount,
+				IsOpen
+			  FROM DWard D --INNER JOIN Patient Pa ON D.WardCode = Pa.WardCode    
+					INNER JOIN Prescription P ON D.WardCode = P.WardCode--Pa.PatCode=P.PatientCode  
+					INNER JOIN Patient Pa ON Pa.PatCode = P.PatientCode 
+			  WHERE
+				D.IsOpen &lt;&gt; 0 
+				AND P.PStatus in(1, 2, 3 )    
+				AND DATEDIFF(DD, P.InceptDT, @DT) &gt;=0 AND Pa.PatStatus = 1
+			  GROUP BY D.WardCode, D.WardSimName ,IsOpen
+			  
+			  IF @Empty=1
+			  BEGIN
+				  INSERT @OrderLabelCountByArea
+				  SELECT WardCode, WardSimName, 0 ,0 ,IsOpen
+				  FROM DWard 
+				  WHERE IsOpen &lt;&gt; 0 AND WardCode NOT IN (SELECT WardCode FROM @OrderLabelCountByArea)
+			  END
+		  END
+    
+		  INSERT @OrderLabelCountByArea
+		  SELECT '', '&lt;全部&gt;', ISNULL(SUM(UnCheckCount),0),ISNULL(SUM(TotalCount),0),1 FROM @OrderLabelCountByArea
+		 if @WardAreaName =''
+		  SELECT O.* ,WardSeqNo,WardArea,WardSeqNo,D.WardSimName,D.Spellcode FROM @OrderLabelCountByArea O LEFT OUTER JOIN DWard D ON O.WardCode = D.WardCode
+		  ORDER BY D.WardSeqNo,IsOpen desc
+		  else
+		  begin
+		
+		  
+		  INSERT @OrderLabelCountByArea1 
+		  SELECT O.* FROM @OrderLabelCountByArea O LEFT OUTER JOIN DWard D ON O.WardCode = D.WardCode
+	      WHERE WardArea=@WardAreaName
+		  ORDER BY D.WardSeqNo,IsOpen desc
+		  INSERT @OrderLabelCountByArea1
+		  SELECT '', '&lt;全部&gt;', ISNULL(SUM(UnCheckCount),0),ISNULL(SUM(TotalCount),0),1 FROM @OrderLabelCountByArea1
+		  
+		  SELECT O.* ,WardSeqNo,WardArea,WardSeqNo,D.WardSimName,D.Spellcode FROM @OrderLabelCountByArea1 O LEFT OUTER JOIN DWard D ON O.WardCode = D.WardCode
+		  ORDER BY D.WardSeqNo,IsOpen desc
+		  end
+  END
+  ELSE IF @per='1'
+  BEGIN
+    IF @Open=1
+		  BEGIN
+			  INSERT @OrderLabelCountByArea
+			  SELECT 
+				D.WardCode,
+				D.WardSimName,    
+				SUM(case when P.PStatus=1 then 1 else 0 end) AS UnCheckCount,
+				SUM(Case when DATEDIFF(DD, P.InceptDT, @DT) =0 then 1 else 0 end) AS TotalCount,
+				--COUNT(DISTINCT P.PrescriptionID) AS TotalCount,
+				IsOpen
+			  FROM DWard D --INNER JOIN Patient Pa ON D.WardCode = Pa.WardCode    
+					INNER JOIN Prescription P ON D.WardCode = P.WardCode--Pa.PatCode=P.PatientCode  
+					INNER JOIN Patient Pa ON Pa.PatCode = P.PatientCode
+			  WHERE
+				P.PStatus in(1, 2, 3 )    
+				AND DATEDIFF(DD, P.InceptDT, @DT) &gt;=0 AND Pa.PatStatus = 1
+			  GROUP BY D.WardCode, D.WardSimName ,IsOpen
+			  
+			  IF @Empty=1
+			  BEGIN
+				  INSERT @OrderLabelCountByArea
+				  SELECT WardCode, WardSimName, 0 ,0 ,IsOpen
+				  FROM DWard 
+				  WHERE WardCode NOT IN (SELECT WardCode FROM @OrderLabelCountByArea)
+			  END
+		  END
+		  
+		  ELSE
+		  BEGIN
+			  INSERT @OrderLabelCountByArea
+			  SELECT 
+				D.WardCode,
+				D.WardSimName,    
+				SUM(case when P.PStatus=1 then 1 else 0 end) AS UnCheckCount,
+				SUM(Case when DATEDIFF(DD, P.InceptDT, @DT) =0 then 1 else 0 end) AS TotalCount,
+				--COUNT(DISTINCT P.PrescriptionID) AS TotalCount,
+				IsOpen
+			  FROM DWard D --INNER JOIN Patient Pa ON D.WardCode = Pa.WardCode    
+					INNER JOIN Prescription P ON D.WardCode = P.WardCode--Pa.PatCode=P.PatientCode  
+					INNER JOIN Patient Pa ON Pa.PatCode = P.PatientCode
+			  WHERE
+				D.IsOpen &lt;&gt; 0 
+				AND P.PStatus in(1, 2, 3 )    
+				AND DATEDIFF(DD, P.InceptDT, @DT) &gt;=0 AND Pa.PatStatus = 1
+			  GROUP BY D.WardCode, D.WardSimName ,IsOpen
+			  
+			  IF @Empty=1
+			  BEGIN
+				  INSERT @OrderLabelCountByArea
+				  SELECT WardCode, WardSimName, 0 ,0 ,IsOpen
+				  FROM DWard 
+				  WHERE IsOpen &lt;&gt; 0 AND WardCode NOT IN (SELECT WardCode FROM @OrderLabelCountByArea)
+			  END
+		  END
+
+		  INSERT @OrderLabelCountByArea
+		  SELECT '', '&lt;全部&gt;', ISNULL(SUM(UnCheckCount),0),ISNULL(SUM(TotalCount),0),1 FROM @OrderLabelCountByArea
+		 if @WardAreaName =''
+		  SELECT O.* ,WardSeqNo,WardArea,WardSeqNo,D.WardSimName,D.Spellcode FROM @OrderLabelCountByArea O LEFT OUTER JOIN DWard D ON O.WardCode = D.WardCode
+		  ORDER BY D.WardSeqNo,IsOpen desc
+		  else
+		  begin
+		
+		  
+		  INSERT @OrderLabelCountByArea1 
+		  SELECT O.* FROM @OrderLabelCountByArea O LEFT OUTER JOIN DWard D ON O.WardCode = D.WardCode
+	      WHERE WardArea=@WardAreaName
+		  ORDER BY D.WardSeqNo,IsOpen desc
+		  INSERT @OrderLabelCountByArea1
+		  SELECT '', '&lt;全部&gt;', ISNULL(SUM(UnCheckCount),0),ISNULL(SUM(TotalCount),0),1 FROM @OrderLabelCountByArea1
+		  
+		  SELECT O.* ,WardSeqNo,WardArea,WardSeqNo,D.WardSimName,D.Spellcode FROM @OrderLabelCountByArea1 O LEFT OUTER JOIN DWard D ON O.WardCode = D.WardCode
+		  ORDER BY D.WardSeqNo,IsOpen desc
+		  end
+		  
+  END
+  ELSE IF @Per='2,3'
+    BEGIN
+		  IF @Open=1
+		  BEGIN
+			  INSERT @OrderLabelCountByArea
+			  SELECT 
+				D.WardCode,
+				D.WardSimName,    
+				SUM(case when P.PStatus&gt; 1 then 1 else 0 end) AS UnCheckCount,
+				SUM(Case when DATEDIFF(DD, P.InceptDT, @DT) =0 then 1 else 0 end) AS TotalCount,
+				--COUNT(DISTINCT P.PrescriptionID) AS TotalCount,
+				IsOpen
+			  FROM DWard D --INNER JOIN Patient Pa ON D.WardCode = Pa.WardCode    
+					INNER JOIN Prescription P ON D.WardCode = P.WardCode--Pa.PatCode=P.PatientCode  
+					INNER JOIN Patient Pa ON Pa.PatCode = P.PatientCode
+			  WHERE
+				P.PStatus in(1, 2, 3 )    
+				AND DATEDIFF(DD, P.InceptDT, @DT)=0 AND Pa.PatStatus = 1
+			  GROUP BY D.WardCode, D.WardSimName ,IsOpen
+			  
+			  IF @Empty=1
+			  BEGIN
+				  INSERT @OrderLabelCountByArea
+				  SELECT WardCode, WardSimName, 0 ,0 ,IsOpen
+				  FROM DWard 
+				  WHERE WardCode NOT IN (SELECT WardCode FROM @OrderLabelCountByArea)
+			  END
+		  END
+		  
+     ELSE
+	 BEGIN
+			  INSERT @OrderLabelCountByArea
+			  SELECT 
+				D.WardCode,
+				D.WardSimName,    
+				SUM(case when P.PStatus&gt;1 then 1 else 0 end) AS UnCheckCount,
+				SUM(Case when DATEDIFF(DD, P.InceptDT, @DT) =0 then 1 else 0 end) AS TotalCount,
+				--COUNT(DISTINCT P.PrescriptionID) AS TotalCount,
+				IsOpen
+			  FROM DWard D --INNER JOIN Patient Pa ON D.WardCode = Pa.WardCode    
+					INNER JOIN Prescription P ON D.WardCode = P.WardCode--Pa.PatCode=P.PatientCode  
+					INNER JOIN Patient Pa ON Pa.PatCode = P.PatientCode 
+			  WHERE
+				D.IsOpen &lt;&gt; 0 
+				AND P.PStatus in(1, 2, 3 )    
+				AND DATEDIFF(DD, P.InceptDT, @DT)=0 AND Pa.PatStatus = 1
+			  GROUP BY D.WardCode, D.WardSimName ,IsOpen
+			  
+			  IF @Empty=1
+			  BEGIN
+				  INSERT @OrderLabelCountByArea
+				  SELECT WardCode, WardSimName, 0 ,0 ,IsOpen
+				  FROM DWard 
+				  WHERE IsOpen &lt;&gt; 0 AND WardCode NOT IN (SELECT WardCode FROM @OrderLabelCountByArea)
+			  END
+		  END
+  		  INSERT @OrderLabelCountByArea
+		  SELECT '', '&lt;全部&gt;', ISNULL(SUM(UnCheckCount),0),ISNULL(SUM(TotalCount),0),1 FROM @OrderLabelCountByArea
+		 if @WardAreaName =''
+		  SELECT O.* ,WardSeqNo,WardArea,WardSeqNo,D.WardSimName,D.Spellcode FROM @OrderLabelCountByArea O LEFT OUTER JOIN DWard D ON O.WardCode = D.WardCode
+		  ORDER BY D.WardSeqNo,IsOpen desc
+		  else
+		  begin
+		
+		  
+		  INSERT @OrderLabelCountByArea1 
+		  SELECT O.* FROM @OrderLabelCountByArea O LEFT OUTER JOIN DWard D ON O.WardCode = D.WardCode
+	      WHERE WardArea=@WardAreaName
+		  ORDER BY D.WardSeqNo,IsOpen desc
+		  INSERT @OrderLabelCountByArea1
+		  SELECT '', '&lt;全部&gt;', ISNULL(SUM(UnCheckCount),0),ISNULL(SUM(TotalCount),0),1 FROM @OrderLabelCountByArea1
+		  
+		  SELECT O.* ,WardSeqNo,WardArea,WardSeqNo,D.WardSimName,D.Spellcode FROM @OrderLabelCountByArea1 O LEFT OUTER JOIN DWard D ON O.WardCode = D.WardCode
+		  ORDER BY D.WardSeqNo,IsOpen desc
+		  end  
+  END
+  ELSE IF @Per='3'
+  BEGIN
+    IF @Open=1
+		  BEGIN
+			  INSERT @OrderLabelCountByArea
+			  SELECT 
+				D.WardCode,
+				D.WardSimName,    
+				SUM(case when P.PStatus=3 then 1 else 0 end) AS UnCheckCount,
+				SUM(Case when DATEDIFF(DD, P.InceptDT, @DT) =0 then 1 else 0 end) AS TotalCount,
+				--COUNT(DISTINCT P.PrescriptionID) AS TotalCount,
+				IsOpen
+			  FROM DWard D --INNER JOIN Patient Pa ON D.WardCode = Pa.WardCode    
+					INNER JOIN Prescription P ON D.WardCode = P.WardCode--Pa.PatCode=P.PatientCode  
+					INNER JOIN Patient Pa ON Pa.PatCode = P.PatientCode
+			  WHERE
+				P.PStatus IN (1,2,3)    
+				AND DATEDIFF(DD, P.InceptDT, @DT)=0 AND Pa.PatStatus = 1
+			  GROUP BY D.WardCode, D.WardSimName ,IsOpen
+			  
+			  IF @Empty=1
+			  BEGIN
+				  INSERT @OrderLabelCountByArea
+				  SELECT WardCode, WardSimName, 0 ,0 ,IsOpen
+				  FROM DWard 
+				  WHERE WardCode NOT IN (SELECT WardCode FROM @OrderLabelCountByArea)
+			  END
+		  END
+		  
+		  ELSE
+		  BEGIN
+			  INSERT @OrderLabelCountByArea
+			  SELECT 
+				D.WardCode,
+				D.WardSimName,    
+				SUM(case when P.PStatus=3  then 1 else 0 end) AS UnCheckCount,
+				SUM(Case when DATEDIFF(DD, P.InceptDT, @DT) =0 then 1 else 0 end) AS TotalCount,
+				--COUNT(DISTINCT P.PrescriptionID) AS TotalCount,
+				IsOpen
+			  FROM DWard D --INNER JOIN Patient Pa ON D.WardCode = Pa.WardCode    
+					INNER JOIN Prescription P ON D.WardCode = P.WardCode--Pa.PatCode=P.PatientCode  
+					INNER JOIN Patient Pa ON Pa.PatCode = P.PatientCode 
+			  WHERE
+				D.IsOpen &lt;&gt; 0 
+				AND P.PStatus in(1, 2, 3 )    
+				AND DATEDIFF(DD, P.InceptDT, @DT)=0 AND Pa.PatStatus = 1
+			  GROUP BY D.WardCode, D.WardSimName ,IsOpen
+			  
+			  IF @Empty=1
+			  BEGIN
+				  INSERT @OrderLabelCountByArea
+				  SELECT WardCode, WardSimName, 0 ,0 ,IsOpen
+				  FROM DWard 
+				  WHERE IsOpen &lt;&gt; 0 AND WardCode NOT IN (SELECT WardCode FROM @OrderLabelCountByArea)
+			  END
+		  END
+     
+		  INSERT @OrderLabelCountByArea
+		  SELECT '', '&lt;全部&gt;', ISNULL(SUM(UnCheckCount),0),ISNULL(SUM(TotalCount),0),1 FROM @OrderLabelCountByArea
+	 
+	 if @WardAreaName =''
+		  SELECT O.* ,WardSeqNo,WardArea,WardSeqNo,D.WardSimName,D.Spellcode FROM @OrderLabelCountByArea O LEFT OUTER JOIN DWard D ON O.WardCode = D.WardCode
+		  ORDER BY D.WardSeqNo,IsOpen desc
+		  else
+		  begin
+		
+		  
+		  INSERT @OrderLabelCountByArea1 
+		  SELECT O.* FROM @OrderLabelCountByArea O LEFT OUTER JOIN DWard D ON O.WardCode = D.WardCode
+	      WHERE WardArea=@WardAreaName
+		  ORDER BY D.WardSeqNo,IsOpen desc
+		  INSERT @OrderLabelCountByArea1
+		  SELECT '', '&lt;全部&gt;', ISNULL(SUM(UnCheckCount),0),ISNULL(SUM(TotalCount),0),1 FROM @OrderLabelCountByArea1
+		  
+		  SELECT O.* ,WardSeqNo,WardArea,WardSeqNo,D.WardSimName,D.Spellcode FROM @OrderLabelCountByArea1 O LEFT OUTER JOIN DWard D ON O.WardCode = D.WardCode
+		  ORDER BY D.WardSeqNo,IsOpen desc
+		  end
+		 
+  END
+END
+
+
+</value>
+  </data>
+  <data name="richTextBox2.Text" xml:space="preserve">
+    <value>USE [Pivas20130630]
+GO
+
+/****** Object:  Table [dbo].[RevPreFormSet]    Script Date: 07/10/2014 14:36:39 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[RevPreFormSet](
+	[DEmployeeID] [int] NULL,
+	[WardIdle] [smallint] NULL,
+	[WardOpen] [smallint] NULL,
+	[RevPreOver] [smallint] NULL,
+	[PreviewMode] [smallint] NULL,
+	[Confirm] [smallint] NULL,
+	[SelectAll] [smallint] NULL,
+	[NameList] [smallint] NULL,
+	[Level3Color] [varchar](16) NOT NULL,
+	[Level5Color] [varchar](16) NOT NULL,
+	[RightColor] [varchar](16) NOT NULL,
+	[SelectedColor] [varchar](16) NOT NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[RevPreFormSet] ADD  CONSTRAINT [DF_RevPreFormSet_NameList]  DEFAULT ((0)) FOR [NameList]
+GO
+
+ALTER TABLE [dbo].[RevPreFormSet] ADD  CONSTRAINT [DF_RevPreFormSet_Level3Color]  DEFAULT ((0)) FOR [Level3Color]
+GO
+
+ALTER TABLE [dbo].[RevPreFormSet] ADD  CONSTRAINT [DF_RevPreFormSet_Level5Color]  DEFAULT ((0)) FOR [Level5Color]
+GO
+
+ALTER TABLE [dbo].[RevPreFormSet] ADD  CONSTRAINT [DF_RevPreFormSet_RightColor]  DEFAULT ((0)) FOR [RightColor]
+GO
+
+ALTER TABLE [dbo].[RevPreFormSet] ADD  CONSTRAINT [DF_RevPreFormSet_SelectedColor]  DEFAULT ((0)) FOR [SelectedColor]
+GO
+
+
+</value>
+  </data>
+  <data name="richTextBox3.Text" xml:space="preserve">
+    <value>USE [Pivas2014]
+GO
+
+/****** Object:  Table [dbo].[CPResultRG]    Script Date: 07/25/2014 13:42:45 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CPResultRG]') AND type in (N'U'))
+DROP TABLE [dbo].[CPResultRG]
+GO
+
+USE [Pivas2014]
+GO
+
+/****** Object:  Table [dbo].[CPResultRG]    Script Date: 07/25/2014 13:42:45 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[CPResultRG](
+	[CheckResultID] [bigint] NOT NULL,
+	[CheckRecID] [bigint] NOT NULL,
+	[PrescriptionID] [int] NULL,
+	[CensorItem] [varchar](16) NULL,
+	[DrugACode] [varchar](16) NULL,
+	[DrugBCode] [varchar](16) NULL,
+	[Description] [varchar](512) NULL,
+	[Level] [varchar](1) NULL,
+	[ReferenName] [varchar](64) NULL,
+	[InsertDT] [datetime] NOT NULL,
+	[Type] [int] NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+</value>
+  </data>
+  <data name="richTextBox4.Text" xml:space="preserve">
+    <value>USE [Pivas2014]
+GO
+
+/****** Object:  Table [dbo].[CPResultRGDict]    Script Date: 07/25/2014 13:43:09 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CPResultRGDict]') AND type in (N'U'))
+DROP TABLE [dbo].[CPResultRGDict]
+GO
+
+USE [Pivas2014]
+GO
+
+/****** Object:  Table [dbo].[CPResultRGDict]    Script Date: 07/25/2014 13:43:09 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[CPResultRGDict](
+	[ID] [bigint] NOT NULL,
+	[Name] [varchar](32) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+</value>
+  </data>
+  <data name="richTextBox5.Text" xml:space="preserve">
+    <value>--审方确认通过
+
+USE [Pivas2014]
+GO
+/****** Object:  StoredProcedure [dbo].[bl_checkconfirm]    Script Date: 08/06/2014 10:51:11 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER PROCEDURE [dbo].[bl_checkconfirm]
+  ( 
+    @PrescriptionID bigint,
+    @CheckerCode varchar(8),
+    @Comment text )
+
+AS
+BEGIN
+  --! 因为是用户手工选择进行确认，可能有些输液单要退回，故无法采用批量方式进行确认
+  --! ——即不能根据ConfirmDT IS NULL 的进行确认
+
+
+  UPDATE Prescription SET PStatus = 2,PStatusDoctor = 2 WHERE PrescriptionID = @PrescriptionID
+  --
+  UPDATE CPRecord
+  SET
+    IsPass=1,
+    CheckDT = GetDate(),
+    CheckDCode = @CheckerCode, 
+    DoctorExplain = @Comment --退单时，药师意见在退单记录中
+  WHERE PrescriptionID = @PrescriptionID
+END
+</value>
+  </data>
+  <data name="richTextBox6.Text" xml:space="preserve">
+    <value>--人工退单
+
+USE [Pivas20131]
+GO
+
+/****** Object:  StoredProcedure [dbo].[bl_backPrescription]    Script Date: 08/06/2014 10:55:15 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[bl_backPrescription]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[bl_backPrescription]
+GO
+
+USE [Pivas20131]
+GO
+
+/****** Object:  StoredProcedure [dbo].[bl_backtransfusion]    Script Date: 08/06/2014 10:55:15 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE PROCEDURE [dbo].[bl_backPrescription]
+  ( @PrescriptionID bigint,
+    @BackerCode varchar(8),
+    @BackExplain text)
+--WITH ENCRYPTION
+AS
+BEGIN
+  --改变输液单状态－-1（退药）
+  UPDATE Prescription SET PStatus = 3,PStatusDoctor = 3 WHERE PrescriptionID = @PrescriptionID
+  --添加输液单退单记录
+  
+  if not exists(select * from BPRecord where PrescriptionID = @PrescriptionID)
+  begin
+	  INSERT BPRecord(
+		PrescriptionID,
+		BPCode,  
+		BPDT,
+		BPExplain
+	  )
+	  VALUES (
+		@PrescriptionID,
+		@BackerCode,    
+		GETDATE(),
+		@BackExplain
+	  )
+  end
+  else
+  begin 
+	  UPDATE BPRecord SET BPCode = @BackerCode,BPDT = GETDATE(),BPExplain = @BackExplain  
+	  where PrescriptionID = @PrescriptionID
+  end
+END
+
+
+GO
+</value>
+  </data>
+</root>

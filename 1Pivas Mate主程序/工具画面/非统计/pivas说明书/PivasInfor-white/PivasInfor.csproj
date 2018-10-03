@@ -1,0 +1,614 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9A1E1320-5B7A-4338-836C-7FB306A2789F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PivasInfor</RootNamespace>
+    <AssemblyName>PivasInfor</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\..\11Output\PivasMate\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Batch\BatchForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Batch\BatchForm.Designer.cs">
+      <DependentUpon>BatchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Check\BaiYao.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Check\BaiYao.Designer.cs">
+      <DependentUpon>BaiYao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Check\LabelCheck.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Check\LabelCheck.Designer.cs">
+      <DependentUpon>LabelCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Check\QiTa.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Check\QiTa.Designer.cs">
+      <DependentUpon>QiTa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPivasInfor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPivasInfor.Designer.cs">
+      <DependentUpon>frmPivasInfor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginInfor\Login.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LoginInfor\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm\MainInfor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainForm\MainInfor.Designer.cs">
+      <DependentUpon>MainInfor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PassWord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PassWord.Designer.cs">
+      <DependentUpon>PassWord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PivasNurse\DXTuiYao.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PivasNurse\DXTuiYao.Designer.cs">
+      <DependentUpon>DXTuiYao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PivasNurse\LabelCX.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PivasNurse\LabelCX.Designer.cs">
+      <DependentUpon>LabelCX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PivasNurse\QianShou.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PivasNurse\QianShou.Designer.cs">
+      <DependentUpon>QianShou.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PivasNurse\ShenFangCL.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PivasNurse\ShenFangCL.Designer.cs">
+      <DependentUpon>ShenFangCL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PivasNurse\TiQianDB.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PivasNurse\TiQianDB.Designer.cs">
+      <DependentUpon>TiQianDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PivasNurse\TuiFangCX.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PivasNurse\TuiFangCX.Designer.cs">
+      <DependentUpon>TuiFangCX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PivasNurse\YiZhuCX.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PivasNurse\YiZhuCX.Designer.cs">
+      <DependentUpon>YiZhuCX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Printer\PrintForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Printer\PrintForm.Designer.cs">
+      <DependentUpon>PrintForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Batch\BatchForm.resx">
+      <DependentUpon>BatchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Check\BaiYao.resx">
+      <DependentUpon>BaiYao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Check\LabelCheck.resx">
+      <DependentUpon>LabelCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Check\QiTa.resx">
+      <DependentUpon>QiTa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPivasInfor.resx">
+      <DependentUpon>frmPivasInfor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginInfor\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm\MainInfor.resx">
+      <DependentUpon>MainInfor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PassWord.resx">
+      <DependentUpon>PassWord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PivasNurse\DXTuiYao.resx">
+      <DependentUpon>DXTuiYao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PivasNurse\LabelCX.resx">
+      <DependentUpon>LabelCX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PivasNurse\QianShou.resx">
+      <DependentUpon>QianShou.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PivasNurse\ShenFangCL.resx">
+      <DependentUpon>ShenFangCL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PivasNurse\TiQianDB.resx">
+      <DependentUpon>TiQianDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PivasNurse\TuiFangCX.resx">
+      <DependentUpon>TuiFangCX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PivasNurse\YiZhuCX.resx">
+      <DependentUpon>YiZhuCX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Printer\PrintForm.resx">
+      <DependentUpon>PrintForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RevPre\RevpreForm.resx">
+      <DependentUpon>RevpreForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Syn\SynForm.resx">
+      <DependentUpon>SynForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\BatchRule.resx">
+      <DependentUpon>BatchRule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\DrugHelp.resx">
+      <DependentUpon>DrugHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\DwardHelp.resx">
+      <DependentUpon>DwardHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\ToolForm.resx">
+      <DependentUpon>ToolForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="RevPre\RevpreForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RevPre\RevpreForm.Designer.cs">
+      <DependentUpon>RevpreForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Syn\SynForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Syn\SynForm.Designer.cs">
+      <DependentUpon>SynForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\BatchRule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\BatchRule.Designer.cs">
+      <DependentUpon>BatchRule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\DrugHelp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\DrugHelp.Designer.cs">
+      <DependentUpon>DrugHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\DwardHelp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\DwardHelp.Designer.cs">
+      <DependentUpon>DwardHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\ToolForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\ToolForm.Designer.cs">
+      <DependentUpon>ToolForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\19.jpg" />
+    <None Include="Resources\4.jpg" />
+    <None Include="Resources\3.jpg" />
+    <None Include="Resources\2.jpg" />
+    <None Include="Resources\1.jpg" />
+    <None Include="Resources\登陆.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\主画面.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\15.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\16.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\18.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\21.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\23.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\22.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\24.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\25.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\26.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\27.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\28.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\30.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\通过.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\QQ图片20141202100041.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\QQ图片20141201162447.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\QQ图片20141201162629.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tj.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\31.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\32.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\33.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\42.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\43.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\46.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\47.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\48.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\49.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\50.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\51.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\52.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\53.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\54.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\55.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\56.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\57.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\58.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\59.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\60.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\61.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\62.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\63.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\64.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\65.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\66.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\67.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\68.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\69.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\70.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\71.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\72.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\73.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\74.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\75.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\76.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\77.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\78.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\79.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\80.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\81.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\82.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\83.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\84.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\85.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\86.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\87.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\88.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\89.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\90.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\91.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\92.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\93.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\94.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\95.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\96.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\97.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\98.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\99.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\100.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\101.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\102.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\103.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\104.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\105.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\106.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\107.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\108.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\109.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\110.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\121.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\122.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\123.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\124.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\125.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\126.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\45.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\QQ图片201412110934.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\QQ图片20141211094132.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

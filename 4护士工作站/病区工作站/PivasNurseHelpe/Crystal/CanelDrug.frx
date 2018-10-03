@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="12/19/2013 10:01:41" ReportInfo.Modified="07/23/2014 16:17:03" ReportInfo.CreatorVersion="2013.1.0.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    
+    string labelno=string.Empty;
+    string WardName=string.Empty;
+    string PatName=string.Empty;
+    string Batch=string.Empty;
+    private void Data1_BeforePrint(object sender, EventArgs e)
+    {
+      if(string.IsNullOrEmpty(WardName))
+      {
+        WardName= Report.GetColumnValue(&quot;dt.WardName&quot;).ToString();
+      }
+      else
+      {
+        if(WardName==Report.GetColumnValue(&quot;dt.WardName&quot;).ToString())
+        {
+          Text23.Text=string.Empty; 
+        }
+        else
+        {
+          WardName= Report.GetColumnValue(&quot;dt.WardName&quot;).ToString();
+          Text23.Text=Report.GetColumnValue(&quot;dt.WardName&quot;).ToString();
+        }    
+       
+      }
+          
+      if(string.IsNullOrEmpty(PatName))
+      {
+        PatName= Report.GetColumnValue(&quot;dt.PatName&quot;).ToString();
+      }
+      
+      else 
+      {
+        if(PatName==Report.GetColumnValue(&quot;dt.PatName&quot;).ToString())
+        {
+          Text25.Text= String .Empty;
+          Text27.Text=  String.Empty;
+        }
+        else
+        {
+          PatName= Report.GetColumnValue(&quot;dt.PatName&quot;).ToString();
+          Text25.Text=Report.GetColumnValue(&quot;dt.PatName&quot;).ToString()  ;
+          Text27.Text= Report.GetColumnValue(&quot;dt.BedNo&quot;).ToString();
+        } 
+      } 
+      if(string.IsNullOrEmpty(Batch))
+      {
+        Batch= Report.GetColumnValue(&quot;dt.Batch&quot;).ToString();
+      }
+      else
+      {
+        if(Batch==Report.GetColumnValue(&quot;dt.Batch&quot;).ToString()&amp;&amp;string.IsNullOrEmpty(Text25.Text))
+        {
+          Text29.Text=string.Empty; 
+        }
+        else
+        {
+          Batch= Report.GetColumnValue(&quot;dt.Batch&quot;).ToString();
+          Text29.Text=Report.GetColumnValue(&quot;dt.Batch&quot;).ToString();
+        }    
+       
+      }
+      
+      
+      if(string.IsNullOrEmpty(labelno))
+      {
+        labelno= Report.GetColumnValue(&quot;dt.LabelNo&quot;).ToString();
+      }
+      else
+      {
+        if(labelno==Report.GetColumnValue(&quot;dt.LabelNo&quot;).ToString())
+        {
+          Text24.Text=string.Empty;
+        }
+        else
+        {
+          labelno= Report.GetColumnValue(&quot;dt.LabelNo&quot;).ToString();
+          Text24.Text=Report.GetColumnValue(&quot;dt.LabelNo&quot;).ToString();
+        }    
+       
+      }
+     
+       
+    }
+    
+  }
+ 
+}
+</ScriptText>
+  <Dictionary>
+    <Parameter Name="PrintDT" DataType="System.String"/>
+    <Parameter Name="Total" DataType="System.String"/>
+    <Parameter Name="Title" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="220">
+    <ReportTitleBand Name="ReportTitle1" Width="756" Height="37.8">
+      <TextObject Name="Title" Left="283.5" Top="9.45" Width="151.2" Height="18.9" Text="[Title]清单" HorzAlign="Center" Font="宋体, 15.75pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="41.8" Width="756" Height="56.7">
+      <TextObject Name="Text1" Left="-10.45" Top="9.45" Width="75.6" Height="18.9" Text="打印时间：" Font="宋体, 9pt"/>
+      <TextObject Name="Text2" Left="55.7" Top="9.45" Width="160.65" Height="18.9" Text="[PrintDT]" Font="宋体, 9pt"/>
+      <TextObject Name="Text5" Left="-11.45" Top="28.35" Width="94.5" Height="24.57" Border.Lines="All" Text="病区" HorzAlign="Center" VertAlign="Center" Font="宋体, 12pt"/>
+      <TextObject Name="Text6" Left="83.05" Top="28.35" Width="66.15" Height="24.57" Border.Lines="All" Text="床号" HorzAlign="Center" VertAlign="Center" Font="宋体, 12pt"/>
+      <TextObject Name="Text7" Left="149.2" Top="28.35" Width="56.7" Height="24.57" Border.Lines="All" Text="姓名" HorzAlign="Center" VertAlign="Center" Font="宋体, 12pt"/>
+      <TextObject Name="Text8" Left="205.9" Top="28.35" Width="47.25" Height="24.57" Border.Lines="All" Text="批次" HorzAlign="Center" VertAlign="Center" Font="宋体, 12pt"/>
+      <TextObject Name="Text9" Left="253.15" Top="28.35" Width="122.85" Height="24.57" Border.Lines="All" Text="瓶签号" HorzAlign="Center" VertAlign="Center" Font="宋体, 12pt"/>
+      <TextObject Name="Text10" Left="376" Top="28.35" Width="245.7" Height="24.57" Border.Lines="All" Text="药品" HorzAlign="Center" VertAlign="Center" Font="宋体, 12pt"/>
+      <TextObject Name="Text12" Left="621.7" Top="28.35" Width="85.05" Height="24.57" Border.Lines="All" Text="规格" HorzAlign="Center" VertAlign="Center" Font="宋体, 12pt"/>
+      <TextObject Name="Text11" Left="706.75" Top="28.35" Width="47.25" Height="24.57" Border.Lines="All" Text="数量" HorzAlign="Center" VertAlign="Center" Font="宋体, 12pt"/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="102.5" Width="756" Condition="dt.WardCode">
+      <GroupHeaderBand Name="GroupHeader2" Top="106.5" Width="756" Condition="dt.BedNo">
+        <GroupHeaderBand Name="GroupHeader3" Top="110.5" Width="756" Condition="dt.Batch">
+          <GroupHeaderBand Name="GroupHeader4" Top="114.5" Width="756" Condition="dt.LabelNo">
+            <DataBand Name="Data1" Top="118.5" Width="756" Height="28.35" BeforePrintEvent="Data1_BeforePrint">
+              <TextObject Name="Text24" Left="253.15" Top="3.78" Width="122.85" Height="18.9" Text="[dt.LabelNo]" VertAlign="Center"/>
+              <TextObject Name="Text25" Left="149.2" Top="3.78" Width="56.7" Height="18.9" Text="[dt.PatName]" VertAlign="Center"/>
+              <TextObject Name="Text26" Left="376" Top="3.78" Width="245.7" Height="18.14" Text="[dt.DrugName]"/>
+              <TextObject Name="Text27" Left="92.5" Top="3.78" Width="56.7" Height="18.9" Text="[dt.BedNo]" VertAlign="Center"/>
+              <TextObject Name="Text29" Left="205.9" Top="3.78" Width="47.25" Height="18.9" Text="[dt.Batch]" VertAlign="Center"/>
+              <TextObject Name="Text23" Left="-11.45" Top="3.78" Width="103.95" Height="18.9" Text="[dt.WardName]" Padding="0, 0, 0, 0" VertAlign="Center"/>
+              <TextObject Name="Text13" Left="669.95" Height="18.9" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+              <TextObject Name="Text14" Left="622.7" Top="3" Width="85.05" Height="18.9" Text="[dt.Spec]" VertAlign="Center" Font="宋体, 9pt"/>
+              <TextObject Name="Text28" Left="706.75" Top="3.78" Width="47.25" Height="18.9" Text="[dt.DgNo]" HorzAlign="Center"/>
+            </DataBand>
+            <GroupFooterBand Name="GroupFooter4" Top="150.85" Width="756"/>
+          </GroupHeaderBand>
+          <GroupFooterBand Name="GroupFooter3" Top="154.85" Width="756"/>
+        </GroupHeaderBand>
+        <GroupFooterBand Name="GroupFooter2" Top="158.85" Width="756"/>
+      </GroupHeaderBand>
+      <GroupFooterBand Name="GroupFooter1" Top="162.85" Width="756">
+        <LineObject Name="Line1" Left="-9.45" Width="737.1"/>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="166.85" Width="756" Height="28.35">
+      <TextObject Name="Text4" Left="642.6" Top="9.45" Width="94.5" Height="18.9" Text="[Total]" Font="宋体, 12pt"/>
+      <TextObject Name="Text3" Left="567" Top="9.45" Width="66.15" Height="18.9" Text="共计：" HorzAlign="Right" Font="宋体, 12pt"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

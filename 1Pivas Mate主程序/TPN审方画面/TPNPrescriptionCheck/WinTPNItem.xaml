@@ -1,0 +1,55 @@
+﻿<Window x:Class="TPNReview.WinTPNItem"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
+        Title="TPN项目" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" 
+        Height="400" Width="720" Loaded="MetroWindow_Loaded" >
+    <Window.Background>
+        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+    </Window.Background>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="140"/>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+
+        <ListBox x:Name="lbType" Grid.Column="0" Margin="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                 SelectionChanged="lbType_SelectionChanged" />
+
+        <StackPanel Grid.Column="1" Height="30" Orientation="Horizontal" VerticalAlignment="Top" Margin="0, 8, 8, 0" >
+            <TextBox x:Name="txtKey" Height="23" Width="200" VerticalAlignment="Top" />
+            <Button Content="查找" Click="Search_Click" Width="65" Height="23" VerticalAlignment="Top" Margin="8, 0, 8, 0" />
+            <Button Content="取消" Click="Cancel_Click" Width="65" Height="23" VerticalAlignment="Top"/>
+        </StackPanel>
+        <ListView x:Name="lvItem" Grid.Column="1" HorizontalAlignment="Stretch" Margin="0,38,8,38" VerticalAlignment="Stretch"
+                  SelectionChanged="lvItem_SelectionChanged" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="类型" DisplayMemberBinding="{Binding Type}" Width="70" />
+                    <GridViewColumn Header="项目" DisplayMemberBinding="{Binding Name}" Width="120" />
+                    <GridViewColumn Header="单位" DisplayMemberBinding="{Binding Unit}" Width="50" />
+                    <GridViewColumn Header="关联内容" DisplayMemberBinding="{Binding Value}" Width="160" />
+                    <GridViewColumn Header="正常值" Width="80">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Tag="{Binding ID}" Text="{Binding Path=NormalValue, Mode=TwoWay}" Width="68" TextChanged="TextBox_Changed" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="显示序号" Width="60">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate> 
+                                <xctk:IntegerUpDown Tag="{Binding ID}" Value="{Binding Path=SeqNo, Mode=TwoWay}" Minimum="-1" DefaultValue="0" ValueChanged="ByteUpDown_ValueChanged" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <TextBlock x:Name="txtNum" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="123" Margin="8,0,0,8" />
+        <TextBlock Grid.Column="1" Text="*显示序号为-1时,在医嘱界面里不显示" Foreground="Gray" VerticalAlignment="Bottom" Margin="161,0,-161,10" />
+        <Button x:Name="btnSet" Grid.Column="1" Content="设置" Width="65" VerticalAlignment="Bottom" HorizontalAlignment="Right" 
+                Margin="0, 0, 8, 8" IsEnabled="False" Click="btnSet_Click" />
+    </Grid>
+</Window>

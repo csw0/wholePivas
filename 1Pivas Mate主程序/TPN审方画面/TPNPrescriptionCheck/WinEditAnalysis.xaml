@@ -1,0 +1,333 @@
+﻿<Window x:Class="TPNReview.WinEditAnalysis"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:TPNReview"
+        Title="评估" Height="760" Width="596" WindowStartupLocation="CenterScreen" 
+        ResizeMode="NoResize" TextOptions.TextFormattingMode="Display" Loaded="Window_Loaded">
+
+    <Window.Resources>
+        <local:SexIsManConverter x:Key="cvtIsMan" />
+        <local:SexIsWomanConverter x:Key="cvtIsWoman" />
+    </Window.Resources>
+    
+    <StackPanel>
+        <Grid Margin="8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="22"/>
+                <RowDefinition Height="138"/>
+                <RowDefinition Height="22"/>
+                <RowDefinition Height="116"/>
+                <RowDefinition Height="22"/>
+                <RowDefinition Height="172"/>
+                <RowDefinition Height="22"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="22"/>
+                <RowDefinition Height="100"/> 
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="住院患者营养风险筛查NRS-2002评估表" HorizontalAlignment="Center" VerticalAlignment="Center"
+                       FontSize="16" FontWeight="Bold" />
+
+            <TextBlock Grid.Row="1" Text="一、患者资料" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                       FontSize="14" />
+
+            <Grid x:Name="grdPatient" Grid.Row="2" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="23"/>
+                    <RowDefinition Height="23"/>
+                    <RowDefinition Height="23"/>
+                    <RowDefinition Height="23"/>
+                    <RowDefinition Height="23"/>
+                    <RowDefinition Height="23"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="200*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Row="0" Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="0" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="0" Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,0"/>
+
+                <Border Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="1" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="1" Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,0"/>
+
+                <Border Grid.Row="2" Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="2" Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="2" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="2" Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,0"/>
+
+                <Border Grid.Row="3" Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="3" Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="3" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="3" Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,0"/>
+
+                <Border Grid.Row="4" Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="4" Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="4" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="4" Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,0"/>
+
+                <Border Grid.Row="5" Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,0,1"/>
+                <Border Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1"/>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="姓名" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding PatientName}" VerticalAlignment="Center" Margin="6,0" />
+                
+                <TextBlock Grid.Row="0" Grid.Column="2" Text="住院号" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock Grid.Row="0" Grid.Column="3" Text="{Binding HospitalNo}" VerticalAlignment="Center" Margin="6,0" />
+                
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="性别" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <CheckBox Grid.Row="1" Grid.Column="1" Content="男" IsChecked="{Binding Path=Sex, Converter={StaticResource cvtIsMan}}"
+                          VerticalAlignment="Center" Margin="40,0" />
+                <CheckBox Grid.Row="1" Grid.Column="1" Content="女" IsChecked="{Binding Path=Sex, Converter={StaticResource cvtIsWoman}}"
+                          VerticalAlignment="Center" Margin="80,0"/>
+               
+                <TextBlock Grid.Row="1" Grid.Column="2" Text="病区床号" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding WardName}" VerticalAlignment="Center" Margin="6,0" />
+                    <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding BedNo}" VerticalAlignment="Center" />
+                    <TextBlock Grid.Row="1" Grid.Column="3" Text="床" VerticalAlignment="Center" />
+                </StackPanel>
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="年龄" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Age}" VerticalAlignment="Center" Margin="6,0" />
+                
+                <TextBlock Grid.Row="2" Grid.Column="2" Text="身高(m)" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding Height}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="2" />
+                
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="体重(kg)" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Weight}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="2" />
+                
+                <TextBlock Grid.Row="3" Grid.Column="2" Text="体重指数(BMI)" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBox Grid.Row="3" Grid.Column="3" Text="{Binding BMI}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="2" />
+                
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="白蛋白(g/l)" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Albumin}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="2" />
+                <TextBlock Grid.Row="4" Grid.Column="2" Text="临床诊断" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                
+                <TextBox Grid.Row="4" Grid.Column="3" Text="{Binding Diagnose}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="2" />
+                <TextBlock Grid.Row="5" Grid.Column="0" Text="备注" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBox x:Name="txtRemark" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="2" />
+            </Grid>
+
+            <TextBlock Grid.Row="3" Text="二、疾病状态" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                       FontSize="14" />
+
+            <Grid x:Name="grdDisease" Grid.Row="4" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="36"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200*"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Row="0" Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="0" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="0" Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,0"/>
+
+                <Border Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="1" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="1" Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,0"/>
+
+                <Border Grid.Row="2" Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="2" Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="2" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="2" Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,0"/>
+
+                <Border Grid.Row="3" Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="3" Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="3" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="3" Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,0"/>
+
+                <Border Grid.Row="4" Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,0,1"/>
+                <Border Grid.Row="4" Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,0,1"/>
+                <Border Grid.Row="4" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,0,1"/>
+                <Border Grid.Row="4" Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,1"/>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="疾病状态" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="分数" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock Grid.Row="0" Grid.Column="2" Text="若'是'请打钩" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" TextWrapping="Wrap" Margin="4,0"
+                           Text="● 骨盆骨折 或者 慢性病患者合并有以下疾病：肝硬化、慢性阻塞性肺病、长期血液透析、糖尿病、肿瘤" />
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <CheckBox Grid.Row="1" Grid.Column="2" Tag="disease.1" HorizontalAlignment="Center" VerticalAlignment="Center"
+                          Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" />
+
+                <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" TextWrapping="Wrap" Margin="4,0"
+                           Text="● 腹部重大手术、中风、重症肺炎、血液系统肿瘤" />
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <CheckBox Grid.Row="2" Grid.Column="2" Tag="disease.2" HorizontalAlignment="Center" VerticalAlignment="Center"
+                          Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" />
+
+                <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" TextWrapping="Wrap" Margin="4,0"
+                           Text="● 颅脑损伤、骨髓抑制、加护病患(APACHE>10分)" />
+                <TextBlock Grid.Row="3" Grid.Column="1" Text="3" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <CheckBox Grid.Row="3" Grid.Column="2" Tag="disease.3" HorizontalAlignment="Center" VerticalAlignment="Center"
+                          Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" />
+
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="合计" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock x:Name="txtDisTotal" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Grid>
+
+            <TextBlock Grid.Row="5" Text="三、营养状态" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                       FontSize="14" />
+
+            <Grid x:Name="grdNutrition" Grid.Row="6" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="36"/>
+                    <RowDefinition Height="36"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200*"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Row="0" Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="0" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="0" Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,0"/>
+
+                <Border Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="1" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="1" Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,0"/>
+
+                <Border Grid.Row="2" Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="2" Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="2" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="2" Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,0"/>
+
+                <Border Grid.Row="3" Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="3" Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="3" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="3" Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,0"/>
+
+                <Border Grid.Row="4" Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="4" Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="4" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,0,0"/>
+                <Border Grid.Row="4" Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,0"/>
+
+                <Border Grid.Row="5" Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,0,1"/>
+                <Border Grid.Row="5" Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,0,1"/>
+                <Border Grid.Row="5" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,0,1"/>
+                <Border Grid.Row="5" Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,1"/>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="营养状况指标（单选）" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="分数" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock Grid.Row="0" Grid.Column="2" Text="若'是'请打钩" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+                <TextBlock Grid.Row="1" Grid.Column="0" TextAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"
+                           Text="● 正常营养状态" />
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <CheckBox Grid.Row="1" Grid.Column="2" Tag="nutrition.0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                          Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" />
+
+                <TextBlock Grid.Row="2" Grid.Column="0" TextAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Margin="4,0"
+                           Text="● 3个月内体重减轻&gt;5%或最近1个星期进食量（与需要量相比）减少20%-50%" />
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <CheckBox Grid.Row="2" Grid.Column="2" Tag="nutrition.1" HorizontalAlignment="Center" VerticalAlignment="Center"
+                          Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" />
+
+                <TextBlock Grid.Row="3" Grid.Column="0" TextAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Margin="4,0"
+                           Text="● 3个月内体重减轻&gt;5%或BMI18.5-20.5或最近1个星期进食量（与需要量相比）减少50%-75%" />
+                <TextBlock Grid.Row="3" Grid.Column="1" Text="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <CheckBox Grid.Row="3" Grid.Column="2" Tag="nutrition.2" HorizontalAlignment="Center" VerticalAlignment="Center"
+                          Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" />
+
+                <TextBlock Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" TextWrapping="Wrap" Margin="4,0"
+                           Text="● 1个月内体重减轻&gt;5%（3个月内减轻&gt;15%）或BMI&lt;18.5（或血清白蛋白&lt;30g/L）或最近1个星期进食量（与需要量相比）减少75%-100%" />
+                <TextBlock Grid.Row="4" Grid.Column="1" Text="3" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <CheckBox Grid.Row="4" Grid.Column="2" Tag="nutrition.3" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                          Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" />
+
+                <TextBlock Grid.Row="5" Grid.Column="0" Text="合计" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock x:Name="txtYYTotal" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Grid>
+
+            <TextBlock Grid.Row="7" Text="四、年龄" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                       FontSize="14" />
+
+            <Grid Grid.Row="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200*"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Row="0" Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,0,1"/>
+                <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,0,1"/>
+                <Border Grid.Row="0" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,0,1"/>
+                <Border Grid.Row="0" Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,1,1"/>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="年龄>=70岁加算1分" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <CheckBox x:Name="cbAge" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"
+                          Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" />
+            </Grid>
+
+            <TextBlock Grid.Row="9" Text="五、营养风险筛查评估结果" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                       FontSize="14" />
+
+            <Grid Grid.Row="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200*"/>
+                    <ColumnDefinition Width="190"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Row="0" Grid.Column="0" BorderBrush="Black" BorderThickness="1,1,0,1"/>
+                <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,1,1"/>
+
+                <Border Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1,0,1,1" />
+                <Border Grid.Row="2" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1,0,1,1"/>
+                <Border Grid.Row="3" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1,0,1,1"/>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="营养风险筛查总分" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock x:Name="txtTotal" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+                <CheckBox x:Name="cbGt3" Grid.Row="1" Grid.ColumnSpan="2" Content=" 总分≥3.0：患者有营养风险，需营养支持治疗" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <CheckBox x:Name="cbLt3" Grid.Row="2" Grid.ColumnSpan="2" Content=" 总分&lt;3.0：若患者将接受重大手术，则每周重新评估其营养状况" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+                <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal">
+                    <TextBlock Text="执行者：" VerticalAlignment="Center" Margin="100,0,6,0" />
+                    <TextBlock x:Name="txtRecorder" VerticalAlignment="Center" />
+                </StackPanel>
+                
+                <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+                    <TextBlock Text="时间：" VerticalAlignment="Center" Margin="6,0" />
+                    <TextBlock x:Name="txtRecordTime" VerticalAlignment="Center" />
+                </StackPanel> 
+            </Grid>
+        </Grid>
+
+        <Grid Height="30" >
+            <Grid.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+            </Grid.Background>
+
+            <Button Content="保存" Click="Save_Click" Height="23" Width="60" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="6,0" />
+        </Grid>
+    </StackPanel>
+</Window>

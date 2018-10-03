@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{76422BB2-27FA-4E76-9543-31DE5C21351B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CommonUI</RootNamespace>
+    <AssemblyName>CommonUI</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\11Output\CommonDll\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\Log4net\net35-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Froms\DBSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\DBSet.Designer.cs">
+      <DependentUpon>DBSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Keyboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\Keyboard.Designer.cs">
+      <DependentUpon>Keyboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Froms\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\Login.designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Froms\XiuGaiMiMa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\XiuGaiMiMa.Designer.cs">
+      <DependentUpon>XiuGaiMiMa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bolongimeq_Logo_英文.png" />
+    <None Include="Resources\ControlSetControlDefaults.png" />
+    <None Include="Resources\DatabaseCopyDatabaseFile.png" />
+    <None Include="Resources\pivas登陆界面.jpg" />
+    <Content Include="Resources\Help_1.png" />
+    <Content Include="Resources\Help_2.png" />
+    <Content Include="Resources\PivasMate.ico" />
+    <Content Include="Resources\PivasMcc.ico" />
+    <Content Include="Resources\关闭.png" />
+    <Content Include="Resources\关闭按下时.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\Keyboard.resx">
+      <DependentUpon>Keyboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Froms\DBSet.resx">
+      <DependentUpon>DBSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Froms\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Froms\XiuGaiMiMa.resx">
+      <DependentUpon>XiuGaiMiMa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\1Pivas Mate主程序\工具画面\非统计\pivas说明书\PivasInfor-white\PivasInfor.csproj">
+      <Project>{9a1e1320-5b7a-4338-836c-7fb306a2789f}</Project>
+      <Name>PivasInfor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PIVAsCommon\PIVAsCommon.csproj">
+      <Project>{FAB76740-C6E8-42B0-8E97-52DBC3BFB8F1}</Project>
+      <Name>PIVAsCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

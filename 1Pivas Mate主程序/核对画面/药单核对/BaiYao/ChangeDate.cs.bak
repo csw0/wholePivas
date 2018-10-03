@@ -1,0 +1,188 @@
+﻿using System;
+using System.Drawing;
+using System.Data;
+using System.Windows.Forms;
+using PIVAsCommon.Helper;
+
+namespace BaiYaoCheck
+{
+    public partial class ChangeDate : UserControl
+    {
+        DB_Help db = new DB_Help();
+        SQL Mysql = new SQL();
+        DataSet dsWard = new DataSet();
+        DataSet dsPatient = new DataSet();
+     
+        public ChangeDate()
+        {
+            InitializeComponent();           
+        }
+
+        private void ChangeDate_Load(object sender, EventArgs e)
+        {         
+            load();
+        }
+
+        private void ShowDrugList(string patientCode)
+        {
+            DataSet ds = db.GetPIVAsDB(Mysql.GetDrugList(patientCode));
+
+            if (ds != null && ds.Tables[0].Rows.Count > 0)
+            {
+                dgvDruglist.Rows.Clear();
+
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    dgvDruglist.Rows.Add(1);
+                    dgvDruglist.Rows[i].Cells["GroupNo"].Value = ds.Tables[0].Rows[i]["GroupNo"].ToString();
+                    dgvDruglist.Rows[i].Cells["RecipeID"].Value = ds.Tables[0].Rows[i]["RecipeID"].ToString();
+                    dgvDruglist.Rows[i].Cells["FregCode"].Value = ds.Tables[0].Rows[i]["FregCode"].ToString();
+                    dgvDruglist.Rows[i].Cells["DrugCode"].Value = ds.Tables[0].Rows[i]["DrugCode"].ToString();
+                    dgvDruglist.Rows[i].Cells["DrugName"].Value = ds.Tables[0].Rows[i]["DrugName"].ToString();
+                    dgvDruglist.Rows[i].Cells["StartDt"].Value = ds.Tables[0].Rows[i]["begindt"].ToString();
+                    dgvDruglist.Rows[i].Cells["occdt"].Value = ds.Tables[0].Rows[i]["OccDT"].ToString();
+                    dgvDruglist.Rows[i].Cells["Spec"].Value = ds.Tables[0].Rows[i]["Spec"].ToString();
+                    dgvDruglist.Rows[i].Cells["EndDt"].Value = ds.Tables[0].Rows[i]["enddt"].ToString();
+
+                    DateTime dt1 = Convert.ToDateTime(ds.Tables[0].Rows[i]["occdt"].ToString());
+                    DateTime dt2 = Convert.ToDateTime(ds.Tables[0].Rows[i]["enddt"].ToString());
+                    DateTime dt3 = Convert.ToDateTime(ds.Tables[0].Rows[i]["begindt"].ToString());
+                    if (dt1.ToString("yyyy-MM-dd") == dt3.ToString("yyyy-MM-dd") || dt1 < DateTime.Now)
+                    {
+                        dgvDruglist.Rows[i].DefaultCellStyle.BackColor = Color.Yellow;
+                    }
+
+                }
+            }
+          
+        }
+
+        private void dgvDruglist_DoubleClick(object sender, EventArgs e)
+        {
+            ChangeTime CT = new ChangeTime(dgvDruglist.CurrentRow.Cells["GroupNo"].Value.ToString(), dgvDruglist.CurrentRow.Cells["RecipeID"].Value.ToString(), dgvDruglist.CurrentRow.Cells["occdt"].Value.ToString());
+            CT.ShowDialog();
+            if (CT.DialogResult == DialogResult.Yes)
+            {
+                ShowDrugList(dgvPatient.CurrentRow.Cells["PatientCode"].Value.ToString());
+            }
+        }
+
+        /// <summary>
+        /// 页面载入
+        /// </summary>
+        public void load()
+        {
+            try
+            {
+                int all = 0;
+                dsWard = getDwardSelect();
+                if (dsWard != null)
+                {
+                    for (int i = 0; i < dsWard.Tables[0].Rows.Count; i++)
+                    {
+                        all = all + int.Parse(dsWard.Tables[0].Rows[i]["Count"].ToString());
+                    }
+                    DataRow dr = dsWard.Tables[0].NewRow();
+                    dr["check"] = "False";
+                    dr["WardName"] = "<全部>";
+                    dr["WardCode"] = "<全部>";
+                    dr["Count"] = all;
+
+                    dsWard.Tables[0].Rows.InsertAt(dr, 0);
+                    dgvWard.DataSource = dsWard.Tables[0];
+                    dgvWard.Rows[0].Selected = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                ShowMsgHelper.ShowError("ChagneData.load" + ex.Message);
+            }
+        }
+
+        private void dgvWard_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvWard.Rows.Count == 0)
+                return;
+
+            int i = dgvWard.CurrentCell.RowIndex;//获取选中行的行号
+
+
+            if (dgvWard.Rows[i].Cells[0].EditedFormattedValue.ToString().Equals("True"))
+                dgvWard.Rows[i].Cells[0].Value = true;
+            else
+                dgvWard.Rows[i].Cells[0].Value = false;
+
+
+            //全选的情况
+            if (dgvWard.Rows[i].Cells[1].Value.ToString() == "<全部>")
+            {
+                for (int j = 1; j < dgvWard.Rows.Count; j++)
+                {
+                    if (dgvWard.Rows[i].Cells[0].EditedFormattedValue.ToString().Equals("False"))
+                    {
+                        dgvWard.Rows[j].Cells[0].Value = false;
+                    }
+                    else
+                    {
+                        dgvWard.Rows[j].Cells[0].Value = true;
+                    }
+                }
+            }
+            bdDgvInfo(getWardCode());
+        }
+
+        /// <summary>
+        /// 获取病区编码数据
+        /// </summary>
+        /// <returns></returns>
+        private string getWardCode()
+        {
+            string WardCode = "";
+            foreach (DataGridViewRow dr in dgvWard.Rows)
+            {
+                if (dr.Cells[1].Value.ToString() != "<全部>" && dr.Cells[0].Value.ToString().Equals("True"))
+                    WardCode = WardCode == "" ? dr.Cells["WardCode"].Value.ToString() : WardCode + "','" + dr.Cells["WardCode"].Value.ToString();
+            }
+            return WardCode;
+        }
+
+        /// <summary>
+        /// 显示病人信息
+        /// </summary>
+        /// <param name="wardcode"></param>
+        private void bdDgvInfo(string wardcode)
+        {
+
+            dsPatient = db.GetPIVAsDB(Mysql.GetPatient(wardcode));
+            dgvPatient.DataSource = dsPatient.Tables[0];
+            for (int i = 0; i < dgvPatient.Rows.Count; i++)
+            {
+                if (dgvPatient.Rows[i].Cells["Type"].Value.ToString() == "1")
+                {
+                    dgvPatient.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                }
+            }
+        }
+
+        private void dgvPatient_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ShowDrugList(dgvPatient.CurrentRow.Cells["PatientCode"].Value.ToString());
+        }
+        /// <summary>
+        /// 获取初始化数据
+        /// </summary>
+        /// <param name="lbdate"></param>
+        /// <returns></returns>
+        public DataSet getDwardSelect()
+        {
+            DataSet ds = new DataSet();
+            ds = db.GetPIVAsDB(Mysql.GetWard());
+            return ds;
+
+        }
+
+      
+
+
+    }
+}

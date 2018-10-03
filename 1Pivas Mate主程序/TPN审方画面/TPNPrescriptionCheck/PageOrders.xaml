@@ -1,0 +1,352 @@
+﻿<Page x:Class="TPNReview.PageOrders"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"  
+      xmlns:local="clr-namespace:TPNReview"
+      mc:Ignorable="d" TextOptions.TextFormattingMode="Display"
+      d:DesignHeight="700" d:DesignWidth="1000"
+	  Title="医嘱">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <!-- 重点：需要使用这个标签来包含多个内容 -->
+            <!-- 资源1：来自系统类 -->
+            <BooleanToVisibilityConverter x:Key="cnvBoolToVis" />
+            <local:ConverterModOrdersTypeTip x:Key="cnvModOrdersTypeTip" />
+            <local:TPNItemChkColorConverter x:Key="cnvChkColor" />
+            <local:ConverterOperateType x:Key="cnvOperateType" />
+
+            <AlternationConverter x:Key="cnvItemsBG">
+                <SolidColorBrush>Transparent</SolidColorBrush>
+                <SolidColorBrush>#FFF2F2F2</SolidColorBrush>
+            </AlternationConverter>
+            <!-- 资源2：字典类的资源 -->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="CommonStyle.xaml"></ResourceDictionary>
+                <!-- 项目工程的相对路径 -->
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="400"/>
+            <RowDefinition Height="400*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="600"/>
+                <ColumnDefinition Width="400*"/>
+            </Grid.ColumnDefinitions>
+
+            <ListBox x:Name="lbOrders" AlternationCount="2" Grid.Column="0" Margin="0,0,3,0" 
+                     SelectionChanged="lbOrders_SelectionChanged" >
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="FontSize" Value="14" />
+                        <Setter Property="Background" 
+                                Value="{Binding RelativeSource={RelativeSource Self},
+                                        Path=(ItemsControl.AlternationIndex),
+                                        Converter={StaticResource cnvItemsBG}}"/>
+                        <Style.Resources>
+                            <!--SelectedItem with focus-->
+                            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="LightBlue" Opacity=".4"/>
+                            <!--SelectedItem without focus-->
+                            <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="LightBlue" Opacity=".4"/>
+                        </Style.Resources>
+                        <!-- 设置触发器 -->
+                        <Style.Triggers>
+                            <Trigger Property="IsFocused" Value="true">
+                                <Setter Property="Background" Value="Coral"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <StackPanel Height="30" Orientation="Horizontal">
+                                <TextBlock Text="状态:" Style="{StaticResource styleLabel}" VerticalAlignment="Center" Margin="4, 0" />
+                                <TextBlock Text="{Binding State}" Width="58" VerticalAlignment="Center" Style="{StaticResource styleMonitorLevel}" />
+                                <TextBlock Text="审方结果:" Style="{StaticResource styleLabel}" VerticalAlignment="Center" Margin="4,0" />
+                                <TextBlock Text="{Binding  Path=CheckLevel, StringFormat={}{0}星}" Width="40" VerticalAlignment="Center" />
+                                <TextBlock Text="医嘱号:" Style="{StaticResource styleLabel}" VerticalAlignment="Center" Margin="4,0" />
+                                <TextBox Text="{Binding RecipeID}" Width="80" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" IsReadOnly="True" />
+                                <TextBlock Text="频次:" Style="{StaticResource styleLabel}" VerticalAlignment="Center" Margin="4,0" />
+                                <TextBlock Text="{Binding FreqCode}" Width="30" VerticalAlignment="Center"/>
+                                <TextBlock Text="途径:" Style="{StaticResource styleLabel}" VerticalAlignment="Center" Margin="4,0" />
+                                <TextBlock Text="{Binding UseRoute}" VerticalAlignment="Center" />
+                                <TextBlock Text="容积:" Style="{StaticResource styleLabel}" VerticalAlignment="Center" Margin="4,0" />
+                                <TextBlock Text="{Binding Path=Capacity, StringFormat={}{0} ml}" Foreground="Blue" VerticalAlignment="Center" Margin="0, 0, 4, 0" />
+                                <Button Content="改" Tag="{Binding RecipeID}" ToolTip="{Binding Path=IsTPN, Converter={StaticResource cnvModOrdersTypeTip}}"
+                                        Height="21" VerticalAlignment="Center" Click="btnModType_Click"
+                                        Visibility="{Binding Path=CanMod, Converter={StaticResource cnvBoolToVis}}"/>
+                            </StackPanel>
+                            <StackPanel Height="24" Orientation="Horizontal">
+                                <TextBlock Text="开始时间:" Style="{StaticResource styleLabel}" Margin="4, 0" />
+                                <TextBlock Text="{Binding OrderTime}" Width="136" />
+                                <TextBlock Text="停止时间:" Style="{StaticResource styleLabel}" Margin="4,0" />
+                                <TextBlock Text="{Binding StopTime}" Width="136">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsStop}" Value="True">
+                                                    <Setter Property="Foreground" Value="Red" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                                <TextBlock Text="备注:" Style="{StaticResource styleLabel}" Margin="4,0" />
+                                <TextBlock Text="{Binding Remark}" Margin="0, 0, 4, 0" />
+                            </StackPanel>
+
+                            <StackPanel Height="1" Background="#FFF2F2F2" />
+                            <ItemsControl ItemsSource="{Binding Drugs}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Margin="10"/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="干预" Click="miDrugIntervene_Click" />
+                                    </ContextMenu>
+                                </ItemsControl.ContextMenu>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" Height="20">
+                                            <TextBlock Text="{Binding Name}" Width="260" />
+                                            <TextBlock Text="{Binding Spec}" Width="160" />
+                                            <TextBlock Text="{Binding Dosage}" Width="80" TextAlignment="Right" />
+                                            <TextBlock Text="{Binding DosageUnit}" Width="40" Margin="4,0" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
+                            <StackPanel Height="18" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <GridSplitter Width="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Stretch" Background="#B6D2FB" />
+
+            <ListView x:Name="lvTPNItems" Grid.Column="1" MouseDoubleClick="lvTPNItems_MouseDoubleClick">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="FontSize" Value="14" />
+                        <Setter Property="Foreground" Value="Black" />
+                        <Setter Property="Height" Value="24" />
+                        <Setter Property="Margin" Value="0" />
+                        <Setter Property="BorderThickness" Value="0" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="监护" Click="btnTPNCustody_Click" />
+                        <MenuItem Header="干预" Click="btnTPNIntervene_Click" />
+                    </ContextMenu>
+                </ListView.ContextMenu>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="项目" DisplayMemberBinding="{Binding Name}" Width="110" />
+                        <GridViewColumn Header="合格" Width="60">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding ResultOK}" Foreground="{Binding Path=ResultOK, Converter={StaticResource cnvChkColor}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="结果" Width="100">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <DockPanel Width="100">
+                                        <TextBlock DockPanel.Dock="Right" Text="{Binding ValueDiret}" ToolTip="{Binding ValueSubPer}" Foreground="Red" Width="20" />
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Value}" />
+                                            <TextBlock Text="{Binding Unit}" Foreground="DarkGray" Margin="4,0,0,0" />
+                                        </StackPanel>
+                                    </DockPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="正常值" DisplayMemberBinding="{Binding NormalValue}" Width="80"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+
+        <GridSplitter Height="2" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Background="#B6D2FB" />
+
+        <DockPanel Grid.Row="1">
+            <Grid DockPanel.Dock="Top" Height="40">
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox x:Name="cbOnlyUse" Content="仅显示在用医嘱" IsChecked="True" Checked="Refresh_Click" Unchecked="Refresh_Click" 
+                              VerticalAlignment="Center"  Margin="8, 0" />
+                    <CheckBox x:Name="cbOnlyTPN" Content="仅显示营养医嘱" IsChecked="True" Checked="cbOnlyTPN_Checked" 
+                              Unchecked="Refresh_Click" VerticalAlignment="Center"  Margin="8, 0" />
+                    <Button Content="审方" Width="65" Height="23" Click="ReMonitor_Click" VerticalAlignment="Center"/>
+                    <Button Content="刷新" Width="65" Height="23" Click="Refresh_Click" VerticalAlignment="Center" Margin="8, 0" />
+                </StackPanel>
+                <Button Content="模" HorizontalAlignment="Right" Height="23" Width="23" VerticalAlignment="Top" Margin="4"
+                        Click="btnMock_Click"/>
+            </Grid>
+            <TextBlock DockPanel.Dock="Top" Height="1" Margin="0,4">
+                <TextBlock.Background>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkColorKey}}"/>
+                </TextBlock.Background>
+            </TextBlock>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="600"/>
+                    <ColumnDefinition Width="400*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Grid Grid.Column="0" Margin="0,0,3,0">
+                    <Grid Height="24" VerticalAlignment="Top">
+                        <StackPanel Orientation="Horizontal" Margin="0,1">
+                            <Button x:Name="btnTPNLISChk" Content="营养检查" Click="Detail_Click" Padding="4,0" Visibility="Collapsed" />
+                            <Button x:Name="btnChkRecord" Content="检查记录" Click="Detail_Click" Padding="4,0" Margin="4,0" Visibility="Collapsed" />
+                            <Button x:Name="btnMntResult" Content="审方结果" Click="Detail_Click" Padding="4,0" />
+                        </StackPanel>
+                        <Button x:Name="btnAddCustomChk" Content="+" ToolTip="增加自定义审方" 
+                                Click="btnAddCustomChk_Click"  Width="30"
+                                HorizontalAlignment="Right" VerticalAlignment="Center" Visibility="Collapsed" />
+                    </Grid>
+
+                    <DataGrid x:Name="grdPNLISChk" Margin="0,24,0, 0" BorderThickness="0" GridLinesVisibility="None"
+                              CanUserAddRows="False" IsReadOnly="True" ColumnWidth="60" FrozenColumnCount="1" RowHeaderWidth="0"
+                              MouseDoubleClick="grdPNLISChk_MouseDoubleClick" AutoGenerateColumns="False">
+                        <DataGrid.RowStyle>
+                            <Style TargetType="{x:Type DataGridRow}">
+                                <Setter Property="Height" Value="24" />
+                                <Setter Property="FontSize" Value="14" /> 
+                                <Setter Property="VerticalAlignment" Value="Center" />
+                                <Setter Property="BorderThickness" Value="0" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Diret}" Value="1"> 
+                                        <Setter Property="Background" Value="#80FF8000" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Diret}" Value="-1">
+                                        <Setter Property="Background" Value="#8080FA80" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="项目" Binding="{Binding ItemName}" Width="200" />
+                            <DataGridTextColumn Header="最后检查记录" Binding="{Binding LastValue}" Width="140" />
+                            <DataGridTextColumn Header="" Binding="{Binding ValueDiret}" Width="20" />
+                            <DataGridTextColumn Header="正常值" Binding="{Binding NormalValue}" Width="100" />
+                            <DataGridTextColumn Header="最后检查时间" Binding="{Binding LastTime}" Width="120" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+  
+                    <ListView x:Name="lvLISChkRecord" MouseDoubleClick="lvChkRecord_MouseDoubleClick" 
+                              Margin="0,24,0, 0" Visibility="Collapsed">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Height" Value="20" />
+                                <Setter Property="Margin" Value="0" />
+                                <Setter Property="BorderThickness" Value="0" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="检查时间" DisplayMemberBinding="{Binding Path=CheckTime, StringFormat=yyyy-M-d H:m:s}" 
+                                                Width="130"/>
+                                <GridViewColumn Header="检查类型" DisplayMemberBinding="{Binding CheckType}" Width="100" />
+                                <GridViewColumn Header="检查名称" DisplayMemberBinding="{Binding CheckName}"  Width="200"/>
+                                <GridViewColumn Header="检查人" DisplayMemberBinding="{Binding Checker}"  Width="80"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                    <ListBox x:Name="lbOrdChkResult" ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                             Visibility="Collapsed" Margin="0,24,0, 0">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="0, 6">
+                                    <StackPanel Height="24" Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Title}" FontWeight="Bold" 
+                                                   Style="{StaticResource styleMonitorLevel}" VerticalAlignment="Center"/>
+                                        <TextBlock Text=":" Margin="4,0" VerticalAlignment="Center" />
+                                        <TextBlock Text="{Binding DrugName}" VerticalAlignment="Center" />
+                                    </StackPanel>
+
+                                    <TextBlock Text="{Binding ResultDesc}" FontSize="14" HorizontalAlignment="Left" 
+                                               TextWrapping="Wrap" Margin="0,4" />
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="[" VerticalAlignment="Center" Style="{StaticResource styleLabel}" />
+                                        <TextBlock Text="{Binding CheckTime}" VerticalAlignment="Center" 
+                                                   Style="{StaticResource styleLabel}" />
+                                        <TextBlock Text="]" VerticalAlignment="Center" Style="{StaticResource styleLabel}" />
+                                        <Button Content="删除" Click="btnDelChk_Click" Tag="{Binding}" FontSize="12" 
+                                                Foreground="SkyBlue" Background="Transparent" BorderThickness="0" 
+                                                 VerticalAlignment="Center" Width="40" Margin="10,0" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+
+                <GridSplitter Width="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Stretch" Background="#B6D2FB" />
+
+                <GroupBox Header="药师操作记录" Grid.Column="1"
+                       ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.ColumnSpan="1" >
+                    <DockPanel>
+                        <StackPanel DockPanel.Dock="Top" Height="30" Orientation="Horizontal" HorizontalAlignment="Right">
+                            <Button Content="监护" Width="40" Height="23" Click="Custody_Click" HorizontalAlignment="Right" 
+                                    VerticalAlignment="Top" />
+                            <Button Content="笔记" Width="40" Height="23" Click="Note_Click" HorizontalAlignment="Right" 
+                                    VerticalAlignment="Top" Margin="4,0" />
+                        </StackPanel>
+                        
+                        <ListBox x:Name="lbOpRecord" AlternationCount="2" >
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="FontSize" Value="14" />
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                        <ListBox.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="修改" Click="miModOp_Click" />
+                                <MenuItem Header="删除" Click="miDelOp_Click" />
+                            </ContextMenu>
+                        </ListBox.ContextMenu>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <StackPanel Height="24" Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Path=OpTime, StringFormat=yyyy-M-d H:m}" 
+                                               VerticalAlignment="Center" FontSize="12"
+                                               Margin="4, 0" />
+                                        <TextBlock Text="{Binding Operater}" VerticalAlignment="Center" 
+                                               Style="{StaticResource styleLabel}" Margin="4, 0" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,4">
+                                        <TextBlock Text="{Binding Path=OpType, Converter={StaticResource cnvOperateType}}" 
+                                               Margin="4, 0" Width="40" />
+                                        <TextBlock Text="{Binding OpContent}" TextWrapping="Wrap" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    
+                    </DockPanel>
+                </GroupBox>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Page>

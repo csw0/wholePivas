@@ -1,0 +1,183 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="Table1" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Table1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="报表字段名" type="xs:string" minOccurs="0" />
+                <xs:element name="自定义注释" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <Table1>
+    <报表字段名>ouvia.brdm</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.brxm</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.zwhm</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.LabelNo</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.num</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.ewm</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.WardName</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.WardSimName</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.Batch</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.Age</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.AgeSTR</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.CaseID</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.FreqCode</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.UsageCode</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.ArrDrugUserCode</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.PZDrugUserCode</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.PackDrugUserCode</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.DrugAC</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.tod</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.FreqNum</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.longdt</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.sex</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.CpUser</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.Remark1</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.Remark2</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.Remark3</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.Remark4</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.Remark5</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.Remark6</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.DeskNo</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>ouvia.IVD</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>Med.ypmc</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>Med.spec</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>Med.dose</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>Med.unit</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>Med.FormUnit</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>Med.Remark7</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>Med.Remark8</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>Med.Remark9</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>Med.Remark10</报表字段名>
+    <自定义注释 />
+  </Table1>
+  <Table1>
+    <报表字段名>Med.PiShi</报表字段名>
+    <自定义注释 />
+  </Table1>
+</NewDataSet>

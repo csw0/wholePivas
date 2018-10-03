@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="richTextBox10.Text" xml:space="preserve">
+    <value>     1、空包不计算溶媒设置
+        (1)在其他规则浏览界面，勾选或去掉勾选“空包不计算溶媒/空包排入固定批次”完成设置。
+        (2)若此设置勾选，医嘱计算容积时，不计算空包的药品。（默认是计算药品里输入了空包的药品）
+        (3)此设置保存在数据库表中某字段。
+     2、优先考虑一日多次用药设置
+        (1)在一般规则浏览界面，勾选或去掉勾选“优先考虑一日多次医嘱的首次用药”完成设置。
+        (2)若此设置勾选，瓶签在排批次时，对一日用药次数两次或以上的医嘱，每天的第一张瓶签将优先排在1#。
+        (3)此设置保存在数据库表中某字段。
+
+
+</value>
+  </data>
+  <data name="richTextBox8.Text" xml:space="preserve">
+    <value>         (1)、点击             按钮，可以将当前病区规则应用到所有病区，
+         (2)、勾选                ，则将当前病区的增量数据，应用到所有病区。
+
+         (3)、刷新各病区数据 
+
+
+五  时间规则
+     1、时间规则说明
+        (1)时间规则设置配液中心工作批次和批次时间。
+        (2)批次只是配液中心的工作班次，与具体病人用药时间无关联。
+        (3)时间规则保存在数据库表中。
+     2、浏览时间规则
+     在中心控制台主界面工具列表里点击 基础数据维护-&gt;批次规则-&gt;时间规则，打开界面：
+</value>
+  </data>
+  <data name="richTextBox4.Text" xml:space="preserve">
+    <value>         (2)、选择首次给药时间，输入用药间隔和每日次数，点击“确定”即可设置。
+         (3)、设置确定后，PIVAS伴侣系统根据每日次数，生成用法用药次数记录，保存于表中。用法用药次数记录用于批次规则设置，所以每个用法都设置一次（即打开上面界面，并确定一次），保证每个用法在数据库表里都有对应记录。
+         (4)、删除用法：在用法浏览界面，右键点击要删除据的用法在弹出的菜单里选择“删除”。
+二  一般规则
+     1、一般规则说明
+一般规则设置用法用药次数对应批次、瓶签生规则和瓶签显示。
+     2、浏览一般规则
+在中心控制台主界面工具界面里点击 基础数据维护-&gt;批次规则-&gt;一般规则，打开界面：
+
+
+      在中心控制台主界面工具界面里点击 基础数据维护-&gt;批次规则-&gt;药品优先规则，打开界面：
+</value>
+  </data>
+  <data name="richTextBox2.Text" xml:space="preserve">
+    <value>工具界面 - 基础数据维护 - 批次规则
+一  用法
+     1、用法说明
+        (1)、用法对应HIS系统里的用药频次，用药频次用于描述医嘱一天24小时里用药起始时间、用药次数、用药间隔。
+        (2)、PIVAS伴侣系统用法用于设置频次对应的内容。PIVAS伴侣系统接收医嘱时根据每天用药次数生成一天的执
+行记录，并根据起始时间和时间间隔生成执行时间，执行记录保存于表中。
+        (3)、用法保存在数据库表中。
+        (4)、用法与HIS频次接口同步。
+     2、浏览用法界面
+在中心控制台主界面工具列表里点击 基础数据维护-&gt;批次规则-&gt;用法，打开界面：
+      在中心控制台主界面工具界面里点击 基础数据维护-&gt;批次规则-&gt;药品优先规则，打开界面：
+</value>
+  </data>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>     3、用法批次设置
+          (1)、在一般规则浏览界面，选择左边的用法，在右边选择用法用药次数对应的批次，勾选是否冲配，固定批次，完成设置。
+          (2)、是否冲配：瓶签生产时此用药次序为不冲配。
+          (3)、固定批次：用药次序不受容积规则和药品优先规则影响。
+          (4)、用法批次设置保存在数据库表中。
+
+三  药品优先规则
+     1、药品优先规则说明
+           (1)、药品优先规则设置病区个性化药品用药顺序。
+           (2)、规则设置的药理成分/类别优先顺序将影响其对应的药品在瓶签排序里的顺序。
+           (3)、药品优先规则保存在数据库表中。
+     2、浏览药品优先规则
+      在中心控制台主界面工具界面里点击 基础数据维护-&gt;批次规则-&gt;药品优先规则，打开界面：
+</value>
+  </data>
+  <data name="richTextBox5.Text" xml:space="preserve">
+    <value>      6、删除药品优先
+         在药品优先规则浏览界面，在高优先药品列表或低优先药品列表选择删除药理成分/类别，点击    按钮，即可删除。
+      7、调整药品优先顺序
+         在药品优先规则浏览界面，在高优先药品列表或低优先药品列表选择排序药理成分/类别，点击向上移动 按钮，增加药理成分/类别优先级，点击向下移动    按钮，减少药理成分/类别优先级。
+      8、点击            按钮，可以将当前病区规则应用到所有病区，
+勾选               ，则将当前病区的增量数据，应用到所有病区。
+
+四   容积规则
+      1、容积规则说明
+           (1)容积规则设置病区个性化药品容积用药。
+           (2)此规则设置某一病区某一批次的药品最大容积和最小容积，PIVAS伴侣系统工作站瓶签排序时，将根据此设置调整一批里药品容积使之满足设置。
+           (3)容积规则保存在数据库表中。
+      2、浏览容积规则
+      在中心控制台主界面左边功能列表里点击 基础数据维护-&gt;批次规则-&gt;容积规则，打开界面：
+      3、容积规则设置
+      在容积规则浏览界面，选择病区，在病区容积规则列表里点击要修改的容积，直接输入容积，即可完成设置。（输入结束后，必须点击输入框之外的地方，使输入框失去焦点才能完成设置）
+</value>
+  </data>
+</root>

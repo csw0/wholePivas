@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7DB677DB-AD6C-4ABA-AC44-82D6455F1E21}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PivasLabelCheckAll</RootNamespace>
+    <AssemblyName>PivasLabelCheckAll</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>http://localhost/PivasLabelCheck/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\11Output\PivasMate\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ChargeInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Interop.SpeechLib">
+      <HintPath>..\..\..\10Common\import DLL\Interop.SpeechLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\10Common\Log4net\net35-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Speech">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ChargeError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChargeError.Designer.cs">
+      <DependentUpon>ChargeError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="common\CommonUtil.cs" />
+    <Compile Include="common\ShowVoice.cs" />
+    <Compile Include="dao\seldb.cs" />
+    <Compile Include="entity\Authority.cs" />
+    <Compile Include="entity\ListShow.cs" />
+    <Compile Include="EveryTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EveryTime.Designer.cs">
+      <DependentUpon>EveryTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMessage.designer.cs">
+      <DependentUpon>frmMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LabelDetailInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LabelDetailInfo.Designer.cs">
+      <DependentUpon>LabelDetailInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LabelDetails\CancelMessage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LabelDetails\CancelMessage.designer.cs">
+      <DependentUpon>CancelMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LabelDetails\LabelDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LabelDetails\LabelDetail.designer.cs">
+      <DependentUpon>LabelDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LabelDetails\sql.cs" />
+    <Compile Include="LoginUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginUser.designer.cs">
+      <DependentUpon>LoginUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ChargeError.resx">
+      <DependentUpon>ChargeError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EveryTime.resx">
+      <DependentUpon>EveryTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMessage.resx">
+      <DependentUpon>frmMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LabelDetailInfo.resx">
+      <DependentUpon>LabelDetailInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LabelDetails\CancelMessage.resx">
+      <DependentUpon>CancelMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LabelDetails\LabelDetail.resx">
+      <DependentUpon>LabelDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginUser.resx">
+      <DependentUpon>LoginUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCCommonCheck.resx">
+      <DependentUpon>UCCommonCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucCompanyInfo.resx">
+      <DependentUpon>ucCompanyInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucCountInfomation.resx">
+      <DependentUpon>ucCountInfomation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucDwardInfo.resx">
+      <DependentUpon>ucDwardInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucDwards.resx">
+      <DependentUpon>ucDwards.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucLabelsInfo.resx">
+      <DependentUpon>ucLabelsInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaitForm.resx">
+      <DependentUpon>WaitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="entity\Demployee.cs" />
+    <Compile Include="entity\DPatient.cs" />
+    <Compile Include="entity\Dward.cs" />
+    <Compile Include="entity\IVRecord.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="UCCommonCheck.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCCommonCheck.Designer.cs">
+      <DependentUpon>UCCommonCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucCompanyInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucCompanyInfo.designer.cs">
+      <DependentUpon>ucCompanyInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucCountInfomation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucCountInfomation.designer.cs">
+      <DependentUpon>ucCountInfomation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucDwardInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucDwardInfo.designer.cs">
+      <DependentUpon>ucDwardInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucDwards.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucDwards.designer.cs">
+      <DependentUpon>ucDwards.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucLabelsInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucLabelsInfo.designer.cs">
+      <DependentUpon>ucLabelsInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaitForm.designer.cs">
+      <DependentUpon>WaitForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Unlock.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\箭头1.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\箭头2.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Private.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\youshang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zuoshang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kk.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\title1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\title2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jiao.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jiao1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jiao2.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\up5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gear_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ljiao.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rjiao.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Left.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Up.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2_right.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2_down.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2%282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LLeft.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stock-find-and-replace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stock-find-and-replace1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="pic\LoginBg.jpg" />
+    <Content Include="pic\shut_down.png" />
+    <None Include="Resources\btnExit.bmp" />
+    <Content Include="Resources\btnExit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\10Common\PIVAsCommon\PIVAsCommon.csproj">
+      <Project>{FAB76740-C6E8-42B0-8E97-52DBC3BFB8F1}</Project>
+      <Name>PIVAsCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\2Pivas加密程序\PivasLimitDES\PivasLimitDES.csproj">
+      <Project>{8902815E-5E70-4B8C-9AD5-1A76F98D1AAB}</Project>
+      <Name>PivasLimitDES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\工具画面\非统计\瓶签查询\PivasLabelSelect\PivasLabelSelect.csproj">
+      <Project>{62fbbfa4-726f-4a16-8910-2940ee30917c}</Project>
+      <Name>PivasLabelSelect</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LabelCheckAuthoritySet\LabelCheckAuthoritySet.csproj">
+      <Project>{3c37bfda-958f-4ece-890a-1c341b0b55ab}</Project>
+      <Name>LabelCheckAuthoritySet</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

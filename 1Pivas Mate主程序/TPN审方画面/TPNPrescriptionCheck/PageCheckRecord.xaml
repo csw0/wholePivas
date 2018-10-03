@@ -1,0 +1,99 @@
+﻿<Page x:Class="TPNReview.PageCheckRecord"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:tlv="clr-namespace:Aga.Controls.Tree;assembly=Aga.Controls"
+      xmlns:local="clr-namespace:TPNReview"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="700"
+	  Title="检查记录">
+
+    <Page.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+        <local:NotBooleanToVisibilityConverter x:Key="NotBoolToVis" /> 
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="400*"/>
+            <RowDefinition Height="300"/>
+        </Grid.RowDefinitions>
+
+        <ListView x:Name="lvRecord" Grid.Row="0" SelectionChanged="lvRecord_SelectionChanged">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="删除" Click="miDel_Click" />
+                </ContextMenu>
+            </ListView.ContextMenu>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="FontSize" Value="14" />
+                    <Setter Property="Height" Value="24" />
+                    <Setter Property="Margin" Value="0" />
+                    <Setter Property="BorderThickness" Value="0" />
+                </Style>
+            </ListView.ItemContainerStyle>
+
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="检查时间" DisplayMemberBinding="{Binding CheckTime}"  Width="160"/>
+                    <GridViewColumn Header="检查类型" DisplayMemberBinding="{Binding CheckType}" Width="100" />
+                    <GridViewColumn Header="检查名称" DisplayMemberBinding="{Binding CheckName}"  Width="160"/>
+                    <GridViewColumn Header="检查人" DisplayMemberBinding="{Binding Checker}"  Width="100"/> 
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <GridSplitter Height="2" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Background="#B6D2FB" />
+
+        <DockPanel Grid.Row="1">
+            <StackPanel DockPanel.Dock="Top" Height="40" Orientation="Horizontal">
+                <TextBlock Text="检查类型:" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                <ComboBox x:Name="cbbChkType" SelectionChanged="Refresh_Click" Width="120" Height="23" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0" />
+                <TextBlock Text="日期:" VerticalAlignment="Center" Margin="10,0" />
+                <DatePicker x:Name="dpSDate" VerticalAlignment="Center" FirstDayOfWeek="Monday" Width="120"/>
+                <TextBlock Text="-" TextWrapping="Wrap" VerticalAlignment="Center" Margin="8,0,8,0" />
+                <DatePicker x:Name="dpEDate" VerticalAlignment="Center" Width="120"/>
+
+                <Button Content="刷新" Width="65" Height="23" Click="Refresh_Click" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0" />
+                <Button Content="输入" Width="65" Height="23" Click="Add_Click" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0" />
+            </StackPanel>
+
+            <ListView x:Name="lvItems">
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="删除" Click="miDelRt_Click" />
+                    </ContextMenu>
+                </ListView.ContextMenu>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="FontSize" Value="14" />
+                        <Setter Property="Height" Value="24" />
+                        <Setter Property="Margin" Value="0" />
+                        <Setter Property="BorderThickness" Value="0" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="序号" DisplayMemberBinding="{Binding SeqNo}" Width="40" />
+                        <GridViewColumn Header="项目名称" DisplayMemberBinding="{Binding ItemName}"  Width="200"/>
+                        <GridViewColumn Header="检查值" Width="200">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Value}" />
+                                        <TextBlock Text="{Binding Unit}" Foreground="DarkGray" Margin="4,0,0,0" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding ValueDrect}"  Width="40"/>
+                        <GridViewColumn Header="正常值" DisplayMemberBinding="{Binding Domain}"  Width="100"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </DockPanel>
+    </Grid>
+</Page>

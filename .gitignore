@@ -1,0 +1,6 @@
+bin/
+obj/
+11Output/*
+11Output/!PivasMccSetUp.nsi
+_output/
+.vs

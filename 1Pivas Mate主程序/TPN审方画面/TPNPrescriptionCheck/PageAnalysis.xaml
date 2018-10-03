@@ -1,0 +1,48 @@
+﻿<Page x:Class="TPNReview.PageAnalysis"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TPNReview"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="600"
+	Title="PageAnalysis">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+ 
+        <ListView x:Name="lvRecord" Grid.Column="0" SelectionChanged="lvRecord_SelectionChanged">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="删除" Click="Del_Click" />
+                </ContextMenu>
+            </ListView.ContextMenu>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="FontSize" Value="14" />
+                    <Setter Property="Height" Value="26" />
+                </Style>
+            </ListView.ItemContainerStyle>
+
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="评估时间" DisplayMemberBinding="{Binding RecordTime}" Width="130"/>
+                    <GridViewColumn Header="总分数" DisplayMemberBinding="{Binding TotalScore}" Width="60"/>
+                    <GridViewColumn Header="评估人" DisplayMemberBinding="{Binding Recorder}" Width="80"/> 
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <DockPanel x:Name="pnlReport" Grid.Column="1">
+            <Grid DockPanel.Dock="Bottom" Height="30" Margin="6,0">
+                <Button Content="新增" Height="23" Width="65" HorizontalAlignment="Left" Click="New_Click" />
+                <Button Content="修改" Height="23" Width="65" HorizontalAlignment="Left" Click="Mod_Click" Margin="80,0" />
+                <Button Content="打印" Height="23" Width="65" HorizontalAlignment="Right" Click="Print_Click" />
+            </Grid>
+            <WindowsFormsHost Name="frmHostReport" />
+        </DockPanel>
+    </Grid>
+</Page>

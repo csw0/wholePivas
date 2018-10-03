@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="richTextBox5.Text" xml:space="preserve">
+    <value>调用存储过程bl_InsertNewSynLog插入日志；
+1、医嘱同步
+     调用synset表中保存的同步方式及sql同步查询语句，连接his并执行接口查询，获取数据集。
+     循环遍历结果集将数据取出，并调用 bl_synprescriptiontemp 将数据存储到临时表
+     调用bl_fetchrecipes@hisrcpgrptype,将prescriptiontemp 表中的信息插入以下各表
+     a.prescription     一组医嘱的共有信息
+     b.prescriptiondetail 一组医嘱中的各项药品信息
+     c.IVRecord       更新相关医嘱已有瓶签状态
+
+2、药单同步
+     调用synset表中保存的同步方式及sql同步查询语句，连接his并执行接口查询，获取数据集。
+      调用bl_synUseDrugListTemp读取Diagnosistemp临时表，将新数据集中新数据存储到Diagnosistemp临时表。
+    
+3、患者身高体重同步
+
+4、临床诊断
+    调用synset表中保存的同步方式及sql同步查询语句，连接his并执行接口查询，获取数据集存入Diagnosistemp临时表。
+  调用bl_synDiagnosisInfo读取Diagnosistemp临时表，将新数据存储到Diagnosis表。
+
+5、患者
+   1.调用bl_synpatientinfoBefore 开启更新状态
+   2.调用 bl_synpatientinfo 更新病人信息
+     将数据同步到PatientTemp表，将新的患者信息添加到Patient表，非新患者更新原有状态信息。
+   3.调用bl_synpatientinfoAfter关闭更新状态，
+     从PatientTempHTandWT表中获取病人原有身高体重信息，与新的信息对比后将数据更新到PatientTemp表。
+6、药品目录
+     调用synset表中保存的同步方式及sql同步查询语句，连接his并执行接口查询，获取数据集存入DDrugtemp临时表。
+     将结果集将数据存储到DDrugTemp表，并调用 bl_syndruginfo将数据存储到DDrug表
+ 
+
+7、病区
+    调用synset表中保存的同步方式及sql同步查询语句，连接his并执行接口查询，获取数据集存入Dwardtemp临时表。
+  调用bl_syndwardinfo将数据存储到Dward表。
+
+8、员工
+    调用synset表中保存的同步方式及sql同步查询语句，连接his并执行接口查询，获取数据集存入Demployeetemp临时表。
+  调用bl_synemployeeinfo将数据存储到Demployee表。
+
+剂量单位
+    调用synset表中保存的同步方式及sql同步查询语句，连接his并执行接口查询，获取数据集存入Dmetrictemp临时表。
+    调用bl_syndmetricinfo将数据存储到Dmetric表。
+
+频次
+    调用synset表中保存的同步方式及sql同步查询语句，连接his并执行接口查询，获取数据集存入DFreqtemp临时表。
+    调用bl_synfreqinfo将数据存储到DFreq表。
+</value>
+  </data>
+</root>

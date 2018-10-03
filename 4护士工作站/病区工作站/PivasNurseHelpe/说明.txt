@@ -1,0 +1,8 @@
+在运行程序之前，
+将PivasNurse.exe，PIVAsDBhelp.dll，LibDrugManual.exe，IMEQPIVAs.ini,sound五个文件放在一个文件夹里
+1.先运行addtable.sql文件。
+2.再运行newchangesql文件里的sql语句，注意将里面的数据库名称改掉。
+3.将签收的两个存储过程里的语句换成该文件里的两个存储过程里的语句。
+4.最后运行程序。
+5.选择新病区时，要在选择后点击设置，设置配置取消，提前打包，和签收条件。
+说明：sound里面放的是声音文件。login里面存放的是登录记录。LibDrugManual.exe药品说明书。addtable是新增加的表。newchangesql是新增加的字段程序。

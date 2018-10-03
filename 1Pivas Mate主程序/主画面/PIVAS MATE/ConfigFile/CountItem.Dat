@@ -1,0 +1,103 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="CountItems" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="CountItems">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="bt" type="xs:boolean" minOccurs="0" />
+                <xs:element name="CountItem" type="xs:string" />
+                <xs:element name="SQLBYDemp" type="xs:string" minOccurs="0" />
+                <xs:element name="SQLBYWard" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+      <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+        <xs:selector xpath=".//CountItems" />
+        <xs:field xpath="CountItem" />
+      </xs:unique>
+    </xs:element>
+  </xs:schema>
+  <CountItems>
+    <bt>true</bt>
+    <CountItem>审方(医嘱数量)</CountItem>
+    <SQLBYDemp>select CheckDCode DEmployeeID,COUNT(distinct p.PrescriptionID) as [审方(医嘱数量)] from Prescription p inner join CPRecord cp on cp.PrescriptionID = p.PrescriptionID and DATEDIFF(DAY,'{0}',CheckDT) Between 0 and {1} {2} {3} group by CheckDCode </SQLBYDemp>
+    <SQLBYWard>select WardCode,              COUNT(distinct p.PrescriptionID) as [审方(医嘱数量)] from Prescription p inner join CPRecord cp on cp.PrescriptionID = p.PrescriptionID and DATEDIFF(DAY,'{0}',CheckDT) Between 0 and {1} {2} {3} group by WardCode </SQLBYWard>
+  </CountItems>
+  <CountItems>
+    <bt>true</bt>
+    <CountItem>审方(难度系数)</CountItem>
+    <SQLBYDemp>select CheckDCode DEmployeeID,SUM(isnull(difficultysf,0)) as [审方(难度系数)] from Prescription p inner join CPRecord cp on cp.PrescriptionID = p.PrescriptionID inner join PrescriptionDetail pd on pd.PrescriptionID = p.PrescriptionID inner join DDrug d on d.DrugCode = pd.DrugCode and DATEDIFF(DAY,'{0}',CheckDT) Between 0 and {1} {2} {3} group by CheckDCode </SQLBYDemp>
+    <SQLBYWard>select WardCode,              SUM(isnull(difficultysf,0)) as [审方(难度系数)] from Prescription p inner join CPRecord cp on cp.PrescriptionID = p.PrescriptionID inner join PrescriptionDetail pd on pd.PrescriptionID = p.PrescriptionID inner join DDrug d on d.DrugCode = pd.DrugCode and DATEDIFF(DAY,'{0}',CheckDT) Between 0 and {1} {2} {3} group by WardCode </SQLBYWard>
+  </CountItems>
+  <CountItems>
+    <bt>true</bt>
+    <CountItem>改批次(瓶签数)</CountItem>
+    <SQLBYDemp>select DEmployeeID,COUNT(1) as[改批次(瓶签数)] from OrderChangeLog oc inner join IVRecord iv on iv.LabelNo =oc.LabelNo inner join Prescription p on p.PrescriptionID = iv.PrescriptionID and DATEDIFF(DAY,'{0}',ChangeDT) Between 0 and {1} {2} {3} group by DEmployeeID </SQLBYDemp>
+    <SQLBYWard>select iv.WardCode,COUNT(1) as[改批次(瓶签数)] from OrderChangeLog oc inner join IVRecord iv on iv.LabelNo =oc.LabelNo inner join Prescription p on p.PrescriptionID = iv.PrescriptionID and DATEDIFF(DAY,'{0}',ChangeDT) Between 0 and {1} {2} {3} group by iv.WardCode </SQLBYWard>
+  </CountItems>
+  <CountItems>
+    <bt>true</bt>
+    <CountItem>改批次(患者数)</CountItem>
+    <SQLBYDemp>select DEmployeeID,COUNT(distinct iv.PatCode) as[改批次(患者数)] from OrderChangeLog oc inner join IVRecord iv on iv.LabelNo =oc.LabelNo inner join Prescription p on p.PrescriptionID = iv.PrescriptionID and DATEDIFF(DAY,'{0}',ChangeDT) Between 0 and {1} {2} {3} group by DEmployeeID </SQLBYDemp>
+    <SQLBYWard>select iv.WardCode,COUNT(distinct iv.PatCode) as[改批次(患者数)] from OrderChangeLog oc inner join IVRecord iv on iv.LabelNo =oc.LabelNo inner join Prescription p on p.PrescriptionID = iv.PrescriptionID and DATEDIFF(DAY,'{0}',ChangeDT) Between 0 and {1} {2} {3} group by iv.WardCode </SQLBYWard>
+  </CountItems>
+  <CountItems>
+    <bt>true</bt>
+    <CountItem>摆水</CountItem>
+    <SQLBYDemp>select PCode DEmployeeID,COUNT(1)[摆水] from IVRecord_YP_ZJG YP inner join IVRecord iv on iv.LabelNo = yp.IVRecordID inner join Prescription p on p.PrescriptionID = iv.PrescriptionID and ScanCount=0 and DATEDIFF(DAY,'{0}',YPDT) Between 0 and {1} {2} {3} group by PCode </SQLBYDemp>
+    <SQLBYWard>select iv.WardCode,      COUNT(1)[摆水] from IVRecord_YP_ZJG YP inner join IVRecord iv on iv.LabelNo = yp.IVRecordID inner join Prescription p on p.PrescriptionID = iv.PrescriptionID and ScanCount=0 and DATEDIFF(DAY,'{0}',YPDT) Between 0 and {1} {2} {3} group by iv.WardCode  </SQLBYWard>
+  </CountItems>
+  <CountItems>
+    <bt>true</bt>
+    <CountItem>摆药</CountItem>
+    <SQLBYDemp>select PCode DEmployeeID,COUNT(1)[摆药] from IVRecord_YS_ZJG YP inner join IVRecord iv on iv.LabelNo = yp.IVRecordID inner join Prescription p on p.PrescriptionID = iv.PrescriptionID and ScanCount=0 and DATEDIFF(DAY,'{0}',YSDT) Between 0 and {1} {2} {3} group by PCode </SQLBYDemp>
+    <SQLBYWard>select iv.WardCode,      COUNT(1)[摆药] from IVRecord_YS_ZJG YP inner join IVRecord iv on iv.LabelNo = yp.IVRecordID inner join Prescription p on p.PrescriptionID = iv.PrescriptionID and ScanCount=0 and DATEDIFF(DAY,'{0}',YSDT) Between 0 and {1} {2} {3} group by iv.WardCode </SQLBYWard>
+  </CountItems>
+  <CountItems>
+    <bt>true</bt>
+    <CountItem>排药</CountItem>
+    <SQLBYDemp>select PCode DEmployeeID,COUNT(1)[排药] from IVRecord_PY YP inner join IVRecord iv on iv.LabelNo = yp.IVRecordID inner join Prescription p on p.PrescriptionID = iv.PrescriptionID and ScanCount=0 and DATEDIFF(DAY,'{0}',PYDT) Between 0 and {1} {2} {3} group by PCode </SQLBYDemp>
+    <SQLBYWard>select iv.WardCode,      COUNT(1)[排药] from IVRecord_PY YP inner join IVRecord iv on iv.LabelNo = yp.IVRecordID inner join Prescription p on p.PrescriptionID = iv.PrescriptionID and ScanCount=0 and DATEDIFF(DAY,'{0}',PYDT) Between 0 and {1} {2} {3} group by iv.WardCode </SQLBYWard>
+  </CountItems>
+  <CountItems>
+    <bt>true</bt>
+    <CountItem>进仓</CountItem>
+    <SQLBYDemp>select PCode DEmployeeID,COUNT(1)[进仓] from IVRecord_JC YP inner join IVRecord iv on iv.LabelNo = yp.IVRecordID inner join Prescription p on p.PrescriptionID = iv.PrescriptionID and ScanCount=0 and DATEDIFF(DAY,'{0}',JCDT) Between 0 and {1} {2} {3} group by PCode </SQLBYDemp>
+    <SQLBYWard>select iv.WardCode,      COUNT(1)[进仓] from IVRecord_JC YP inner join IVRecord iv on iv.LabelNo = yp.IVRecordID inner join Prescription p on p.PrescriptionID = iv.PrescriptionID and ScanCount=0 and DATEDIFF(DAY,'{0}',JCDT) Between 0 and {1} {2} {3} group by iv.WardCode </SQLBYWard>
+  </CountItems>
+  <CountItems>
+    <bt>true</bt>
+    <CountItem>配置(非空)</CountItem>
+    <SQLBYDemp>select PCode DEmployeeID,COUNT(1)[配置(非空)] from IVRecord_PZ YP inner join IVRecord iv on iv.LabelNo = yp.IVRecordID inner join Prescription p on p.PrescriptionID = iv.PrescriptionID and ScanCount=0 and Batch like '%#' and DATEDIFF(DAY,'{0}',PZDT) Between 0 and {1} {2} {3} group by PCode </SQLBYDemp>
+    <SQLBYWard>select iv.WardCode,      COUNT(1)[配置(非空)] from IVRecord_PZ YP inner join IVRecord iv on iv.LabelNo = yp.IVRecordID inner join Prescription p on p.PrescriptionID = iv.PrescriptionID and ScanCount=0 and Batch like '%#' and DATEDIFF(DAY,'{0}',PZDT) Between 0 and {1} {2} {3} group by iv.WardCode </SQLBYWard>
+  </CountItems>
+  <CountItems>
+    <bt>true</bt>
+    <CountItem>配置(空包)</CountItem>
+    <SQLBYDemp>select PCode DEmployeeID,COUNT(1)[配置(空包)] from IVRecord_PZ YP inner join IVRecord iv on iv.LabelNo = yp.IVRecordID inner join Prescription p on p.PrescriptionID = iv.PrescriptionID and ScanCount=0 and Batch like '%K' and DATEDIFF(DAY,'{0}',PZDT) Between 0 and {1} {2} {3} group by PCode </SQLBYDemp>
+    <SQLBYWard>select iv.WardCode,      COUNT(1)[配置(空包)] from IVRecord_PZ YP inner join IVRecord iv on iv.LabelNo = yp.IVRecordID inner join Prescription p on p.PrescriptionID = iv.PrescriptionID and ScanCount=0 and Batch like '%K' and DATEDIFF(DAY,'{0}',PZDT) Between 0 and {1} {2} {3} group by iv.WardCode </SQLBYWard>
+  </CountItems>
+  <CountItems>
+    <bt>true</bt>
+    <CountItem>出仓</CountItem>
+    <SQLBYDemp>select PCode DEmployeeID,COUNT(1)[出仓] from IVRecord_CC YP inner join IVRecord iv on iv.LabelNo = yp.IVRecordID inner join Prescription p on p.PrescriptionID = iv.PrescriptionID and ScanCount=0 and DATEDIFF(DAY,'{0}',CCDT) Between 0 and {1} {2} {3} group by PCode </SQLBYDemp>
+    <SQLBYWard>select iv.WardCode,      COUNT(1)[出仓] from IVRecord_CC YP inner join IVRecord iv on iv.LabelNo = yp.IVRecordID inner join Prescription p on p.PrescriptionID = iv.PrescriptionID and ScanCount=0 and DATEDIFF(DAY,'{0}',CCDT) Between 0 and {1} {2} {3} group by iv.WardCode </SQLBYWard>
+  </CountItems>
+  <CountItems>
+    <bt>true</bt>
+    <CountItem>打包</CountItem>
+    <SQLBYDemp>select PCode DEmployeeID,COUNT(1)[打包] from IVRecord_DB YP inner join IVRecord iv on iv.LabelNo = yp.IVRecordID inner join Prescription p on p.PrescriptionID = iv.PrescriptionID and ScanCount=0 and DATEDIFF(DAY,'{0}',DBDT) Between 0 and {1} {2} {3} group by PCode </SQLBYDemp>
+    <SQLBYWard>select iv.WardCode,      COUNT(1)[打包] from IVRecord_DB YP inner join IVRecord iv on iv.LabelNo = yp.IVRecordID inner join Prescription p on p.PrescriptionID = iv.PrescriptionID and ScanCount=0 and DATEDIFF(DAY,'{0}',DBDT) Between 0 and {1} {2} {3} group by iv.WardCode </SQLBYWard>
+  </CountItems>
+  <CountItems>
+    <bt>true</bt>
+    <CountItem>配置取消</CountItem>
+    <SQLBYDemp>select LabelOverID DEmployeeID,COUNT(1) as [配置取消] from IVRecord iv inner join Prescription p on p.PrescriptionID = iv.PrescriptionID and LabelOver &lt; 0 AND LabelOverID!='' AND DATEDIFF(DAY,'{0}',LabelOverTime) Between 0 and {1} {2} {3} group by LabelOverID </SQLBYDemp>
+    <SQLBYWard>select iv.WardCode,            COUNT(1) as [配置取消] from IVRecord iv inner join Prescription p on p.PrescriptionID = iv.PrescriptionID and LabelOver &lt; 0 AND LabelOverID!='' AND DATEDIFF(DAY,'{0}',LabelOverTime) Between 0 and {1} {2} {3} group by iv.WardCode </SQLBYWard>
+  </CountItems>
+</NewDataSet>

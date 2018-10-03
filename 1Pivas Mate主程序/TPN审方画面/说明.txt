@@ -1,0 +1,49 @@
+一、数据库
+1、HospitalData 
+   医院HIS数据：医嘱、患者信息。
+
+2、LISData
+   医院各类检查系统数据：实验室检查、体格检查等
+
+3、cpmate
+   ，临床药师伴侣系统，CPMATE系统数据库，未TPN提供登录账号管理
+
+4、tpn
+   TPN审方数据库
+  
+
+二、代码
+
+1、Aga.Controls 
+   Aga皮肤控件
+
+2、BLPublic 
+   博龙公用操作单元
+
+3、cpmatelite
+   TPN审方主程序（WPF）
+
+4、formreport
+   FastReport报表显示（Winform，WPF不能直接使用FastReport）
+
+5、qrcode
+   QR二维码生成
+
+6、recipemonitor
+   TPN处方程序
+
+7、recipemonitorlist
+   TPN医嘱审方列表
+
+8、SDFYDataImport
+   苏大附一实验室检查数据导入
+
+9、synpivasdata
+   苏大附一患者信息同步（从PIVAS数据库导到hospitaldata库）
+
+10、tpnmonitor
+   TPN审方类库（cpmatelite和recipemonitor使用）
+
+11、update
+   程序更新
+

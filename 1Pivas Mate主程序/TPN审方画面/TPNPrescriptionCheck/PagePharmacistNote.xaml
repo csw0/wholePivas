@@ -1,0 +1,70 @@
+﻿<Page x:Class="TPNReview.PagePharmacistNote"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TPNReview"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="600"
+      TextOptions.TextFormattingMode="Display"
+	  Title="药师操作">
+    
+    <Page.Resources>
+        <local:ConverterOperateType x:Key="cnvOperateType" />
+    </Page.Resources>
+
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Height="1" Background="Gray" />
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Height="40">
+            <DatePicker x:Name="dpSDate" Width="120" VerticalAlignment="Center" FontSize="14" />
+            <TextBlock Text="-" Margin="6,0" VerticalAlignment="Center" />
+            <DatePicker x:Name="dpEDate" Width="120" VerticalAlignment="Center" FontSize="14" /> 
+            <TextBlock Text="操作类型:" VerticalAlignment="Center" Margin="10,0,4,0" />
+            <ComboBox x:Name="cbbOpType" VerticalAlignment="Center" Width="80" />
+            <CheckBox x:Name="cbAllPatient" Content="显示所有患者" VerticalAlignment="Center" Margin="10,0" />
+        </StackPanel>
+
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Height="30">
+            <Button Content="修改" Width="60" Margin="6,4" Click="btnMod_Click" />
+            <Button Content="删除" Width="60" Margin="0,4" Click="btnDel_Click" />
+        </StackPanel>
+
+        <ListView x:Name="lvRecord" VerticalAlignment="Stretch" MouseDoubleClick="lvNotes_MouseDoubleClick">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Height" Value="24" />
+                    <Setter Property="Margin" Value="0" />
+                    <Setter Property="BorderThickness" Value="0" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ContextMenu>
+                <ContextMenu Opened="cmRecord_Opened">
+                    <MenuItem Header="修改" Click="btnMod_Click" />
+                    <MenuItem Header="删除" Click="btnDel_Click" />
+                    <Separator />
+                    <MenuItem x:Name="miFinish" Header="完成" Click="miFinish_Click" Visibility="Collapsed" /> 
+                </ContextMenu>
+            </ListView.ContextMenu>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="患者" Width="160">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding DeptName}" VerticalAlignment="Center" />
+                                    <TextBlock Text="{Binding BedNo}" VerticalAlignment="Center" Margin="4,0,0,0" />
+                                    <TextBlock Text="床" VerticalAlignment="Center" />
+                                    <TextBlock Text="{Binding PatientName}" VerticalAlignment="Center" Margin="4,0,0,0" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="时间" DisplayMemberBinding="{Binding Path=OpTime, StringFormat=yyyy-MM-dd HH:mm:ss}"  Width="140"/>
+                    <GridViewColumn Header="类型" DisplayMemberBinding="{Binding Path=TypeCode, Converter={StaticResource cnvOperateType}}"  Width="50"/>
+                    <GridViewColumn Header="内容" DisplayMemberBinding="{Binding Content}"  Width="400"/>
+                    <GridViewColumn Header="药师" DisplayMemberBinding="{Binding Operater}"  Width="80"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </DockPanel>
+</Page>

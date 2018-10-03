@@ -1,0 +1,28 @@
+﻿<Window x:Class="TPNReview.WinListFind"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="列表" Height="400" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Loaded="Window_Loaded">
+    <Window.Background>
+        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+    </Window.Background>
+    <DockPanel> 
+        <StackPanel DockPanel.Dock="Top" Height="32" Orientation="Horizontal"> 
+            <TextBox x:Name="txtKey" Height="23" TextWrapping="NoWrap" MaxLength="32" VerticalAlignment="Center" 
+                     Width="160" Margin="4, 0, 8, 0" KeyUp="txtKey_KeyUp" />
+            <Button Content="查询" Click="Search_Click" VerticalAlignment="Center" Width="50"/>
+        </StackPanel>
+
+        <StackPanel DockPanel.Dock="Bottom" Height="40" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Grid.Row="2" Content="确定" Click="OK_Click" VerticalAlignment="Center" Margin="4, 0" Width="50"/>
+        </StackPanel>
+
+        <ListView x:Name="lvContent" Margin="4,0" MouseDoubleClick="Content_DoubleClick" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="编码" DisplayMemberBinding="{Binding Code}" Width="60" />
+                    <GridViewColumn Header="名称" DisplayMemberBinding="{Binding Name}" Width="Auto" />
+                </GridView>
+            </ListView.View>
+        </ListView> 
+    </DockPanel>
+</Window>

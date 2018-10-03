@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{40461D1C-1423-4CCE-8182-91EB11F45EBC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PivasTool</RootNamespace>
+    <AssemblyName>PivasTool</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\..\_output\_DLL\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="InsertSql.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SelectSql.cs" />
+    <Compile Include="ToolAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolAdd.Designer.cs">
+      <DependentUpon>ToolAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCenterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCenterControl.Designer.cs">
+      <DependentUpon>UCenterControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UMaxControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UMaxControl.Designer.cs">
+      <DependentUpon>UMaxControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UMinControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UMinControl.Designer.cs">
+      <DependentUpon>UMinControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UTreeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UTreeControl.Designer.cs">
+      <DependentUpon>UTreeControl.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolAdd.resx">
+      <DependentUpon>ToolAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCenterControl.resx">
+      <DependentUpon>UCenterControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UMaxControl.resx">
+      <DependentUpon>UMaxControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UMinControl.resx">
+      <DependentUpon>UMinControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UTreeControl.resx">
+      <DependentUpon>UTreeControl.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Resources\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\药品目录.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\分隔线.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\菜单项分隔线.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\菜单项.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\关闭.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\工具小项的分隔线.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\10Common\PIVAsCommon\PIVAsCommon.csproj">
+      <Project>{FAB76740-C6E8-42B0-8E97-52DBC3BFB8F1}</Project>
+      <Name>PIVAsCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

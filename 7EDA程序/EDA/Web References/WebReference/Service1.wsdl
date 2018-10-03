@@ -1,0 +1,904 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Employeid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QRLabelNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DEmployeeID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LabelNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CheckPro" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QRLabelNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QRLabelNoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SigleLableNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DEmployeeID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LabelNos" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CheckPro" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ivs" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SigleLableNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SigleLableNoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Rongji">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DEmployeeID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LabelNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RongjiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RongjiResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RongMei">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DEmployeeID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LabelNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RongMeiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RongMeiResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PaiYao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DEmployeeID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LabelNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PaiYaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PaiYaoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PeiZhi">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DEmployeeID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LabelNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PeiZhiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PeiZhiResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DaBao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DEmployeeID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LabelNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DaBaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DaBaoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JinCang">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DEmployeeID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LabelNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JinCangResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JinCangResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChuCang">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DEmployeeID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LabelNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChuCangResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChuCangResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Qianshou">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DEmployeeID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LabelNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QianshouResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QianshouResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LableInfor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LabelNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OtherCondition" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LableInforResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LableInforResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DrugInfor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LabelNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DrugInforResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DrugInforResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AllDrugNum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DEmployeeID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Checkpro" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AllDrugNumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AllDrugNumResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DwardInfor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="demployeeid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="checkpro" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="date" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DwardInforResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DwardInforResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InforByDward">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="checkpro" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="date" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="wardname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InforByDwardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InforByDwardResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectStepDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="labelno" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectStepDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectStepDetailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnErrorType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="errorstep" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnErrorTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnErrorTypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddErrorRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="labelno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="errstep" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="errDid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="etime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="etype" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddErrorRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddErrorRecordResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShowDward">
+        <s:complexType />
+      </s:element>
+      <s:element name="ShowDwardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ShowDwardResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="QRLabelNoSoapIn">
+    <wsdl:part name="parameters" element="tns:QRLabelNo" />
+  </wsdl:message>
+  <wsdl:message name="QRLabelNoSoapOut">
+    <wsdl:part name="parameters" element="tns:QRLabelNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SigleLableNoSoapIn">
+    <wsdl:part name="parameters" element="tns:SigleLableNo" />
+  </wsdl:message>
+  <wsdl:message name="SigleLableNoSoapOut">
+    <wsdl:part name="parameters" element="tns:SigleLableNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RongjiSoapIn">
+    <wsdl:part name="parameters" element="tns:Rongji" />
+  </wsdl:message>
+  <wsdl:message name="RongjiSoapOut">
+    <wsdl:part name="parameters" element="tns:RongjiResponse" />
+  </wsdl:message>
+  <wsdl:message name="RongMeiSoapIn">
+    <wsdl:part name="parameters" element="tns:RongMei" />
+  </wsdl:message>
+  <wsdl:message name="RongMeiSoapOut">
+    <wsdl:part name="parameters" element="tns:RongMeiResponse" />
+  </wsdl:message>
+  <wsdl:message name="PaiYaoSoapIn">
+    <wsdl:part name="parameters" element="tns:PaiYao" />
+  </wsdl:message>
+  <wsdl:message name="PaiYaoSoapOut">
+    <wsdl:part name="parameters" element="tns:PaiYaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="PeiZhiSoapIn">
+    <wsdl:part name="parameters" element="tns:PeiZhi" />
+  </wsdl:message>
+  <wsdl:message name="PeiZhiSoapOut">
+    <wsdl:part name="parameters" element="tns:PeiZhiResponse" />
+  </wsdl:message>
+  <wsdl:message name="DaBaoSoapIn">
+    <wsdl:part name="parameters" element="tns:DaBao" />
+  </wsdl:message>
+  <wsdl:message name="DaBaoSoapOut">
+    <wsdl:part name="parameters" element="tns:DaBaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="JinCangSoapIn">
+    <wsdl:part name="parameters" element="tns:JinCang" />
+  </wsdl:message>
+  <wsdl:message name="JinCangSoapOut">
+    <wsdl:part name="parameters" element="tns:JinCangResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChuCangSoapIn">
+    <wsdl:part name="parameters" element="tns:ChuCang" />
+  </wsdl:message>
+  <wsdl:message name="ChuCangSoapOut">
+    <wsdl:part name="parameters" element="tns:ChuCangResponse" />
+  </wsdl:message>
+  <wsdl:message name="QianshouSoapIn">
+    <wsdl:part name="parameters" element="tns:Qianshou" />
+  </wsdl:message>
+  <wsdl:message name="QianshouSoapOut">
+    <wsdl:part name="parameters" element="tns:QianshouResponse" />
+  </wsdl:message>
+  <wsdl:message name="LableInforSoapIn">
+    <wsdl:part name="parameters" element="tns:LableInfor" />
+  </wsdl:message>
+  <wsdl:message name="LableInforSoapOut">
+    <wsdl:part name="parameters" element="tns:LableInforResponse" />
+  </wsdl:message>
+  <wsdl:message name="DrugInforSoapIn">
+    <wsdl:part name="parameters" element="tns:DrugInfor" />
+  </wsdl:message>
+  <wsdl:message name="DrugInforSoapOut">
+    <wsdl:part name="parameters" element="tns:DrugInforResponse" />
+  </wsdl:message>
+  <wsdl:message name="AllDrugNumSoapIn">
+    <wsdl:part name="parameters" element="tns:AllDrugNum" />
+  </wsdl:message>
+  <wsdl:message name="AllDrugNumSoapOut">
+    <wsdl:part name="parameters" element="tns:AllDrugNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="DwardInforSoapIn">
+    <wsdl:part name="parameters" element="tns:DwardInfor" />
+  </wsdl:message>
+  <wsdl:message name="DwardInforSoapOut">
+    <wsdl:part name="parameters" element="tns:DwardInforResponse" />
+  </wsdl:message>
+  <wsdl:message name="InforByDwardSoapIn">
+    <wsdl:part name="parameters" element="tns:InforByDward" />
+  </wsdl:message>
+  <wsdl:message name="InforByDwardSoapOut">
+    <wsdl:part name="parameters" element="tns:InforByDwardResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectStepDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectStepDetail" />
+  </wsdl:message>
+  <wsdl:message name="SelectStepDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectStepDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReturnErrorTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:ReturnErrorType" />
+  </wsdl:message>
+  <wsdl:message name="ReturnErrorTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:ReturnErrorTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddErrorRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:AddErrorRecord" />
+  </wsdl:message>
+  <wsdl:message name="AddErrorRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:AddErrorRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ShowDwardSoapIn">
+    <wsdl:part name="parameters" element="tns:ShowDward" />
+  </wsdl:message>
+  <wsdl:message name="ShowDwardSoapOut">
+    <wsdl:part name="parameters" element="tns:ShowDwardResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Service1Soap">
+    <wsdl:operation name="Login">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">登陆</wsdl:documentation>
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QRLabelNo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">扫描单个瓶签</wsdl:documentation>
+      <wsdl:input message="tns:QRLabelNoSoapIn" />
+      <wsdl:output message="tns:QRLabelNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SigleLableNo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">扫描总瓶签</wsdl:documentation>
+      <wsdl:input message="tns:SigleLableNoSoapIn" />
+      <wsdl:output message="tns:SigleLableNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Rongji">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">溶剂核对</wsdl:documentation>
+      <wsdl:input message="tns:RongjiSoapIn" />
+      <wsdl:output message="tns:RongjiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RongMei">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">溶媒核对</wsdl:documentation>
+      <wsdl:input message="tns:RongMeiSoapIn" />
+      <wsdl:output message="tns:RongMeiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PaiYao">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">排药核对</wsdl:documentation>
+      <wsdl:input message="tns:PaiYaoSoapIn" />
+      <wsdl:output message="tns:PaiYaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PeiZhi">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">配置核对</wsdl:documentation>
+      <wsdl:input message="tns:PeiZhiSoapIn" />
+      <wsdl:output message="tns:PeiZhiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DaBao">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">打包核对</wsdl:documentation>
+      <wsdl:input message="tns:DaBaoSoapIn" />
+      <wsdl:output message="tns:DaBaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JinCang">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">进仓扫描</wsdl:documentation>
+      <wsdl:input message="tns:JinCangSoapIn" />
+      <wsdl:output message="tns:JinCangSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChuCang">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">出仓扫描</wsdl:documentation>
+      <wsdl:input message="tns:ChuCangSoapIn" />
+      <wsdl:output message="tns:ChuCangSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Qianshou">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">病区签收</wsdl:documentation>
+      <wsdl:input message="tns:QianshouSoapIn" />
+      <wsdl:output message="tns:QianshouSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LableInfor">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">处方号/（总)瓶签信息</wsdl:documentation>
+      <wsdl:input message="tns:LableInforSoapIn" />
+      <wsdl:output message="tns:LableInforSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DrugInfor">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">药品信息</wsdl:documentation>
+      <wsdl:input message="tns:DrugInforSoapIn" />
+      <wsdl:output message="tns:DrugInforSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AllDrugNum">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">瓶签瓶支数量</wsdl:documentation>
+      <wsdl:input message="tns:AllDrugNumSoapIn" />
+      <wsdl:output message="tns:AllDrugNumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DwardInfor">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">汇总信息</wsdl:documentation>
+      <wsdl:input message="tns:DwardInforSoapIn" />
+      <wsdl:output message="tns:DwardInforSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InforByDward">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">病区信息</wsdl:documentation>
+      <wsdl:input message="tns:InforByDwardSoapIn" />
+      <wsdl:output message="tns:InforByDwardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectStepDetail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">单个瓶签的所有操作信息</wsdl:documentation>
+      <wsdl:input message="tns:SelectStepDetailSoapIn" />
+      <wsdl:output message="tns:SelectStepDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnErrorType">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">返回差错类型</wsdl:documentation>
+      <wsdl:input message="tns:ReturnErrorTypeSoapIn" />
+      <wsdl:output message="tns:ReturnErrorTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddErrorRecord">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">添加差错记录</wsdl:documentation>
+      <wsdl:input message="tns:AddErrorRecordSoapIn" />
+      <wsdl:output message="tns:AddErrorRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowDward">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">显示病区</wsdl:documentation>
+      <wsdl:input message="tns:ShowDwardSoapIn" />
+      <wsdl:output message="tns:ShowDwardSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QRLabelNo">
+      <soap:operation soapAction="http://tempuri.org/QRLabelNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SigleLableNo">
+      <soap:operation soapAction="http://tempuri.org/SigleLableNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Rongji">
+      <soap:operation soapAction="http://tempuri.org/Rongji" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RongMei">
+      <soap:operation soapAction="http://tempuri.org/RongMei" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaiYao">
+      <soap:operation soapAction="http://tempuri.org/PaiYao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PeiZhi">
+      <soap:operation soapAction="http://tempuri.org/PeiZhi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DaBao">
+      <soap:operation soapAction="http://tempuri.org/DaBao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JinCang">
+      <soap:operation soapAction="http://tempuri.org/JinCang" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChuCang">
+      <soap:operation soapAction="http://tempuri.org/ChuCang" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Qianshou">
+      <soap:operation soapAction="http://tempuri.org/Qianshou" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LableInfor">
+      <soap:operation soapAction="http://tempuri.org/LableInfor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DrugInfor">
+      <soap:operation soapAction="http://tempuri.org/DrugInfor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllDrugNum">
+      <soap:operation soapAction="http://tempuri.org/AllDrugNum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DwardInfor">
+      <soap:operation soapAction="http://tempuri.org/DwardInfor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InforByDward">
+      <soap:operation soapAction="http://tempuri.org/InforByDward" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectStepDetail">
+      <soap:operation soapAction="http://tempuri.org/SelectStepDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnErrorType">
+      <soap:operation soapAction="http://tempuri.org/ReturnErrorType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddErrorRecord">
+      <soap:operation soapAction="http://tempuri.org/AddErrorRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowDward">
+      <soap:operation soapAction="http://tempuri.org/ShowDward" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QRLabelNo">
+      <soap12:operation soapAction="http://tempuri.org/QRLabelNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SigleLableNo">
+      <soap12:operation soapAction="http://tempuri.org/SigleLableNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Rongji">
+      <soap12:operation soapAction="http://tempuri.org/Rongji" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RongMei">
+      <soap12:operation soapAction="http://tempuri.org/RongMei" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaiYao">
+      <soap12:operation soapAction="http://tempuri.org/PaiYao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PeiZhi">
+      <soap12:operation soapAction="http://tempuri.org/PeiZhi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DaBao">
+      <soap12:operation soapAction="http://tempuri.org/DaBao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JinCang">
+      <soap12:operation soapAction="http://tempuri.org/JinCang" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChuCang">
+      <soap12:operation soapAction="http://tempuri.org/ChuCang" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Qianshou">
+      <soap12:operation soapAction="http://tempuri.org/Qianshou" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LableInfor">
+      <soap12:operation soapAction="http://tempuri.org/LableInfor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DrugInfor">
+      <soap12:operation soapAction="http://tempuri.org/DrugInfor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllDrugNum">
+      <soap12:operation soapAction="http://tempuri.org/AllDrugNum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DwardInfor">
+      <soap12:operation soapAction="http://tempuri.org/DwardInfor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InforByDward">
+      <soap12:operation soapAction="http://tempuri.org/InforByDward" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectStepDetail">
+      <soap12:operation soapAction="http://tempuri.org/SelectStepDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnErrorType">
+      <soap12:operation soapAction="http://tempuri.org/ReturnErrorType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddErrorRecord">
+      <soap12:operation soapAction="http://tempuri.org/AddErrorRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowDward">
+      <soap12:operation soapAction="http://tempuri.org/ShowDward" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
+      <soap:address location="http://192.168.12.37:8089/Service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
+      <soap12:address location="http://192.168.12.37:8089/Service1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

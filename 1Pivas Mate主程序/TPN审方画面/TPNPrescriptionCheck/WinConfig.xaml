@@ -1,0 +1,17 @@
+﻿<Window x:Class="TPNReview.WinConfig"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="设置" Height="300" Width="300" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" Loaded="Window_Loaded">
+    <Window.Background>
+        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+    </Window.Background>
+    <Canvas>
+        <CheckBox x:Name="cbCalOtherCapacity" Content="计算非溶媒注射液容积." Canvas.Left="10" Canvas.Top="13"/>
+        <StackPanel Canvas.Left="30" Canvas.Top="33" Orientation="Horizontal" Height="24">
+            <TextBlock Text="容积小于" VerticalAlignment="Center" />
+            <TextBox x:Name="txtCalMinCapacity" Height="23" Text="10" Width="24" Margin="4,0" />
+            <TextBlock Text="ml不计入容积" VerticalAlignment="Center" />
+        </StackPanel>
+        <Button x:Name="btnOK" Content="确定" Canvas.Left="115" Canvas.Top="244" Width="75" Click="btnOK_Click"/>
+    </Canvas>
+</Window>

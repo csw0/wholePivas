@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FAB76740-C6E8-42B0-8E97-52DBC3BFB8F1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PIVAsCommon</RootNamespace>
+    <AssemblyName>PIVAsCommon</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\11Output\CommonDll\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\Log4net\net35-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Extensions\ArrayExtensions.cs" />
+    <Compile Include="Helper\CommonHelp.cs" />
+    <Compile Include="Extensions\ControlExtensions.cs" />
+    <Compile Include="Helper\DB_Help.cs" />
+    <Compile Include="Helper\IniFileHelper.cs" />
+    <Compile Include="Helper\OracleHelper.cs" />
+    <Compile Include="Helper\PermitHelper.cs" />
+    <Compile Include="Helper\ProcessHelper.cs" />
+    <Compile Include="IMenuManager.cs" />
+    <Compile Include="Models\HospitalType_Const.cs" />
+    <Compile Include="PivasEventArgs.cs" />
+    <Compile Include="InternalLogger.cs" />
+    <Compile Include="Helper\ShowMsgHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sockets\AsyncSocketErrorCodeEnum.cs" />
+    <Compile Include="Sockets\AsyncSocketErrorEventArgs.cs" />
+    <Compile Include="Sockets\AsyncSocketSessionEventArgs.cs" />
+    <Compile Include="Sockets\AsyncSocketTcpClient.cs" />
+    <Compile Include="Sockets\AsyncSocketTcpClientConstants.cs" />
+    <Compile Include="Sockets\AsyncSocketTcpServer.cs" />
+    <Compile Include="Sockets\AsyncSocketTcpServerConstants.cs" />
+    <Compile Include="Sockets\AsyncSocketUdpClient.cs" />
+    <Compile Include="Sockets\AsyncSocketUdpClientConstants.cs" />
+    <Compile Include="Sockets\AsyncSocketUdpServer.cs" />
+    <Compile Include="Sockets\AsyncSocketUdpServerConstants.cs" />
+    <Compile Include="SoftType.cs" />
+    <Compile Include="Helper\XmlSerializeHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="log4net.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

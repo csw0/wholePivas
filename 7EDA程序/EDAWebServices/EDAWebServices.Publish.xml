@@ -1,0 +1,59 @@
+<publishData>
+  <publishTarget publishUrl="E:\EDAWeb\">
+    <file relUrl="bin/EDAWebService.xml" publishTime="12/15/2014 15:10:46" />
+    <file relUrl="bin/IMEQPIVAs.ini" publishTime="10/20/2014 15:21:17" />
+    <file relUrl="bin/EDAWebServices.pdb" publishTime="07/30/2017 19:29:50" />
+    <file relUrl="Web.config" publishTime="06/20/2016 11:53:55" />
+    <file relUrl="bin/ChargeInterface.dll" publishTime="11/21/2014 16:18:04" />
+    <file relUrl="bin/PIVAsDBhelp.dll" publishTime="08/29/2014 09:46:28" />
+    <file relUrl="bin/EDAWebServices.dll" publishTime="07/30/2017 19:29:50" />
+    <file relUrl="Service1.asmx" publishTime="11/12/2014 11:44:37" />
+  </publishTarget>
+  <publishTarget publishUrl="E:\zheng\桌面\WEB\" />
+  <publishTarget publishUrl="C:\Users\Cathy\Desktop\Web\">
+    <file relUrl="bin/PIVAsDBhelp.dll" publishTime="08/29/2014 09:46:28" />
+    <file relUrl="bin/IMEQPIVAs.ini" publishTime="10/20/2014 15:21:17" />
+    <file relUrl="bin/EDAWebServices.pdb" publishTime="06/13/2016 16:49:51" />
+    <file relUrl="Web.config" publishTime="06/13/2016 16:14:27" />
+    <file relUrl="bin/ChargeInterface.dll" publishTime="11/21/2014 16:18:04" />
+    <file relUrl="bin/EDAWebService.xml" publishTime="12/15/2014 15:10:46" />
+    <file relUrl="bin/EDAWebServices.dll" publishTime="06/13/2016 16:49:51" />
+    <file relUrl="Service1.asmx" publishTime="11/12/2014 11:44:37" />
+  </publishTarget>
+  <publishTarget publishUrl="C:\Users\Administrator\Desktop\Web\">
+    <file relUrl="bin/PIVAsDBhelp.dll" publishTime="08/29/2014 09:46:28" />
+    <file relUrl="bin/EDAWebServices.pdb" publishTime="01/20/2015 21:01:43" />
+    <file relUrl="Web.config" publishTime="01/20/2015 21:22:10" />
+    <file relUrl="bin/ChargeInterface.dll" publishTime="11/21/2014 16:18:04" />
+    <file relUrl="bin/EDAWebService.xml" publishTime="12/15/2014 15:10:46" />
+    <file relUrl="bin/EDAWebServices.dll" publishTime="01/20/2015 21:01:44" />
+    <file relUrl="bin/IMEQPIVAs.ini" publishTime="10/20/2014 15:21:17" />
+    <file relUrl="Service1.asmx" publishTime="11/12/2014 11:44:37" />
+  </publishTarget>
+  <publishTarget publishUrl="C:\Users\zmy\Desktop\Web\">
+    <file relUrl="bin/PIVAsDBhelp.dll" publishTime="08/29/2014 09:46:28" />
+    <file relUrl="bin/IMEQPIVAs.ini" publishTime="10/20/2014 15:21:17" />
+    <file relUrl="bin/EDAWebServices.pdb" publishTime="01/20/2015 21:01:43" />
+    <file relUrl="Web.config" publishTime="11/20/2014 09:19:57" />
+    <file relUrl="bin/ChargeInterface.dll" publishTime="11/21/2014 16:18:04" />
+    <file relUrl="bin/EDAWebService.xml" publishTime="12/15/2014 15:10:46" />
+    <file relUrl="bin/EDAWebServices.dll" publishTime="01/20/2015 21:01:44" />
+    <file relUrl="Service1.asmx" publishTime="11/12/2014 11:44:37" />
+  </publishTarget>
+  <publishTarget publishUrl="C:\Users\admin\Desktop\web\">
+    <file relUrl="bin/EDAWebServices.pdb" publishTime="11/11/2014 15:22:46" />
+    <file relUrl="Web.config" publishTime="11/04/2014 13:42:21" />
+    <file relUrl="bin/EDAWebServices.dll" publishTime="11/11/2014 15:22:46" />
+    <file relUrl="Service1.asmx" publishTime="11/04/2014 11:02:15" />
+    <file relUrl="bin/PIVAsDBhelp.dll" publishTime="08/29/2014 09:46:28" />
+    <file relUrl="bin/IMEQPIVAs.ini" publishTime="10/20/2014 15:21:17" />
+  </publishTarget>
+  <publishTarget publishUrl="C:\Users\ZhangWang\Desktop\新建文件夹\">
+    <file relUrl="bin/EDAWebServices.pdb" publishTime="11/11/2014 14:28:00" />
+    <file relUrl="bin/IMEQPIVAs.ini" publishTime="10/20/2014 15:21:17" />
+    <file relUrl="bin/EDAWebServices.dll" publishTime="11/11/2014 14:28:00" />
+    <file relUrl="Service1.asmx" publishTime="11/04/2014 11:02:15" />
+    <file relUrl="bin/PIVAsDBhelp.dll" publishTime="08/29/2014 09:46:28" />
+    <file relUrl="Web.config" publishTime="11/04/2014 13:42:21" />
+  </publishTarget>
+</publishData>

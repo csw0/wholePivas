@@ -1,0 +1,47 @@
+﻿<Window x:Class="TPNReview.WinCustodyEdit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="监护" Height="300" Width="400" ResizeMode="NoResize" 
+        Loaded="Window_Loaded" WindowStartupLocation="CenterOwner" 
+        Closed="Window_Closed">
+    <StackPanel>
+        <DockPanel Height="100" Margin="0,8,0,0">
+            <TextBlock DockPanel.Dock="Left" Text="监护对象:" VerticalAlignment="Center" Margin="8,0" />
+
+            <StackPanel DockPanel.Dock="Right" Margin="4,0">
+                <Button Content="+" ToolTip="可右键点击需要监护的项目,菜单中点击监护,增加监护对象" Width="21"
+                        Click="btnAdd_Click"/>
+                <Button Content="-" ToolTip="删除监护对象" Click="btnDelObj_Click" Margin="0,4" />
+            </StackPanel>
+
+            <ListView x:Name="lvObjects">
+                <ListView.Resources>
+                    <Style TargetType="{x:Type GridViewColumnHeader}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                    </Style> 
+                </ListView.Resources>
+                
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="对象类型" DisplayMemberBinding="{Binding TypeName}" Width="60"/>
+                        <GridViewColumn Header="对象名称" DisplayMemberBinding="{Binding ObjectName}" Width="100"/>
+                        <GridViewColumn Header="对象值" DisplayMemberBinding="{Binding ObjectValue}" Width="100"/>
+                        <GridViewColumn Header="值时间" DisplayMemberBinding="{Binding Path=ValueTime, StringFormat=yy.M.d}" Width="80"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>    
+        </DockPanel>
+        
+        <DockPanel Height="80">
+            <TextBlock DockPanel.Dock="Left" Text="监护说明:" VerticalAlignment="Center" Margin="8,0" />
+            <TextBox x:Name="txtCustodyDesc" AcceptsReturn="True" TextWrapping="Wrap" Margin="0,8,8,8"  />
+        </DockPanel>
+
+        <StackPanel Orientation="Horizontal" Height="30">
+            <TextBlock Text="监  护  人:" VerticalAlignment="Center" Margin="8,0" />
+            <TextBlock x:Name="txtCustodyer" Text="监护人" VerticalAlignment="Center" />
+        </StackPanel>
+        
+        <Button Content="确定" Click="btnOK_Click" Width="65" Height="23" Margin="0,10,0,0" />
+    </StackPanel>
+</Window>

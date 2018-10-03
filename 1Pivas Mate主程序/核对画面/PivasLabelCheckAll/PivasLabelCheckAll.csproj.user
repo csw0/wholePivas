@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
+  <PropertyGroup>
+    <PublishUrlHistory>http://localhost/PivasLabelCheck/</PublishUrlHistory>
+    <InstallUrlHistory>
+    </InstallUrlHistory>
+    <SupportUrlHistory>
+    </SupportUrlHistory>
+    <UpdateUrlHistory>
+    </UpdateUrlHistory>
+    <BootstrapperUrlHistory>
+    </BootstrapperUrlHistory>
+    <ErrorReportUrlHistory>
+    </ErrorReportUrlHistory>
+    <FallbackCulture>zh-CN</FallbackCulture>
+    <VerifyUploadedFiles>true</VerifyUploadedFiles>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <StartAction>Project</StartAction>
+    <StartProgram>E:\JENNA\IMEQ\收发记录\版本收取记录\代码\代码\主程序\核对画面\核对20160516pivaslabelcheck+pivaslabelcheckall\PivasLabelCheckAll(20160516)第三方瓶签配置取消版\PivasLabelCheckAll\bin\Debug\PIVAS MATE.exe</StartProgram>
+    <StartArguments>1 9999 LaennecSysadmin 配置核对</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <StartAction>Project</StartAction>
+    <StartProgram>E:\JENNA\IMEQ\收发记录\版本收取记录\代码\代码\主程序\核对画面\核对20160516pivaslabelcheck+pivaslabelcheckall\PivasLabelCheckAll(20160516)第三方瓶签配置取消版\PivasLabelCheckAll\bin\Debug\PIVAS MATE.exe</StartProgram>
+  </PropertyGroup>
+</Project>

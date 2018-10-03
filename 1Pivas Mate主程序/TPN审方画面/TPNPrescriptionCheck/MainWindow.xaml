@@ -1,0 +1,206 @@
+﻿<UserControl x:Class="TPNReview.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:tlv="clr-namespace:Aga.Controls.Tree;assembly=Aga.Controls"
+        xmlns:local="clr-namespace:TPNReview"
+        Height="288" Width="904.444" FontFamily="宋体" 
+        Loaded="Window_Loaded" 
+        TextOptions.TextFormattingMode="Display" Background="#B6D2FB">
+
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+        <local:NotBooleanToVisibilityConverter x:Key="NotBoolToVis" />
+
+        <Style x:Key="styleBKGray" TargetType="ContentControl">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="styleChkBorder" TargetType="CheckBox">
+            <Setter Property="BorderBrush">
+                <Setter.Value>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="styleTxtLbl" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Foreground" Value="Gray" />
+        </Style>
+
+        <Style x:Key="styleAlternation" TargetType="ListBoxItem">
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="ItemsControl.AlternationIndex" Value="1" />
+                        <Condition Property="IsSelected" Value="False" />
+                        <Condition Property="IsMouseOver" Value="False" />
+                    </MultiTrigger.Conditions>
+                    <Setter Property="Background" Value="#EEF2F2F2" />
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="lvNoHeader" TargetType="{x:Type GridViewColumnHeader}">
+            <Setter Property="Visibility" Value="Collapsed"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Margin="6">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MaxWidth="400"/>
+            <ColumnDefinition Width="295"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <DockPanel Grid.Column="1">
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Height="24">
+                <CheckBox x:Name="cbTodayTPN" Content="只显示在用营养医嘱的患者" IsChecked="True" Checked="cbTodayTPN_Checked" Unchecked="cbTodayTPN_Checked" VerticalAlignment="Center" />
+            </StackPanel>
+
+            <StackPanel x:Name="pnlQuery" DockPanel.Dock="Bottom" Height="144">
+                <StackPanel Height="30" Orientation="Horizontal">
+                    <TextBlock Text="住院号" VerticalAlignment="Center" Margin="0,0,16,0" />
+                    <TextBox x:Name="txtHspNo" Height="24" Width="148" VerticalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Height="30" Orientation="Horizontal">
+                    <TextBlock Text="病区" VerticalAlignment="Center" Margin="0,0,28,0" />
+                    <ComboBox x:Name="cbbWard" Height="24" Width="148" VerticalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Height="50" Orientation="Horizontal">
+                    <TextBlock Text="在院时间" Margin="0,18,4,0" VerticalAlignment="Top"/>
+                    <StackPanel>
+                        <DatePicker x:Name="dpStartDate" Height="24" Width="148" VerticalAlignment="Center" FirstDayOfWeek="Monday" BorderThickness="1" Background="{x:Null}">
+                            <DatePicker.BorderBrush>
+                                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkColorKey}}"/>
+                            </DatePicker.BorderBrush>
+                        </DatePicker>
+                        <DatePicker x:Name="dpEndDate" Height="24" Width="148" VerticalAlignment="Center" Margin="0,2,0,0">
+                            <DatePicker.BorderBrush>
+                                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkColorKey}}"/>
+                            </DatePicker.BorderBrush>
+                        </DatePicker>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Height="30" HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Button Content="查询" Height="23" Width="65" Margin="6,0" VerticalAlignment="Bottom" Click="btnQuery_Click" RenderTransformOrigin="0.049,-1.591" />
+                </StackPanel>
+            </StackPanel>
+
+            <Grid DockPanel.Dock="Bottom" Height="30">
+                <CheckBox Content="患者查询" IsChecked="True" VerticalAlignment="Center" Checked="cbQuery_Checked" Unchecked="cbQuery_Unchecked" />
+                <TextBlock x:Name="txtPatientNum" Text="患者数:0" Margin="6,0" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            </Grid>
+
+            <ListView x:Name="lvPatient" SelectionChanged="lvPatient_SelectionChanged" MouseDoubleClick="lvPatient_MouseDoubleClick" Background="#C7EDCC">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="FontSize" Value="14" />
+                        <Setter Property="Height" Value="26" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="病区" DisplayMemberBinding="{Binding WardName}" Width="120"/>
+                        <GridViewColumn Header="床位" DisplayMemberBinding="{Binding BedNo}" Width="35"/>
+                        <GridViewColumn Header="姓名" DisplayMemberBinding="{Binding PatientName}" Width="60"/>
+                        <GridViewColumn Width="80">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Visibility="{Binding Path=HadNotCheckOrders, Converter={StaticResource BoolToVis}}" 
+                                               Height="16" Width="16" Source="img/recipe_litte.png" Margin="0,0,4,0"/>
+                                        <Image Visibility="{Binding Path=HadTodayOrders, Converter={StaticResource BoolToVis}}" 
+                                               Height="16" Width="16" Source="img/new_litte.png"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </DockPanel>
+
+        <GridSplitter Width="4" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Stretch" Background="#B6D2FB" />
+
+        <DockPanel Grid.Column="2" Margin="4,0,0.444,0">
+            <DockPanel DockPanel.Dock="Top">
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right" >
+
+                    <Button Content="..." Width="27" Height="23" VerticalAlignment="Top" 
+                                Initialized="btnSet_Initialized" Click="btnSet_Click">
+                        <Button.ContextMenu>
+                            <ContextMenu x:Name="cmSetting">
+                                <MenuItem x:Name="miConfig" Header="系统设置" Click="miConfig_Click" Visibility="Collapsed" />
+                                <MenuItem x:Name="miTPNItem" Header="TPN项目" Click="miTPNItem_Click" />
+                                <MenuItem x:Name="miTPNMonitor" Header="审方设置" Click="miTPNMonitor_Click" />
+                                <MenuItem x:Name="miTPNAlwayCheck" Header="通用审核设置" Click="miTPNAlwayCheck_Click" />
+                                <Separator />
+                                <MenuItem x:Name="miStatistics" Header="各项统计" Click="miStatistics_Click" Visibility="Collapsed" />
+                                <MenuItem x:Name="miOrdersChk" Header="医嘱审方" Click="miOrdersChk_Click" Visibility="Collapsed" />
+                                <Separator />
+                                <MenuItem x:Name="miUpdate" Header="系统更新" Click="miUpdate_Click"  />
+                            </ContextMenu>
+                        </Button.ContextMenu>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel x:Name="pnlPatient" Margin="8, 0, 0, 0">
+                    <StackPanel Orientation="Horizontal" Height="24">
+                        <TextBlock Text="病区:" Width="30" VerticalAlignment="Center" Style="{StaticResource styleTxtLbl}" />
+                        <TextBlock Text="{Binding WardName}" Width="140" VerticalAlignment="Center" />
+                        <TextBlock Text="床位:" Width="30" VerticalAlignment="Center" Style="{StaticResource styleTxtLbl}" />
+                        <TextBlock Text="{Binding BedNo}" Width="50" VerticalAlignment="Center" FontSize="14" />
+                        <TextBlock Text="姓名:" Width="30" VerticalAlignment="Center" Style="{StaticResource styleTxtLbl}" />
+                        <TextBlock Text="{Binding PatientName}" Width="60" VerticalAlignment="Center" />
+                        <TextBlock Text="年龄:" Width="30" VerticalAlignment="Center" Style="{StaticResource styleTxtLbl}" />
+                        <TextBlock Text="{Binding Age}" Width="40" VerticalAlignment="Center" />
+                        <TextBlock Text="性别:" Width="32" VerticalAlignment="Center" Style="{StaticResource styleTxtLbl}" />
+                        <TextBlock Text="{Binding Sex}" Width="30" VerticalAlignment="Center" />
+                        <TextBlock Text="住院号:" Width="44" VerticalAlignment="Center" Style="{StaticResource styleTxtLbl}" />
+                        <TextBox Text="{Binding PatientCode}"  Background="Transparent" IsReadOnly="True" BorderThickness="0" VerticalAlignment="Center" FontSize="14" />
+                    </StackPanel>
+
+                    <StackPanel Height="24" Orientation="Horizontal">
+                        <TextBlock Text="身高:" Width="30" VerticalAlignment="Center" Style="{StaticResource styleTxtLbl}" />
+                        <TextBlock Text="{Binding Height}" Width="55" VerticalAlignment="Center" FontFamily="Times New Roman" />
+                        <TextBlock Text="体重:" Width="30" VerticalAlignment="Center" Style="{StaticResource styleTxtLbl}" />
+                        <TextBlock Text="{Binding Weight}" Width="55" VerticalAlignment="Center" FontFamily="Times New Roman" />
+                        <TextBlock Text="体表面积:" Width="60" VerticalAlignment="Center" Style="{StaticResource styleTxtLbl}" />
+                        <TextBlock Text="{Binding BSA}" Width="68" VerticalAlignment="Center" FontFamily="Times New Roman" />
+                        <TextBlock Text="体重指数:" Width="72" VerticalAlignment="Center" Style="{StaticResource styleTxtLbl}" />
+                        <TextBlock Text="{Binding BMI}" Width="40" VerticalAlignment="Center" FontFamily="Times New Roman" />
+                        <TextBlock Text="TPN用药天数:" Width="72" VerticalAlignment="Center" Style="{StaticResource styleTxtLbl}" />
+                        <TextBlock Text="{Binding UseTPNDays}" Width="40" VerticalAlignment="Center" FontFamily="Times New Roman" />
+                    </StackPanel>
+
+                    <DockPanel x:Name="pnlOperate" Height="24" Visibility="Collapsed">
+                        <TextBlock DockPanel.Dock="Left" Text="患者手术:" Width="60" VerticalAlignment="Center" Style="{StaticResource styleTxtLbl}" />
+                        <TextBlock Text="{Binding Operate}" VerticalAlignment="Center" />
+                    </DockPanel>
+                </StackPanel>
+            </DockPanel>
+
+            <DockPanel Height="30" DockPanel.Dock="Top" Margin="8,0, 0, 0">
+                <TextBlock DockPanel.Dock="Left" Text="患者诊断:" Width="60" VerticalAlignment="Center" Style="{StaticResource styleTxtLbl}" />
+
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                    <Button x:Name="btnTPNOrders" Content="TPN医嘱" Click="Page_Click" BorderThickness="0" Height="25" Padding="4,0" />
+                    <Button x:Name="btnCheckRecord" Content="检查记录" Click="Page_Click" BorderThickness="0" Height="25"  Padding="4,0" Margin="4,0" Visibility="Collapsed" />
+                    <Button x:Name="btnNote" Content="监护记录" Click="Page_Click" BorderThickness="0" Height="25" Padding="4,0" Visibility="Collapsed" />
+                    <Button x:Name="btnAnalysis" Content="评估记录" Click="Page_Click" BorderThickness="0" Height="25" Padding="4,0" Margin="4,0" Visibility="Collapsed" />
+                    <Button x:Name="btnExport" Content="信息导出" Click="Page_Click" BorderThickness="0" Height="25" Padding="4,0" Visibility="Collapsed" />
+                </StackPanel>
+
+                <TextBlock x:Name="txtDiagnose" VerticalAlignment="Center" />
+            </DockPanel>
+
+            <Frame x:Name="frmBody" NavigationUIVisibility="Hidden" />
+        </DockPanel>
+    </Grid>
+</UserControl>

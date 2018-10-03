@@ -1,0 +1,17 @@
+【说明】
+统计项可以在程序根目录下的ConfigFile“CountItem.Dat”文件中进行修改，添加或删除
+例如添加一项“抗生素”统计：
+
+在ConfigFile/CountItem.Dat文件添加如下项
+
+
+<CountItems>
+    <bt>true</bt>
+    <CountItem>抗生素</CountItem>
+    <SQLBYDemp>select  《员工列名》 DEmployeeID,COUNT(distinct 《统计项列名》) as [抗生素] from 《表名》 ..《条件》 </SQLBYDemp>
+    <SQLBYWard>select  《病区列名》 WardCode,   COUNT(distinct 《统计项列名》) as [抗生素] from 《表名》 ..《条件》 </SQLBYWard>
+</CountItems>
+
+
+添加位置参照其他<CountItems>位置
+其中所有“《...》”需要按条件自定义修改

@@ -1,0 +1,410 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{29ABD3A0-9442-4BE3-90D0-C785D96FFDFF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PivasFreqRule</RootNamespace>
+    <AssemblyName>PivasFreqRule</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>批次.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\..\11Output\PivasMate\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="addDFreg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addDFreg.designer.cs">
+      <DependentUpon>addDFreg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddDrugK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddDrugK.Designer.cs">
+      <DependentUpon>AddDrugK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonRule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommonRule.Designer.cs">
+      <DependentUpon>CommonRule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DFreg.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DFreg.Designer.cs">
+      <DependentUpon>DFreg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="oDFregs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="oDFregs.designer.cs">
+      <DependentUpon>oDFregs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Freg_Rule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Freg_Rule.designer.cs">
+      <DependentUpon>Freg_Rule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PivasFreqRule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PivasFreqRule.Designer.cs">
+      <DependentUpon>PivasFreqRule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MedcineRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MedcineRow.Designer.cs">
+      <DependentUpon>MedcineRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MedcineRule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MedcineRule.Designer.cs">
+      <DependentUpon>MedcineRule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MedList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedList.Designer.cs">
+      <DependentUpon>MedList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QiTa.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QiTa.Designer.cs">
+      <DependentUpon>QiTa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rowDFreg.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="rowDFreg.designer.cs">
+      <DependentUpon>rowDFreg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="seldb.cs" />
+    <Compile Include="SpecialChar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SpecialChar.Designer.cs">
+      <DependentUpon>SpecialChar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="time.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="time.designer.cs">
+      <DependentUpon>time.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeRow.Designer.cs">
+      <DependentUpon>TimeRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeRule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeRule.Designer.cs">
+      <DependentUpon>TimeRule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Time_Text.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Time_Text.designer.cs">
+      <DependentUpon>Time_Text.cs</DependentUpon>
+    </Compile>
+    <Compile Include="titleDFreg.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="titleDFreg.designer.cs">
+      <DependentUpon>titleDFreg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateDelete.designer.cs">
+      <DependentUpon>UpdateDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="updatedeletedb.cs" />
+    <Compile Include="Update_Times.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update_Times.designer.cs">
+      <DependentUpon>Update_Times.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VolumeLimit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VolumeLimit.Designer.cs">
+      <DependentUpon>VolumeLimit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="addDFreg.resx">
+      <DependentUpon>addDFreg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddDrugK.resx">
+      <DependentUpon>AddDrugK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonRule.resx">
+      <DependentUpon>CommonRule.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DFreg.resx">
+      <DependentUpon>DFreg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="oDFregs.resx">
+      <DependentUpon>oDFregs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Freg_Rule.resx">
+      <DependentUpon>Freg_Rule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PivasFreqRule.resx">
+      <DependentUpon>PivasFreqRule.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedcineRow.resx">
+      <DependentUpon>MedcineRow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedcineRule.resx">
+      <DependentUpon>MedcineRule.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedList.resx">
+      <DependentUpon>MedList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QiTa.resx">
+      <DependentUpon>QiTa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rowDFreg.resx">
+      <DependentUpon>rowDFreg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpecialChar.resx">
+      <DependentUpon>SpecialChar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="time.resx">
+      <DependentUpon>time.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeRow.resx">
+      <DependentUpon>TimeRow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeRule.resx">
+      <DependentUpon>TimeRule.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Time_Text.resx">
+      <DependentUpon>Time_Text.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="titleDFreg.resx">
+      <DependentUpon>titleDFreg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateDelete.resx">
+      <DependentUpon>UpdateDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Update_Times.resx">
+      <DependentUpon>Update_Times.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VolumeLimit.resx">
+      <DependentUpon>VolumeLimit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UDFreq.resx">
+      <DependentUpon>UDFreq.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UDFreqRule.resx">
+      <DependentUpon>UDFreqRule.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VolumeRule.resx">
+      <DependentUpon>VolumeRule.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DWard.resx">
+      <DependentUpon>DWard.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WardDrug.resx">
+      <DependentUpon>WardDrug.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="UDFreq.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UDFreq.Designer.cs">
+      <DependentUpon>UDFreq.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UDFreqRule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UDFreqRule.Designer.cs">
+      <DependentUpon>UDFreqRule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="updatedb.cs" />
+    <Compile Include="VolumeRule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VolumeRule.Designer.cs">
+      <DependentUpon>VolumeRule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DWard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DWard.Designer.cs">
+      <DependentUpon>DWard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WardDrug.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WardDrug.Designer.cs">
+      <DependentUpon>WardDrug.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\保存日志.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\保存日志2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\边框小按钮.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17720.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\勾.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\不选.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\up_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus_161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh3.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\55.png" />
+    <None Include="Resources\5.png" />
+    <None Include="Resources\QQ图片201412110934.jpg" />
+    <Content Include="批次.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\10Common\PIVAsCommon\PIVAsCommon.csproj">
+      <Project>{FAB76740-C6E8-42B0-8E97-52DBC3BFB8F1}</Project>
+      <Name>PIVAsCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\2Pivas加密程序\PivasLimitDES\PivasLimitDES.csproj">
+      <Project>{8902815E-5E70-4B8C-9AD5-1A76F98D1AAB}</Project>
+      <Name>PivasLimitDES</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

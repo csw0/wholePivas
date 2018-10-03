@@ -1,0 +1,11 @@
+1.配置文件
+Pivas(含TPN审方)系统，主要包含三个配置文件bl_server.lcf、IMEQPIVAs.ini和IMEQPIVAsHIS.ini。
+
+1.1.bl_server.lcf
+原TPN审方系统的配置文件，主要是使用cpmate和hospitaldata数据库，配置相关连接即可。
+1.2. IMEQPIVAs.ini
+原pivas系统中的配置文件，与原有的一致。配置连接数据库的参数即可。
+1.3. IMEQPIVAsHIS.ini
+原pivas系统中HIS数据库的配置文件，与原有的一致，配置连接HIS数据库的参数即可。
+
+2.其他事项

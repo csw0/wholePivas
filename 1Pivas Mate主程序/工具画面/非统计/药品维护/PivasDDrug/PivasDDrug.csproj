@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FA3AD8A3-BDB5-4CDC-9328-5772B3E108D8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PivasDDrug</RootNamespace>
+    <AssemblyName>PivasDDrug</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>www.ico.la_7d2391f0cde87280dd45336fe1fcbc5e_32X32.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\..\11Output\PivasMate\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DrugLimitForPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DrugLimitForPrint.Designer.cs">
+      <DependentUpon>DrugLimitForPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="SetDrugPlusCondition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetDrugPlusCondition.Designer.cs">
+      <DependentUpon>SetDrugPlusCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Delete.cs" />
+    <Compile Include="Insert.cs" />
+    <Compile Include="Pivas2013DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Pivas2013DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PivasDDrug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PivasDDrug.Designer.cs">
+      <DependentUpon>PivasDDrug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DrugLimitForPrint.resx">
+      <DependentUpon>DrugLimitForPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetDrugPlusCondition.resx">
+      <DependentUpon>SetDrugPlusCondition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PivasDDrug.resx">
+      <DependentUpon>PivasDDrug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetDrugTiter.resx">
+      <DependentUpon>SetDrugTiter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateDrug.resx">
+      <DependentUpon>UpdateDrug.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Select.cs" />
+    <Compile Include="SetDrugTiter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetDrugTiter.Designer.cs">
+      <DependentUpon>SetDrugTiter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Update.cs" />
+    <Compile Include="UpdateDrug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateDrug.Designer.cs">
+      <DependentUpon>UpdateDrug.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Resources\背景.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pivas2013DataSet.xsc">
+      <DependentUpon>Pivas2013DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Pivas2013DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Pivas2013DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Pivas2013DataSet.xss">
+      <DependentUpon>Pivas2013DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\按钮.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\最小化按下时按钮.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\还原按下时按钮.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\还原.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\最小化.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\55.png" />
+    <None Include="Resources\5.png" />
+    <None Include="Resources\NoPicture.jpg" />
+    <Content Include="www.ico.la_7d2391f0cde87280dd45336fe1fcbc5e_32X32.ico" />
+    <Content Include="www.ico.la_bb0331c1faf460d27f39e482c2efc511_48X48.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\10Common\PIVAsCommon\PIVAsCommon.csproj">
+      <Project>{FAB76740-C6E8-42B0-8E97-52DBC3BFB8F1}</Project>
+      <Name>PIVAsCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\2Pivas加密程序\PivasLimitDES\PivasLimitDES.csproj">
+      <Project>{8902815e-5e70-4b8c-9ad5-1a76f98d1aab}</Project>
+      <Name>PivasLimitDES</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

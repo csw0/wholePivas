@@ -1,0 +1,58 @@
+﻿<Window x:Name="MainForm" x:Class="TVShowWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TVShowWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="720" Width="1280" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="MainForm_Loaded" Background="{x:Null}">
+
+    <Grid x:Name="Bor2" Margin="0">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF050F78" Offset="0"/>
+                <GradientStop Color="#FFCDD1F7" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid x:Name="Bor1" Margin="96,54"/>
+        <Grid x:Name="GD2" HorizontalAlignment="Left" Height="300" Margin="0,210" VerticalAlignment="Center" Width="96" MouseEnter="GD2_MouseEnter" MouseLeave="GD2_MouseLeave">
+            <Border x:Name="BorderSet" BorderThickness="3" BorderBrush="Goldenrod" HorizontalAlignment="Left" Height="200" Margin="-10,0,0,0" VerticalAlignment="Center" Width="60" CornerRadius="10" Background="#33C8C8C8">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="10" ShadowDepth="0" RenderingBias="Quality" Color="Silver"/>
+                </Border.Effect>
+                <Grid x:Name="GRD" Margin="1">
+                    <Button x:Name="button" Content="X" Margin="10,10,10,138" Background="#FF720606" BorderBrush="{x:Null}" Foreground="#FFFBF9F9" Click="button_Click" Cursor="Hand" FontWeight="Bold" FontSize="16"/>
+                    <Button x:Name="button_BUJU" Content="布局" Margin="10,74" VerticalAlignment="Center" BorderBrush="{x:Null}" Click="button_Copy_Click" Height="44" Cursor="Hand"/>
+                    <Button x:Name="button_BEIJIN" Content="背景" Margin="10,138,10,10" BorderBrush="{x:Null}" Click="button_BEIJIN_Click" Height="44" Cursor="Hand"/>
+                </Grid>
+            </Border>
+        </Grid>
+        <Button x:Name="Button_MS" Content="》" HorizontalAlignment="Right" Margin="0,0,20,0" VerticalAlignment="Center" Foreground="#FFD4FBD8" Background="{x:Null}" FontWeight="Bold" FontSize="66.667" Height="145" Width="43" Click="Button_MS_Click" Cursor="Hand"/>
+        <Grid x:Name="GDdown" HorizontalAlignment="Center" Height="49" Margin="0" VerticalAlignment="Bottom" Width="348">
+            <Label x:Name="labeldown1" Content="Copyright © BOLONGIMEQ CO,LTD" HorizontalAlignment="Center" Margin="0,9,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                <Label.Foreground>
+                    <LinearGradientBrush EndPoint="0.5,0.5" StartPoint="0.5,0" Opacity="0.6" SpreadMethod="Reflect">
+                        <GradientStop Color="#FF969696" Offset="1"/>
+                        <GradientStop Color="#FFFAFAFA" Offset="0"/>
+                    </LinearGradientBrush>
+                </Label.Foreground>
+            </Label>
+            <Label x:Name="labeldown2" Content="Tel：400-8215-295" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                <Label.Foreground>
+                    <LinearGradientBrush EndPoint="0.5,0.5" StartPoint="0.5,0" Opacity="0.6" SpreadMethod="Reflect">
+                        <GradientStop Color="#FF969696" Offset="1"/>
+                        <GradientStop Color="#FFFAFAFA" Offset="0"/>
+                    </LinearGradientBrush>
+                </Label.Foreground>
+            </Label>
+        </Grid>
+        <Label x:Name="label" Content="PIVAS MATE" HorizontalAlignment="Left" Margin="90,-2,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.275,0.4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="42.667" FontWeight="Bold" UseLayoutRounding="False">
+            <Label.Foreground>
+            <LinearGradientBrush EndPoint="0.5,0.5" StartPoint="0.5,0" Opacity="0.8" SpreadMethod="Reflect">
+                <GradientStop Color="#FF787878" Offset="0"/>
+                <GradientStop Color="#CCFFFFDC" Offset="1"/>
+            </LinearGradientBrush>
+            </Label.Foreground>
+        </Label>
+    </Grid>
+</Window>

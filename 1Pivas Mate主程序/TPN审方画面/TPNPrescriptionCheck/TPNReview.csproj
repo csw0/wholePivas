@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{345188A8-4A20-4B9A-986C-0D7D8FFDF40C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TPNReview</RootNamespace>
+    <AssemblyName>TPNReview</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPPlus">
+      <HintPath>..\..\..\packages\EPPlus.4.1.1\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport">
+      <HintPath>..\..\..\10Common\TPNDLL\FastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts">
+      <HintPath>..\..\..\packages\LiveCharts.0.9.7\lib\net40\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf">
+      <HintPath>..\..\..\packages\LiveCharts.Wpf.0.9.7\lib\net40\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\10Common\Log4net\net35-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="Xceed.Wpf.Toolkit">
+      <HintPath>..\..\..\packages\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppConst.cs" />
+    <Compile Include="Converter.cs" />
+    <Compile Include="IContentPage.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model.cs" />
+    <Compile Include="PageAnalysis.xaml.cs">
+      <DependentUpon>PageAnalysis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageCheckRecord.xaml.cs">
+      <DependentUpon>PageCheckRecord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageExport.xaml.cs">
+      <DependentUpon>PageExport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageOrders.xaml.cs">
+      <DependentUpon>PageOrders.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PagePharmacistNote.xaml.cs">
+      <DependentUpon>PagePharmacistNote.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SQL.cs" />
+    <Compile Include="UCTPNReview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCTPNReview.Designer.cs">
+      <DependentUpon>UCTPNReview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelper.cs" />
+    <Compile Include="WinAddCheck.xaml.cs">
+      <DependentUpon>WinAddCheck.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinConfig.xaml.cs">
+      <DependentUpon>WinConfig.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinCustodyEdit.xaml.cs">
+      <DependentUpon>WinCustodyEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinCustodyObj.xaml.cs">
+      <DependentUpon>WinCustodyObj.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinCustomCheck.xaml.cs">
+      <DependentUpon>WinCustomCheck.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinEditAnalysis.xaml.cs">
+      <DependentUpon>WinEditAnalysis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinInfoDialog.xaml.cs">
+      <DependentUpon>WinInfoDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinInput.xaml.cs">
+      <DependentUpon>WinInput.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinInterveneEdit.xaml.cs">
+      <DependentUpon>WinInterveneEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinList.xaml.cs">
+      <DependentUpon>WinList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinListFind.xaml.cs">
+      <DependentUpon>WinListFind.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinMonitorCom.xaml.cs">
+      <DependentUpon>WinMonitorCom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinMonitorSet.xaml.cs">
+      <DependentUpon>WinMonitorSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinStatics.xaml.cs">
+      <DependentUpon>WinStatics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinTPNItem.xaml.cs">
+      <DependentUpon>WinTPNItem.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCTPNReview.resx">
+      <DependentUpon>UCTPNReview.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="CommonStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageAnalysis.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageCheckRecord.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageExport.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageOrders.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PagePharmacistNote.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinAddCheck.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinConfig.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinCustodyEdit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinCustodyObj.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinCustomCheck.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinEditAnalysis.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinInfoDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinInput.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinInterveneEdit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinListFind.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinMonitorCom.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinMonitorSet.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinStatics.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinTPNItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icon_red.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\new_litte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\recipe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\recipe_litte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\10Common\PIVAsCommon\PIVAsCommon.csproj">
+      <Project>{fab76740-c6e8-42b0-8e97-52dbc3bfb8f1}</Project>
+      <Name>PIVAsCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Aga.Controls\Aga.Controls.csproj">
+      <Project>{d17cd489-1b14-47eb-8c22-c189d078aec9}</Project>
+      <Name>Aga.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLPublic\BLPublic.csproj">
+      <Project>{654a7941-b91e-46d3-8962-1359d27c082a}</Project>
+      <Name>BLPublic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\formreport\FormReport.csproj">
+      <Project>{97172a81-e946-4540-aa12-ef55455cf3ab}</Project>
+      <Name>FormReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\recipemonitorlist\recipemonitorlist.csproj">
+      <Project>{e37469c6-afef-4e84-9afc-0a84f453b379}</Project>
+      <Name>recipemonitorlist</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\tpnmonitor\tpnmonitor.csproj">
+      <Project>{CB801022-905C-4AAF-A865-D3C3F637AB78}</Project>
+      <Name>tpnmonitor</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

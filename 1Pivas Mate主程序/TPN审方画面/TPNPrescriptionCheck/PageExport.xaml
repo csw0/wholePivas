@@ -1,0 +1,93 @@
+﻿<Page x:Class="TPNReview.PageExport"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="600"
+	Title="PageExport">
+
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Height="1" Background="Gray" />
+        <Grid DockPanel.Dock="Top" Height="40">
+            <StackPanel Orientation="Horizontal"> 
+                <RadioButton x:Name="rdoTPN" Content="病人TPN审方" Click="rdoTPN_Click" VerticalAlignment="Center" 
+                             IsChecked="True" />
+                <RadioButton x:Name="rdoIntervene" Content="审方干预" Click="rdoTPN_Click" VerticalAlignment="Center" Margin="8,0" />
+                <Button Content="导出" Click="btnExport_Click" Height="23" Width="65" Margin="20,0" />
+                <Button Content="清除" Click="btnClear_Click" Height="23" Width="65" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="双击患者列表添加患者 或" VerticalAlignment="Center" Margin="4,0" />
+                <Button Content="添加全部患者" Click="btnAllPatient_Click" Height="23" VerticalAlignment="Center" 
+                        Background="Transparent" BorderThickness="0" Foreground="Blue" />
+            </StackPanel>
+        </Grid>
+
+        <ListView x:Name="lvExpTPN" VerticalAlignment="Stretch" Visibility="Collapsed">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Height" Value="24" />
+                    <Setter Property="Margin" Value="0" />
+                    <Setter Property="BorderThickness" Value="0" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ContextMenu>
+                <ContextMenu> 
+                    <MenuItem Header="删除" Click="miDel_Click" />
+                </ContextMenu>
+            </ListView.ContextMenu>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="序号" DisplayMemberBinding="{Binding No}"  Width="40"/>
+                    <GridViewColumn Header="病区" DisplayMemberBinding="{Binding WardName}"  Width="100"/>
+                    <GridViewColumn Header="床号" DisplayMemberBinding="{Binding BedNo}"  Width="60"/>
+                    <GridViewColumn Header="姓名" DisplayMemberBinding="{Binding PatientName}"  Width="80"/>
+                    <GridViewColumn Header="病历号" DisplayMemberBinding="{Binding HospitalNo}"  Width="80"/>
+                    <GridViewColumn Header="性别" DisplayMemberBinding="{Binding Sex}"  Width="40"/>
+                    <GridViewColumn Header="年龄" DisplayMemberBinding="{Binding Age}"  Width="50"/>
+                    <GridViewColumn Header="体重" DisplayMemberBinding="{Binding Weight}"  Width="50"/>
+                    <GridViewColumn Header="身高" DisplayMemberBinding="{Binding Height}"  Width="50"/>
+                    <GridViewColumn Header="BMI" DisplayMemberBinding="{Binding BMI}"  Width="50"/>
+                    <GridViewColumn Header="入院时间" DisplayMemberBinding="{Binding Path=InHospitalTime, StringFormat=yyyy-MM-dd HH:mm:ss}"  Width="130"/>
+                    <GridViewColumn Header="入院诊断" DisplayMemberBinding="{Binding Diagnose}"  Width="100"/>
+                    <GridViewColumn Header="TPN起止时间" DisplayMemberBinding="{Binding TPNUseTime}"  Width="200"/>
+                    <GridViewColumn Header="TPN处方"  DisplayMemberBinding="{Binding Drugs}" Width="80" />
+                    <GridViewColumn Header="是否合理" DisplayMemberBinding="{Binding IsOK}"  Width="80"/>
+                    <GridViewColumn Header="不合理原因" DisplayMemberBinding="{Binding NoOKReason}"  Width="120"/> 
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ListView x:Name="lvExpIntervene" VerticalAlignment="Stretch">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Height" Value="24" />
+                    <Setter Property="Margin" Value="0" />
+                    <Setter Property="BorderThickness" Value="0" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="删除" Click="miDel_Click" />
+                </ContextMenu>
+            </ListView.ContextMenu>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="干预日期" DisplayMemberBinding="{Binding IDate}"  Width="80"/>
+                    <GridViewColumn Header="住院号" DisplayMemberBinding="{Binding HospitalNo}"  Width="80"/>
+                    <GridViewColumn Header="适应症" DisplayMemberBinding="{Binding SYZ}"  Width="70"/>
+                    <GridViewColumn Header="糖浓度" DisplayMemberBinding="{Binding TND}"  Width="70"/>
+                    <GridViewColumn Header="氨基酸浓度" DisplayMemberBinding="{Binding AJSND}"  Width="70"/>
+                    <GridViewColumn Header="电解质" DisplayMemberBinding="{Binding DJZ}"  Width="70"/>
+                    <GridViewColumn Header="热氮比" DisplayMemberBinding="{Binding RDB}"  Width="70"/>
+                    <GridViewColumn Header="糖脂比" DisplayMemberBinding="{Binding TZB}"  Width="70"/>
+                    <GridViewColumn Header="胰岛素" DisplayMemberBinding="{Binding YDS}"  Width="70"/>
+                    <GridViewColumn Header="药物选择" DisplayMemberBinding="{Binding Drug}"  Width="70"/>
+                    <GridViewColumn Header="药物剂量" DisplayMemberBinding="{Binding Dosage }"  Width="70"/>
+                    </GridView>
+            </ListView.View>
+        </ListView>
+    </DockPanel>
+</Page>

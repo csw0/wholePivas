@@ -1,0 +1,314 @@
+﻿using System;
+using System.Runtime.InteropServices;
+using System.Text;
+
+namespace PIVAsCommon.Helper
+{
+    /// <summary>
+    /// 针对INI文件的API操作方法，其中的节点（Section)、键（KEY）都不区分大小写
+    /// 如果指定的INI文件不存在，会自动创建该文件。 
+    /// CharSet定义的时候使用了什么类型，在使用相关方法时必须要使用相应的类型
+    /// 例如 GetPrivateProfileSectionNames声明为CharSet.Auto,那么就应该使用 Marshal.PtrToStringAuto来读取相关内容
+    /// 如果使用的是CharSet.Ansi，就应该使用Marshal.PtrToStringAnsi来读取内容 
+    /// </summary>
+    public class IniFileHelper
+    {
+        #region API声明
+        /// <summary>  
+        /// 获取所有节点名称(Section)  
+        /// </summary>  
+        /// <param name="lpszReturnBuffer">存放节点名称的内存地址,每个节点之间用\0分隔</param>  
+        /// <param name="nSize">内存大小(characters)</param>  
+        /// <param name="lpFileName">Ini文件</param>  
+        /// <returns>内容的实际长度,为0表示没有内容,为nSize-2表示内存大小不够</returns>  
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto)]
+        private static extern uint GetPrivateProfileSectionNames(IntPtr lpszReturnBuffer, uint nSize, string lpFileName);
+
+        /// <summary>  
+        /// 获取某个指定节点(Section)中所有KEY和Value  
+        /// </summary>  
+        /// <param name="lpAppName">节点名称</param>  
+        /// <param name="lpReturnedString">返回值的内存地址,每个之间用\0分隔</param>  
+        /// <param name="nSize">内存大小(characters)</param>  
+        /// <param name="lpFileName">Ini文件</param>  
+        /// <returns>内容的实际长度,为0表示没有内容,为nSize-2表示内存大小不够</returns>  
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto)]
+        private static extern uint GetPrivateProfileSection(string lpAppName, IntPtr lpReturnedString, uint nSize, string lpFileName);
+
+        /// <summary>  
+        /// 读取INI文件中指定的Key的值  
+        /// </summary>  
+        /// <param name="lpAppName">节点名称。如果为null,则读取INI中所有节点名称,每个节点名称之间用\0分隔</param>  
+        /// <param name="lpKeyName">Key名称。如果为null,则读取INI中指定节点中的所有KEY,每个KEY之间用\0分隔</param>  
+        /// <param name="lpDefault">读取失败时的默认值</param>  
+        /// <param name="lpReturnedString">读取的内容缓冲区，读取之后，多余的地方使用\0填充</param>  
+        /// <param name="nSize">内容缓冲区的长度</param>  
+        /// <param name="lpFileName">INI文件名</param>  
+        /// <returns>实际读取到的长度</returns>  
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto)]
+        private static extern uint GetPrivateProfileString(string lpAppName, string lpKeyName, string lpDefault, [In, Out] char[] lpReturnedString, uint nSize, string lpFileName);
+
+        //另一种声明方式,使用 StringBuilder 作为缓冲区类型的缺点是不能接受\0字符，会将\0及其后的字符截断,  
+        //所以对于lpAppName或lpKeyName为null的情况就不适用  
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto)]
+        private static extern uint GetPrivateProfileString(string lpAppName, string lpKeyName, string lpDefault, StringBuilder lpReturnedString, uint nSize, string lpFileName);
+
+        //再一种声明，使用string作为缓冲区的类型同char[]  
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto)]
+        private static extern uint GetPrivateProfileString(string lpAppName, string lpKeyName, string lpDefault, string lpReturnedString, uint nSize, string lpFileName);
+
+        /// <summary>  
+        /// 将指定的键值对写到指定的节点，如果已经存在则替换。  
+        /// </summary>  
+        /// <param name="lpAppName">节点，如果不存在此节点，则创建此节点</param>  
+        /// <param name="lpString">Item键值对，多个用\0分隔,形如key1=value1\0key2=value2  
+        /// <para>如果为string.Empty，则删除指定节点下的所有内容，保留节点</para>  
+        /// <para>如果为null，则删除指定节点下的所有内容，并且删除该节点</para> </param>  
+        /// <param name="lpFileName">INI文件</param>  
+        /// <returns>是否成功写入</returns>  
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto)]
+        [return: MarshalAs(UnmanagedType.Bool)]     //可以没有此行  
+        private static extern bool WritePrivateProfileSection(string lpAppName, string lpString, string lpFileName);
+
+        /// <summary>  
+        /// 将指定的键和值写到指定的节点，如果已经存在则替换  
+        /// </summary>  
+        /// <param name="lpAppName">节点名称</param>  
+        /// <param name="lpKeyName">键名称。如果为null，则删除指定的节点及其所有的项目</param>  
+        /// <param name="lpString">值内容。如果为null，则删除指定节点中指定的键。</param>  
+        /// <param name="lpFileName">INI文件</param>  
+        /// <returns>操作是否成功</returns>  
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool WritePrivateProfileString(string lpAppName, string lpKeyName, string lpString, string lpFileName);
+        #endregion
+
+        #region 常量
+        private const uint MAX_BUFFER = 32767;      //默认为32767  
+        private const int VALUE_SIZE = 1024*10;    //操作的字符串长度;原来都是用512
+        #endregion
+
+        /// <summary>  
+        /// 读取INI文件中所有节点名称(Section)  
+        /// </summary>  
+        /// <param name="iniFile">Ini文件</param>  
+        /// <returns>所有节点,没有内容返回string[0]</returns>  
+        public static string[] INIGetAllSectionNames(string iniFile)
+        {
+            string[] sections = new string[0];      //返回值  
+            IntPtr pReturnedString = IntPtr.Zero;
+            try
+            {
+                //申请内存  
+                pReturnedString = Marshal.AllocCoTaskMem((int)MAX_BUFFER * sizeof(char));
+                uint bytesReturned = GetPrivateProfileSectionNames(pReturnedString, MAX_BUFFER, iniFile);
+                if (bytesReturned != 0)
+                {
+                    //读取指定内存的内容  
+                    string local = Marshal.PtrToStringAuto(pReturnedString, (int)bytesReturned).ToString();
+
+                    //每个节点之间用\0分隔,末尾有一个\0  
+                    sections = local.Split(new char[] { '\0' }, StringSplitOptions.RemoveEmptyEntries);
+                }
+
+                //释放内存  
+                Marshal.FreeCoTaskMem(pReturnedString);
+                pReturnedString = IntPtr.Zero;
+            }
+            catch (Exception ex)
+            {
+                InternalLogger.Log.Error("读取INI文件中所有节点名称出错：" + ex.Message);
+            }
+            finally
+            {
+                //防止因异常导致，释放失败
+                if (pReturnedString != IntPtr.Zero)
+                {
+                    Marshal.FreeCoTaskMem(pReturnedString);
+                    pReturnedString = IntPtr.Zero;
+                }
+            }
+           
+            return sections;
+        }
+
+        /// <summary>  
+        /// 读取INI文件中指定节点(Section)中的所有条目(key=value形式)  
+        /// </summary>  
+        /// <param name="iniFile">Ini文件</param>  
+        /// <param name="section">节点名称</param>  
+        /// <returns>指定节点中的所有项目,没有内容返回string[0]</returns>  
+        public static string[] INIGetAllItems(string iniFile, string section)
+        {            
+            string[] items = new string[0];      //返回值  
+            IntPtr pReturnedString = IntPtr.Zero;
+
+            try
+            { 
+                //分配内存  
+                pReturnedString = Marshal.AllocCoTaskMem((int)MAX_BUFFER * sizeof(char));
+                uint bytesReturned = GetPrivateProfileSection(section, pReturnedString, MAX_BUFFER, iniFile);
+
+                if (!(bytesReturned == MAX_BUFFER - 2) || (bytesReturned == 0))
+                {
+                    string returnedString = Marshal.PtrToStringAuto(pReturnedString, (int)bytesReturned);
+                    items = returnedString.Split(new char[] { '\0' }, StringSplitOptions.RemoveEmptyEntries);
+                }
+
+                Marshal.FreeCoTaskMem(pReturnedString);     //释放内存 
+                pReturnedString = IntPtr.Zero;
+            }
+            catch (Exception ex)
+            {
+                InternalLogger.Log.Error("读取INI文件中指定节点中的所有条目出错：" + ex.Message);
+            }
+            finally
+            {
+                //防止因异常导致，释放失败
+                if (pReturnedString != IntPtr.Zero)
+                {
+                    Marshal.FreeCoTaskMem(pReturnedString);
+                    pReturnedString = IntPtr.Zero;
+                }
+            }
+
+            return items;
+        }
+
+        /// <summary>  
+        /// 获取INI文件中指定节点(Section)中的所有条目的Key列表  
+        /// </summary>  
+        /// <param name="iniFile">Ini文件</param>  
+        /// <param name="section">节点名称</param>  
+        /// <returns>如果没有内容,反回string[0]</returns>  
+        public static string[] INIGetAllItemKeys(string iniFile, string section)
+        {
+            string[] value = new string[0];
+
+            try
+            {
+                if (!string.IsNullOrEmpty(section))//节点名非空
+                {
+                    char[] chars = new char[VALUE_SIZE];
+                    uint bytesReturned = GetPrivateProfileString(section, null, null, chars, VALUE_SIZE, iniFile);
+
+                    if (bytesReturned != 0)
+                    {
+                        value = new string(chars).Split(new char[] { '\0' }, StringSplitOptions.RemoveEmptyEntries);
+                    }
+                    chars = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                InternalLogger.Log.Error("获取INI文件中指定节点中的所有条目的Key列表出错：" + ex.Message);
+            }
+            return value;
+        }
+
+        /// <summary>  
+        /// 读取INI文件中指定KEY的字符串型值  
+        /// </summary>  
+        /// <param name="iniFile">Ini文件</param>  
+        /// <param name="section">节点名称</param>  
+        /// <param name="key">键名称</param>  
+        /// <param name="defaultValue">如果没此KEY所使用的默认值</param>  
+        /// <returns>读取到的值</returns>  
+        public static string INIGetStringValue(string iniFile, string section, string key, string defaultValue)
+        {
+            string value = defaultValue;
+
+            if (!string.IsNullOrEmpty(section) && !string.IsNullOrEmpty(key))//节点名和键名都非空
+            {
+                StringBuilder sb = new StringBuilder(VALUE_SIZE);
+                uint bytesReturned = GetPrivateProfileString(section, key, defaultValue, sb, VALUE_SIZE, iniFile);
+
+                if (bytesReturned != 0)
+                {
+                    value = sb.ToString();
+                }
+                sb = null;
+            }
+            return value;
+        }
+
+        /// <summary>  
+        /// 保存键值对到指定节点(section)，如果已经存在则替换  
+        /// </summary>  
+        /// <param name="iniFile">INI文件</param>  
+        /// <param name="section">节点，如果不存在此节点，则创建此节点</param>  
+        /// <param name="items">键值对，多个用\0分隔,形如key1=value1\0key2=value2</param>  
+        /// <returns>操作是否成功</returns>  
+        public static bool INIWriteItems(string iniFile, string section, string items)
+        {
+            if (!string.IsNullOrEmpty(section) && !string.IsNullOrEmpty(items))//节点名和键值对非空
+            {
+                return WritePrivateProfileSection(section, items, iniFile);
+            }
+            return false;            
+        }
+
+        /// <summary>  
+        /// 保存节点和节点下的键值对到INI文件中。如果已经存在，则替换。如果没有则创建。  
+        /// </summary>  
+        /// <param name="iniFile">INI文件</param>  
+        /// <param name="section">节点</param>  
+        /// <param name="key">键</param>  
+        /// <param name="value">值</param>  
+        /// <returns>操作是否成功</returns>  
+        public static bool INIWriteValue(string iniFile, string section, string key, string value)
+        {
+            if (!string.IsNullOrEmpty(section) && !string.IsNullOrEmpty(key) && !string.IsNullOrEmpty(value))
+            {
+                return WritePrivateProfileString(section, key, value, iniFile);
+            }
+            return false;
+        }
+
+        /// <summary>  
+        /// 根据节点名和键名，删除键值对。  
+        /// </summary>  
+        /// <param name="iniFile">INI文件</param>  
+        /// <param name="section">节点</param>  
+        /// <param name="key">键</param>  
+        /// <returns>操作是否成功</returns>  
+        public static bool INIDeleteKey(string iniFile, string section, string key)
+        {
+            if (!string.IsNullOrEmpty(section) && !string.IsNullOrEmpty(key))
+            {
+                return WritePrivateProfileString(section, key, null, iniFile);
+            }
+            return false;
+        }
+
+        /// <summary>  
+        /// 根据节点名，删除节点  
+        /// </summary>  
+        /// <param name="iniFile">INI文件</param>  
+        /// <param name="section">节点</param>  
+        /// <returns>操作是否成功</returns>  
+        public static bool INIDeleteSection(string iniFile, string section)
+        {
+            if (!string.IsNullOrEmpty(section))
+            {
+                return WritePrivateProfileString(section, null, null, iniFile);
+            }
+            return false;            
+        }
+
+        /// <summary>  
+        /// 根据节点名，清空该节点的所有内容;与上个有什么区别，待测试 
+        /// </summary>  
+        /// <param name="iniFile">INI文件</param>  
+        /// <param name="section">节点</param>  
+        /// <returns>操作是否成功</returns>  
+        public static bool INIEmptySection(string iniFile, string section)
+        {
+            if (!string.IsNullOrEmpty(section))
+            {
+                return WritePrivateProfileSection(section, string.Empty, iniFile);
+            }
+            return false;
+        }
+    }
+}

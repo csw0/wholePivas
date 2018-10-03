@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<IVStatus>
+	<Operation value="3">
+		<name>打印</name>
+	</Operation>
+	
+	<Operation value="4">
+		<name>摆药核对</name>
+	</Operation>
+
+	<Operation value="5">
+		<name>排药核对</name>
+	</Operation>
+
+	<Operation value="7">
+		<name>进仓扫描</name>
+	</Operation>
+
+	<Operation value="9">
+		<name>配置核对</name>
+	</Operation>
+
+	<Operation value="11">
+		<name>出仓扫描</name>
+	</Operation>
+
+	<Operation value="13">
+		<name>打包核对</name>
+	</Operation>
+
+	<Operation value="30">
+		<name>贴签核对</name>
+	</Operation>
+</IVStatus>

@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>USE [PIVAs2014]
+GO
+
+/****** Object:  StoredProcedure [dbo].[bl_getIVRecordbyarea]    Script Date: 08/18/2014 17:03:22 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[bl_getIVRecordbyarea]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[bl_getIVRecordbyarea]
+GO
+
+USE [PIVAs2014]
+GO
+
+/****** Object:  StoredProcedure [dbo].[bl_getIVRecordbyarea]    Script Date: 08/18/2014 17:03:22 ******/
+SET ANSI_NULLS OFF
+GO
+
+SET QUOTED_IDENTIFIER OFF
+GO
+
+
+
+
+
+CREATE PROCEDURE [dbo].[bl_getIVRecordbyarea]
+@InfusionDT varchar(10),
+@WardIdle int,
+@WardOpen int,
+@IVSTATUS int,
+@BatchSaved int
+
+AS
+declare @InfusionDT1 varchar(10)
+declare @WardIdle1 int
+declare @WardOpen1 int
+declare @IVSTATUS1 int
+declare @BatchSaved1 int
+
+BEGIN
+
+set @InfusionDT1=@InfusionDT
+set @WardIdle1=@WardIdle
+set @WardOpen1=@WardOpen
+set @IVSTATUS1=@IVSTATUS
+set @BatchSaved1=@BatchSaved
+
+  create table #OrderLabelCountByArea(
+    WardCode varchar(32),
+    WardName varchar(64),
+    WardArea Varchar(64),
+    SpellCode varchar(64),
+    UnCheckCount int,
+    TotalCount int,
+    BatchSaved varchar(10),
+    BatchSavedType int ,
+    IsOpen bit)
+ -- EXEC [bl_getIVRecordbyarea] '20131129%',0,0,0,2
+  if @IVSTATUS1=0
+  begin
+	  if(@BatchSaved1=0)
+	  begin
+		  INSERT #OrderLabelCountByArea
+		  SELECT 
+			D.WardCode,
+			--D.WardCode,
+			D.WardSimName,
+			D.WardArea,
+			D.Spellcode,
+			SUM(case when i.BatchSaved=0 and i.IVStatus = 0 then 1 else 0 end) AS UnCheckCount,
+			COUNT(i.IVRecordID) AS TotalCount,
+			case when i.BatchSaved=0 then '未发'  else '已发'  end BatchSaved,
+			BatchSaved as BatchSaved,
+			IsOpen
+			FROM DWard D LEFT OUTER JOIN IVRecord i  ON
+			D.WardCode = i.WardCode
+			WHERE --i.IVStatus =@IVSTATUS1
+			--and i.BatchSaved=@BatchSaved
+			--AND DATEDIFF(DD, CONVERT(DateTime,i.InfusionDT,120), @InfusionDT) &lt;1
+			--and 
+			LabelNo like @InfusionDT1
+			and LabelOver&gt;=0 and ((i.Remark2 &lt;&gt; -2 and i.Remark2 &lt;&gt; -1) or i.Remark2 is null)
+			and IsBatch=1
+			GROUP BY D.WardCode, D.WardSimName ,D.WardArea,D.Spellcode,BatchSaved,D.IsOpen,D.WardSeqNo
+		    ORDER BY IsOpen desc ,D.WardSeqNo, WardCode
+		end
+		  --else --if(@BatchSaved1=1)
+		 -- begin
+		 --  INSERT #OrderLabelCountByArea
+		 --  SELECT 
+		 --   D.WardCode,
+		 --   D.WardSimName,
+			--SUM(case when i.BatchSaved=0 then 0 else 1 end) AS UnCheckCount,
+			--COUNT(i.IVRecordID) AS TotalCount,
+			--case when i.BatchSaved=0 then '未发' else '已发'  end BatchSaved,
+			--BatchSaved as BatchSavedType,
+			--IsOpen
+		 -- FROM DWard D LEFT OUTER JOIN IVRecord i  ON
+		 --   D.WardCode = i.WardCode
+		 -- WHERE i.IVStatus =@IVSTATUS1
+			----and i.BatchSaved=@BatchSaved
+		 --   --AND DATEDIFF(DD, CONVERT(DateTime,i.InfusionDT,120), @InfusionDT) &lt;1
+		 --       and LabelNo like @InfusionDT1
+		 --       and LabelOver&gt;=0
+		 --       and IsBatch=1
+		 -- GROUP BY D.WardCode, D.WardSimName ,IsOpen,BatchSaved
+		 --    ORDER BY IsOpen desc , WardCode
+
+		 -- end
+			--end
+		  else if(@BatchSaved = 1)
+		  begin
+			  INSERT #OrderLabelCountByArea
+			    SELECT 
+				D.WardCode,
+				D.WardSimName,
+				D.WardArea,
+				D.Spellcode,
+				SUM(case when i.BatchSaved=1 and i.IVStatus = 0 then 1 else 0 end) AS UnCheckCount,
+				COUNT(i.IVRecordID) AS TotalCount,
+				case when i.BatchSaved=0 then '未发' else '已发' end BatchSaved,
+				BatchSaved as BatchSavedType,
+				IsOpen
+			    FROM DWard D 
+			    LEFT OUTER JOIN IVRecord i ON D.WardCode = i.WardCode
+			    WHERE --i.IVStatus =@IVStatus1
+			  --and i.BatchSaved=@BatchSaved
+				--and 
+				LabelNo like @InfusionDT1
+				and LabelOver&gt;=0 and ((i.Remark2 &lt;&gt; -2 and i.Remark2 &lt;&gt; -1) or i.Remark2 is null)
+				and IsBatch=1
+			    GROUP BY D.WardCode, D.WardSimName ,D.WardArea,D.Spellcode,BatchSaved,IsOpen,D.WardSeqNo
+			    ORDER BY IsOpen desc , D.WardSeqNo,D.WardCode
+		  end	
+		  else
+		  begin
+			  INSERT #OrderLabelCountByArea
+			    SELECT 
+				D.WardCode,
+				D.WardSimName,
+				D.WardArea,
+				D.Spellcode,
+				SUM(case when i.IVStatus &lt;3 then 0 else 1 end) AS UnCheckCount,
+				COUNT(i.IVRecordID) AS TotalCount,
+				case when i.BatchSaved=0 then '未发' else '已发' end BatchSaved,
+				2 as BatchSavedType,
+				IsOpen
+			    FROM DWard D LEFT OUTER JOIN IVRecord i ON	D.WardCode = i.WardCode
+			    WHERE LabelNo like @InfusionDT1 
+			    --and i.IVStatus &gt;= 3
+				and LabelOver&gt;=0 and ((i.Remark2 &lt;&gt; -2 and i.Remark2 &lt;&gt; -1) or i.Remark2 is null) and IsBatch=1
+			    GROUP BY D.WardCode, D.WardSimName ,D.WardArea,D.Spellcode,BatchSaved, IsOpen,d.WardSeqNo
+			    ORDER BY IsOpen desc ,D.WardSeqNo, WardCode		  
+		   end	  
+  end
+  
+   --CREATE TABLE #OrderLabelCountByArea2  (
+   -- WardCode bigint,
+   -- WardName varchar(50),
+   -- UnCheckCount int,
+   -- TotalCount int,
+   -- BatchSaved varchar(10),
+   -- BatchSavedType int ,
+   -- IsOpen bit)
+
+  INSERT #OrderLabelCountByArea
+  SELECT '', '&lt;全部&gt;','','', ISNULL(SUM(UnCheckCount),0),ISNULL(SUM(TotalCount),0),'',@BatchSaved1,1 FROM #OrderLabelCountByArea
+  
+  
+  --select WardCode,WardName,Sum(UnCheckCount) UnCheckCount,Sum(TotalCount)TotalCount,BatchSaved,BatchSavedType,IsOpen 
+  -- into #OrderLabelCountByArea2  from #OrderLabelCountByArea  
+  -- group by  WardCode,WardName,BatchSaved,BatchSavedType,IsOpen 
+  --  ORDER BY IsOpen desc,WardCode
+
+
+  select * 
+   into #OrderLabelCountByArea2  from #OrderLabelCountByArea  
+ ORDER BY IsOpen desc,WardCode
+ 
+ 
+ 
+  --Insert #OrderLabelCountByArea2  
+  --select WardCode,WardName,UnCheckCount,TotalCount,BatchSaved,BatchSavedType,IsOpen from #OrderLabelCountByArea
+  --ORDER BY IsOpen desc , WardCode
+ 
+  
+  INSERT #OrderLabelCountByArea2
+  SELECT WardCode, WardSimName,WardArea,Spellcode, 0 ,0,'',@BatchSaved1,IsOpen
+  FROM DWard 
+  WHERE  WardCode IN (select WardCode from DWard except SELECT WardCode FROM #OrderLabelCountByArea)
+  
+  
+
+if(@WardOpen1=0)
+begin
+ delete from #OrderLabelCountByArea2  where IsOpen=0
+ end
+ else
+ begin
+	set @WardOpen1=1 
+end
+ 
+
+ if @WardIdle1=0
+ begin
+	delete from #OrderLabelCountByArea2 where  UnCheckCount=0 and WardName &lt;&gt;'&lt;全部&gt;'
+ end
+else
+begin
+set @WardIdle1=1
+end
+
+update #OrderLabelCountByArea2 set TotalCount=(select  SUM(TotalCount) from #OrderLabelCountByArea  
+where #OrderLabelCountByArea.WardCode=#OrderLabelCountByArea2.WardCode   group by WardCode) 
+
+  
+  
+ SELECT o.WardCode,o.WardName,o.WardArea,o.SpellCode,o.UnCheckCount UnCheckCount,o.TotalCount TotalCount FROM #OrderLabelCountByArea2 O 
+ LEFT OUTER JOIN DWard D ON O.WardCode = D.WardCode
+ where o.BatchSavedType=@BatchSaved1
+ group by o.WardCode ,o.WardName,o.UnCheckCount,o.TotalCount,o.WardArea,o.SpellCode
+ORDER BY o.WardCode 
+
+
+drop table #OrderLabelCountByArea
+drop table #OrderLabelCountByArea2
+END
+
+
+
+
+GO
+
+</value>
+  </data>
+  <data name="richTextBox2.Text" xml:space="preserve">
+    <value>USE [PIVAs2014]
+GO
+
+/****** Object:  StoredProcedure [dbo].[bl_getIVRecordbyPatient]    Script Date: 08/18/2014 17:01:44 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[bl_getIVRecordbyPatient]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[bl_getIVRecordbyPatient]
+GO
+
+USE [PIVAs2014]
+GO
+
+/****** Object:  StoredProcedure [dbo].[bl_getIVRecordbyPatient]    Script Date: 08/18/2014 17:01:44 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+
+
+
+CREATE PROCEDURE [dbo].[bl_getIVRecordbyPatient]
+@InfusionDT varchar(10),
+@Wardcode varchar(max),
+@WardOpen int,
+@ivstatus int,
+@BatchSaved int,
+@IsSame int
+AS
+BEGIN
+	DECLARE @t TABLE (WardCode varchar(64))
+	while(charindex(',',@Wardcode)&lt;&gt;0)   
+	begin   
+	  insert   @t(WardCode)   values   (substring(@Wardcode,1,charindex(',',@Wardcode)-1))   
+	  set   @Wardcode   =   stuff(@Wardcode,1,charindex(',',@Wardcode),'')   
+	end   
+	insert   @t(WardCode)   values   (@Wardcode)   
+
+
+
+
+
+
+  DECLARE @OrderLabelCountByPatient TABLE (
+    PatCode varchar(32),
+    PatName varchar(50),
+    WardCode varchar(32),
+    BedNo varchar(32),
+    UnCheckCount int,
+    TotalCount varchar(10),
+    BatchSaved varchar(10),
+    IsOpen bit,
+    IsSame int
+    )
+
+  if @BatchSaved=1
+  begin
+	  INSERT @OrderLabelCountByPatient
+	  SELECT 
+	   i.PatCode,i.PatName,i.WardCode,i.BedNo,
+		SUM(case when i.BatchSaved=1 and i.IVStatus = 0 then 1 else 0 end) AS UnCheckCount,
+		COUNT(i.IVRecordID) AS TotalCount,
+		case when i.BatchSaved=0 then '未发' else '已发' end BatchSaved,
+		D.IsOpen,IsSame
+	  FROM IVRecord i 
+		  left join DWard D on D.WardCode = i.WardCode
+		  inner join Prescription p on	p.PrescriptionID=i.PrescriptionID --and p.PStatus=2
+	  WHERE  i.IVStatus =@ivstatus
+		--and i.WardCode=@Wardcode
+		  and i.WardCode in (select WardCode from @t)
+		  and i.BatchSaved=@BatchSaved
+		--AND DATEDIFF(DD, CONVERT(DateTime,i.InfusionDT,120), @InfusionDT) &lt;1
+		  and LabelNo like @InfusionDT
+		  and IsBatch=1 and (i.Remark2 &lt;&gt; -2 or i.Remark2 is null)
+		  and LabelOver&gt;=0  
+		  GROUP BY i.PatCode,i.PatName,i.BedNo,i.WardCode,D.IsOpen,i.BatchSaved,IsSame
+  end 
+  else if @BatchSaved=0
+	  begin
+	   INSERT @OrderLabelCountByPatient
+	  SELECT 
+	   i.PatCode,i.PatName,i.WardCode,i.BedNo,
+		SUM(case when i.BatchSaved=0 and i.IVStatus = 0 then 1 else 0 end) AS UnCheckCount,
+		COUNT(i.IVRecordID) AS TotalCount,
+		case when i.BatchSaved=0 then '未发' else '已发' end BatchSaved,
+		D.IsOpen,IsSame
+	  FROM IVRecord i 
+		  left join DWard D on D.WardCode = i.WardCode
+		  inner join Prescription p on p.PrescriptionID=i.PrescriptionID --and p.PStatus=2
+	  WHERE  i.IVStatus=@ivstatus
+		  --and i.WardCode=@Wardcode
+		  and i.BatchSaved=@BatchSaved
+		  and i.WardCode in (select WardCode from @t)
+		  --AND DATEDIFF(DD, CONVERT(DateTime,i.InfusionDT,120), @InfusionDT) &lt;1
+		  and LabelNo like @InfusionDT
+		  and IsBatch=1 and (i.Remark2 &lt;&gt; -2 or i.Remark2 is null)
+		  and LabelOver&gt;=0  
+		  GROUP BY i.PatCode,i.PatName,i.BedNo,i.WardCode	,D.IsOpen,i.BatchSaved,IsSame
+  end
+  else
+  begin
+	  INSERT @OrderLabelCountByPatient
+	  SELECT 
+	   i.PatCode,i.PatName,i.WardCode,i.BedNo,
+		SUM(case when i.IVStatus &gt;= 3 then 1 else 0 end) AS UnCheckCount,
+		COUNT(i.IVRecordID) AS TotalCount,
+		case when i.BatchSaved=0 then '未发' else '已发' end BatchSaved,
+		D.IsOpen,IsSame
+	  FROM IVRecord i 
+	      left join DWard D on D.WardCode = i.WardCode
+		  inner join Prescription p on p.PrescriptionID=i.PrescriptionID --and p.PStatus=2
+	  WHERE  --i.IVStatus &gt;=3 
+		 --and 
+		 i.WardCode in (select WardCode from @t)
+		 --and i.WardCode=@Wardcode
+		 -- and i.BatchSaved=@BatchSaved
+		 --AND DATEDIFF(DD, CONVERT(DateTime,i.InfusionDT,120), @InfusionDT) &lt;1
+		  and LabelNo like @InfusionDT
+		  and IsBatch=1 and (i.Remark2 &lt;&gt; -2 or i.Remark2 is null)
+		  and LabelOver&gt;=0  
+	     GROUP BY i.PatCode,i.PatName,i.BedNo,i.WardCode,D.IsOpen,i.BatchSaved,IsSame
+  end
+  --INSERT @OrderLabelCountByPatient
+  --SELECT '', '&lt;全部&gt;','', ISNULL(SUM(UnCheckCount),0),ISNULL(SUM(TotalCount),0),1 FROM @OrderLabelCountByPatient
+  
+  if(@IsSame=0)
+  begin
+   delete from @OrderLabelCountByPatient where IsSame=1
+  end
+  else if (@IsSame=1)
+  begin
+    delete from @OrderLabelCountByPatient where IsSame=0
+  end
+  
+  if(@BatchSaved = 2)
+  begin
+   delete from @OrderLabelCountByPatient where UnCheckCount = 0
+  end
+  
+  
+ if(@WardOpen!=0)
+ begin
+   SELECT o.PatCode,o.PatName,o.BedNo, O.UnCheckCount,'/'+o.TotalCount TotalCount,BatchSaved,IsSame
+    FROM @OrderLabelCountByPatient O 
+    LEFT OUTER JOIN DWard D ON O.WardCode = D.WardCode
+    where o.IsOpen&lt;&gt;0
+    ORDER BY o.IsOpen desc,TotalCount desc,UnCheckCount desc,D.WardSeqNo,o.WardCode
+end
+else
+begin
+  SELECT o.PatCode ,o.PatName,o.BedNo,o.UnCheckCount,'/'+o.TotalCount TotalCount,BatchSaved,IsSame
+    FROM @OrderLabelCountByPatient O 
+    LEFT OUTER JOIN DWard D ON O.WardCode = D.WardCode
+    ORDER BY o.IsOpen desc,TotalCount desc,UnCheckCount desc,D.WardSeqNo,o.WardCode 
+end
+
+  
+    
+END
+
+
+
+
+
+GO
+
+</value>
+  </data>
+</root>

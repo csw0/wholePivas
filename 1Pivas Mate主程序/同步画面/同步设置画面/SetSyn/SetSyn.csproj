@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{873F165E-B57D-4A61-9521-7F18760833ED}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SetSyn</RootNamespace>
+    <AssemblyName>SetSyn</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\11Output\PivasMate\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\_output\_DLL\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DeleteTable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeleteTable.Designer.cs">
+      <DependentUpon>DeleteTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteTableNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeleteTableNew.Designer.cs">
+      <DependentUpon>DeleteTableNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSetSyn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSetSyn.Designer.cs">
+      <DependentUpon>frmSetSyn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DeleteTable.resx">
+      <DependentUpon>DeleteTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteTableNew.resx">
+      <DependentUpon>DeleteTableNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSetSyn.resx">
+      <DependentUpon>frmSetSyn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UChange.resx">
+      <DependentUpon>UChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USaveLog.resx">
+      <DependentUpon>USaveLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USynMin.resx">
+      <DependentUpon>USynMin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USynMinSet.resx">
+      <DependentUpon>USynMinSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USynMinSetOpen.resx">
+      <DependentUpon>USynMinSetOpen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USynSet.resx">
+      <DependentUpon>USynSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SelectSQL.cs" />
+    <Compile Include="UChange.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UChange.Designer.cs">
+      <DependentUpon>UChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateSQL.cs" />
+    <Compile Include="USaveLog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="USaveLog.Designer.cs">
+      <DependentUpon>USaveLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="USynMin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="USynMin.designer.cs">
+      <DependentUpon>USynMin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="USynMinSet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="USynMinSet.designer.cs">
+      <DependentUpon>USynMinSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="USynMinSetOpen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="USynMinSetOpen.designer.cs">
+      <DependentUpon>USynMinSetOpen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="USynSet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="USynSet.Designer.cs">
+      <DependentUpon>USynSet.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\分隔线.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\背景.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\其它.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\周期.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\起始时间.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\同步设置.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Resources\箭头.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\天数框.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\天数小边框.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\设置下拉框按钮.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\方式.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\方式上.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\方式中.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\方式下.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\设置方式边框.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\开.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\存储过程.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SQL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\配置.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\其它3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\起始时间3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\设置3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\周期3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\失败重复.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\其它2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\保存日志2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\失败重复2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\周期2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\保存日志.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\设置2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\返回.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mulv131.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mulv14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mulv15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mvlu12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\设置画面小按钮.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mulv13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\药品目录同步设置3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\药品目录同步设置.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\关.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\起始时间2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\边框.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\QIGUAI1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mulv11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mulv111.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\边框小按钮.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\关闭.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\最大化.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\10Common\PIVAsCommon\PIVAsCommon.csproj">
+      <Project>{FAB76740-C6E8-42B0-8E97-52DBC3BFB8F1}</Project>
+      <Name>PIVAsCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

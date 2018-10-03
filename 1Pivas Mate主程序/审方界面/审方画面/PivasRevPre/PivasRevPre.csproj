@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{29855D28-6C76-4705-BD52-0A533C1F3D3B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PivasRevPre</RootNamespace>
+    <AssemblyName>PivasRevPre</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>发布\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\_output\_DLL\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>SecurityRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LibDrugManual, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\工具画面\非统计\药品说明书\LibDrugManual\obj\Debug\LibDrugManual.exe</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddDict.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddDict.designer.cs">
+      <DependentUpon>AddDict.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BackPreByPerson.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BackPreByPerson.designer.cs">
+      <DependentUpon>BackPreByPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckPre.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CheckPre.Designer.cs">
+      <DependentUpon>CheckPre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BPConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BPConfirm.Designer.cs">
+      <DependentUpon>BPConfirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CPConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CPConfirm.designer.cs">
+      <DependentUpon>CPConfirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CurrentDrug.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CurrentDrug.Designer.cs">
+      <DependentUpon>CurrentDrug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AllDrug.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AllDrug.Designer.cs">
+      <DependentUpon>AllDrug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DetailDrug.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DetailDrug.Designer.cs">
+      <DependentUpon>DetailDrug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpForm.Designer.cs">
+      <DependentUpon>HelpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Group.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Group.Designer.cs">
+      <DependentUpon>Group.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Information.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Information.Designer.cs">
+      <DependentUpon>Information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Med.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Med.Designer.cs">
+      <DependentUpon>Med.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MesBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MesBox.Designer.cs">
+      <DependentUpon>MesBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PersonInfo.Designer.cs">
+      <DependentUpon>PersonInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="result.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="result.Designer.cs">
+      <DependentUpon>result.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RGDict.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RGDict.designer.cs">
+      <DependentUpon>RGDict.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Set.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Set.Designer.cs">
+      <DependentUpon>Set.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SQL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AddDict.resx">
+      <DependentUpon>AddDict.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BackPreByPerson.resx">
+      <DependentUpon>BackPreByPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckPre.resx">
+      <DependentUpon>CheckPre.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BPConfirm.resx">
+      <DependentUpon>BPConfirm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CPConfirm.resx">
+      <DependentUpon>CPConfirm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CurrentDrug.resx">
+      <DependentUpon>CurrentDrug.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AllDrug.resx">
+      <DependentUpon>AllDrug.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetailDrug.resx">
+      <DependentUpon>DetailDrug.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpForm.resx">
+      <DependentUpon>HelpForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Group.resx">
+      <DependentUpon>Group.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information.resx">
+      <DependentUpon>Information.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Med.resx">
+      <DependentUpon>Med.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MesBox.resx">
+      <DependentUpon>MesBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonInfo.resx">
+      <DependentUpon>PersonInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="result.resx">
+      <DependentUpon>result.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RGDict.resx">
+      <DependentUpon>RGDict.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Set.resx">
+      <DependentUpon>Set.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sanjiao.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\up.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\recheck.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\151.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tick_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gear_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_16.png" />
+    <None Include="Resources\you.PNG" />
+    <None Include="Resources\youS.png" />
+    <None Include="Resources\zuoS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pass1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DatabaseCopyDatabaseFile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\211.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\10Common\PIVAsCommon\PIVAsCommon.csproj">
+      <Project>{FAB76740-C6E8-42B0-8E97-52DBC3BFB8F1}</Project>
+      <Name>PIVAsCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\2Pivas加密程序\PivasLimitDES\PivasLimitDES.csproj">
+      <Project>{8902815E-5E70-4B8C-9AD5-1A76F98D1AAB}</Project>
+      <Name>PivasLimitDES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\6接口调用\ChargeInterface\ChargeInterface.csproj">
+      <Project>{0aa4a583-d586-4093-b23d-0d016e8253a2}</Project>
+      <Name>ChargeInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\6接口调用\PivasHisInterface\PivasHisInterface.csproj">
+      <Project>{183592cb-9d96-4c61-b471-53020b3fe77d}</Project>
+      <Name>PivasHisInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\8个性化需求\FormClick\FormClick.csproj">
+      <Project>{87dcd9ee-921d-478f-9ac9-68cb3003c7fa}</Project>
+      <Name>FormClick</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

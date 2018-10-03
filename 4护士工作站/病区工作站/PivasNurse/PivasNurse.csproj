@@ -1,0 +1,536 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7CFB9431-09B4-49D6-94EF-629BE6AEC5B1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PivasNurse</RootNamespace>
+    <AssemblyName>PivasNurse</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>文件名.ico</ApplicationIcon>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\11Output\护士工作站\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FastReport, Version=2013.2.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\10Common\import DLL\FastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.Bars, Version=2013.2.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\10Common\import DLL\FastReport.Bars.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.Editor, Version=2013.2.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\10Common\import DLL\FastReport.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="3DXTuiYao.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="3DXTuiYao.Designer.cs">
+      <DependentUpon>3DXTuiYao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="8HeDui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="8HeDui.Designer.cs">
+      <DependentUpon>8HeDui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CancelDrugInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CancelDrugInfo.Designer.cs">
+      <DependentUpon>CancelDrugInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CancelMessage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CancelMessage.designer.cs">
+      <DependentUpon>CancelMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckCancelDrug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckCancelDrug.Designer.cs">
+      <DependentUpon>CheckCancelDrug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="conntion.cs" />
+    <Compile Include="CurrentDrug.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CurrentDrug.designer.cs">
+      <DependentUpon>CurrentDrug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorOpinion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoctorOpinion.Designer.cs">
+      <DependentUpon>DoctorOpinion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Exit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Exit.Designer.cs">
+      <DependentUpon>Exit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Information.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Information.designer.cs">
+      <DependentUpon>Information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Information2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Information2.Designer.cs">
+      <DependentUpon>Information2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InformationQS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InformationQS.Designer.cs">
+      <DependentUpon>InformationQS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LabelCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LabelCheck.Designer.cs">
+      <DependentUpon>LabelCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LabelNo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LabelNo.Designer.cs">
+      <DependentUpon>LabelNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="7LabelNoCX.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="7LabelNoCX.Designer.cs">
+      <DependentUpon>7LabelNoCX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NurseSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NurseSet.Designer.cs">
+      <DependentUpon>NurseSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NurseWorkStation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NurseWorkStation.Designer.cs">
+      <DependentUpon>NurseWorkStation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IntroductionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntroductionForm.Designer.cs">
+      <DependentUpon>IntroductionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ball.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ball.Designer.cs">
+      <DependentUpon>Ball.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PreForLabel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PreForLabel.Designer.cs">
+      <DependentUpon>PreForLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintPreview.designer.cs">
+      <DependentUpon>PrintPreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="2TuiFangCX.resx">
+      <DependentUpon>2TuiFangCX.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="3DXTuiYao.resx">
+      <DependentUpon>3DXTuiYao.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="4TiQianDB.resx">
+      <DependentUpon>4TiQianDB.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="6YiZhuCX.resx">
+      <DependentUpon>6YiZhuCX.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="8HeDui.resx">
+      <DependentUpon>8HeDui.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CancelDrugInfo.resx">
+      <DependentUpon>CancelDrugInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CancelMessage.resx">
+      <DependentUpon>CancelMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckCancelDrug.resx">
+      <DependentUpon>CheckCancelDrug.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CurrentDrug.resx">
+      <DependentUpon>CurrentDrug.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoctorOpinion.resx">
+      <DependentUpon>DoctorOpinion.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Exit.resx">
+      <DependentUpon>Exit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information.resx">
+      <DependentUpon>Information.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information2.resx">
+      <DependentUpon>Information2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InformationQS.resx">
+      <DependentUpon>InformationQS.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LabelCheck.resx">
+      <DependentUpon>LabelCheck.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LabelNo.resx">
+      <DependentUpon>LabelNo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="7LabelNoCX.resx">
+      <DependentUpon>7LabelNoCX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NurseSet.resx">
+      <DependentUpon>NurseSet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NurseWorkStation.resx">
+      <DependentUpon>NurseWorkStation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntroductionForm.resx">
+      <DependentUpon>IntroductionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ball.resx">
+      <DependentUpon>Ball.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PreForLabel.resx">
+      <DependentUpon>PreForLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintPreview.resx">
+      <DependentUpon>PrintPreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="1ShenFangCL.resx">
+      <DependentUpon>1ShenFangCL.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="5QianShou.resx">
+      <DependentUpon>5QianShou.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="result.resx">
+      <DependentUpon>result.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="textForm.resx">
+      <DependentUpon>textForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XiuGaiMiMa.resx">
+      <DependentUpon>XiuGaiMiMa.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="核对.resx">
+      <DependentUpon>核对.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="1ShenFangCL.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="1ShenFangCL.Designer.cs">
+      <DependentUpon>1ShenFangCL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="5QianShou.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="5QianShou.Designer.cs">
+      <DependentUpon>5QianShou.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2TuiFangCX.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="2TuiFangCX.Designer.cs">
+      <DependentUpon>2TuiFangCX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="4TiQianDB.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="4TiQianDB.Designer.cs">
+      <DependentUpon>4TiQianDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="6YiZhuCX.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="6YiZhuCX.Designer.cs">
+      <DependentUpon>6YiZhuCX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="result.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="result.Designer.cs">
+      <DependentUpon>result.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SQL.cs" />
+    <Compile Include="textForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="textForm.Designer.cs">
+      <DependentUpon>textForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XiuGaiMiMa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XiuGaiMiMa.designer.cs">
+      <DependentUpon>XiuGaiMiMa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="核对.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="核对.Designer.cs">
+      <DependentUpon>核对.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PatientFile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pills.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Syringe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-1286.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-1853.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-0026.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\A-1%2520009.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stock-find-and-replace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\1.ico" />
+    <None Include="bin\Debug\空白.ico" />
+    <Content Include="HOSPITAL.ICO" />
+    <Content Include="hushi.ico" />
+    <Content Include="Resources\161.png" />
+    <None Include="Resources\1611.png" />
+    <Content Include="Resources\2.png" />
+    <None Include="Resources\22.png" />
+    <None Include="Resources\20.png" />
+    <Content Include="Resources\6.png" />
+    <None Include="Resources\61.png" />
+    <Content Include="Resources\7.png" />
+    <None Include="Resources\71.png" />
+    <None Include="Resources\caution.gif" />
+    <None Include="Resources\warning2.bmp" />
+    <Content Include="Resources\文件名.ico" />
+    <None Include="Resources\空白.ico" />
+    <Content Include="文件名.ico" />
+    <None Include="Resources\wq.png" />
+    <None Include="Resources\yq.png" />
+    <None Include="Resources\1.png" />
+    <None Include="Resources\21.png" />
+    <None Include="Resources\Unlock.ico" />
+    <None Include="Resources\箭头1.JPG" />
+    <None Include="Resources\箭头.jpg" />
+    <None Include="Resources\箭头2.JPG" />
+    <None Include="Resources\advanced.png" />
+    <None Include="Resources\555.jpg" />
+    <None Include="Resources\444.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\10Common\CommonUI\CommonUI.csproj">
+      <Project>{76422bb2-27fa-4e76-9543-31de5c21351b}</Project>
+      <Name>CommonUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\10Common\PIVAsCommon\PIVAsCommon.csproj">
+      <Project>{fab76740-c6e8-42b0-8e97-52dbc3bfb8f1}</Project>
+      <Name>PIVAsCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\1Pivas Mate主程序\工具画面\非统计\药品说明书\LibDrugManual\LibDrugManual.csproj">
+      <Project>{d7ed6341-7a5a-4386-9d02-27af4d889c87}</Project>
+      <Name>LibDrugManual</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\2Pivas加密程序\PivasLimitDES\PivasLimitDES.csproj">
+      <Project>{8902815E-5E70-4B8C-9AD5-1A76F98D1AAB}</Project>
+      <Name>PivasLimitDES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\病区工作站气泡\PivasNurseBall\PivasNurseBall.csproj">
+      <Project>{bea79cf8-787c-4e4f-a6af-41601b0eef05}</Project>
+      <Name>PivasNurseBall</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\聊天记录\qqClient\qqClient.csproj">
+      <Project>{1f246031-2d62-43b4-85a7-c180b3685fc7}</Project>
+      <Name>qqClient</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
