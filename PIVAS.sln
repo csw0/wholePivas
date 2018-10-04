@@ -249,6 +249,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormClick", "8个性化需�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HisInventoryCheck", "8个性化需求\HisInventoryCheck\HisInventoryCheck.csproj", "{FB8C8E9A-C3AB-4424-8E5D-D4EDF9BE60BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MccScreen", "5舱内扫描\MccScreen\MccScreen.csproj", "{445630EC-BB02-421C-B698-AE956CD4C626}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -591,6 +593,10 @@ Global
 		{FB8C8E9A-C3AB-4424-8E5D-D4EDF9BE60BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB8C8E9A-C3AB-4424-8E5D-D4EDF9BE60BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB8C8E9A-C3AB-4424-8E5D-D4EDF9BE60BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{445630EC-BB02-421C-B698-AE956CD4C626}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{445630EC-BB02-421C-B698-AE956CD4C626}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{445630EC-BB02-421C-B698-AE956CD4C626}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{445630EC-BB02-421C-B698-AE956CD4C626}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -691,5 +697,6 @@ Global
 		{C57A8842-8B81-4D7B-8C20-522068A56BA4} = {F7ECD400-97B9-4690-9C62-343F72397191}
 		{87DCD9EE-921D-478F-9AC9-68CB3003C7FA} = {F7ECD400-97B9-4690-9C62-343F72397191}
 		{FB8C8E9A-C3AB-4424-8E5D-D4EDF9BE60BF} = {F7ECD400-97B9-4690-9C62-343F72397191}
+		{445630EC-BB02-421C-B698-AE956CD4C626} = {E2346CA0-62FF-4C25-8961-B4A045685FF6}
 	EndGlobalSection
 EndGlobal

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -97,6 +98,36 @@ namespace PIVAsCommon.Extensions
                 sb.Append(bt.ToString("X2") + " ");
             }
             return sb.ToString();
+        }
+
+        public static string ToJson(this object value)
+        {
+            if (value == null) return string.Empty;
+            try
+            {
+                return JsonConvert.SerializeObject(value);
+            }
+            catch (Exception ex)
+            {
+                InternalLogger.Log.Error(string.Format("类型为{0}的对象转Json失败:{1}", value.GetType().FullName, ex.Message));
+                return string.Empty;
+            }
+        }
+
+        public static T ToObject<T>(this string json)
+            where T : class
+        {
+            if (string.IsNullOrEmpty(json))
+                return default(T);
+            try
+            {
+                return JsonConvert.DeserializeObject<T>(json);
+            }
+            catch (Exception ex)
+            {
+                InternalLogger.Log.Error(string.Format("json string {0}转换为{1}的对象失败:{2}", json, typeof(T), ex.Message));
+                return default(T);
+            }
         }
     }
 }

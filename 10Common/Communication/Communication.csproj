@@ -58,6 +58,11 @@
     <Compile Include="PLCCom\BL_PLCSerialPort.cs" />
     <Compile Include="PLCCom\WinAPI_ServialPort.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WindowsScreen\MsgBase.cs" />
+    <Compile Include="WindowsScreen\MsgDrugRowInfo.cs" />
+    <Compile Include="WindowsScreen\MsgLoginStatus.cs" />
+    <Compile Include="WindowsScreen\MsgScreenInfo.cs" />
+    <Compile Include="WindowsScreen\MsgType.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
