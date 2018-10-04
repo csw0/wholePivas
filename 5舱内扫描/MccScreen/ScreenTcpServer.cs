@@ -106,13 +106,12 @@ namespace MccScreen
             }
         }
 
-        //基本不向客户端发消息
         private void Server_DataSent(object sender, AsyncSocketSessionEventArgs e)
         {
             InternalLogger.Log.Info(String.Format("ScreenTcpServer向{0}:{1}[{2}]发送数据{3}成功:",
                    this.currentClient == null ? null : currentClient.Address,
                    this.currentClient == null ? 0 : currentClient.Port,
-                   this.sessionId, e.DataTransferred.BytesToHexString()));
+                   this.sessionId, Encoding.Default.GetString(e.DataTransferred)));
         }
 
         private void Server_DataReceived(object sender, AsyncSocketSessionEventArgs e)
@@ -209,8 +208,29 @@ namespace MccScreen
             return false;
         }
 
+        /// <summary>
+        /// 向客户端发送瓶签信息
+        /// </summary>
+        /// <param name="displayData"></param>
+        /// <returns></returns>
+        public bool Send(string displayData)
+        {
+            try
+            {
+                //这里直接用sessionId，是因只有一个客户端进行连接屏;同时发送加分包符
+                return server.Send(this.sessionId,Encoding.Default.GetBytes(displayData+StaticDictionary.SPLITTER));
+            }
+            catch (Exception ex)
+            {
+                InternalLogger.Log.Info(String.Format("{0}:{1}[SessionId={2}]发送数据出错{3}。",
+                  this.currentClient == null ? null : currentClient.Address,
+                  this.currentClient == null ? 0 : currentClient.Port,
+                  this.sessionId, ex.Message));
+            }
+            return false;
+        }
 
-        public event EventHandler<PivasEventArgs<MsgLoginStatus>> EventLogin;
+        public event EventHandler<PivasEventArgs<MsgLoginResult>> EventLogin;
         public event EventHandler<PivasEventArgs<MsgScreenInfo>> EventScreenInfo;
         private void ParseData(string data)
         {
@@ -220,7 +240,7 @@ namespace MccScreen
             {
                 case (short)MsgType.LoginStatus:
                     if (EventLogin != null)
-                        EventLogin(null, new PivasEventArgs<MsgLoginStatus>(message.ToObject<MsgLoginStatus>()));
+                        EventLogin(null, new PivasEventArgs<MsgLoginResult>(message.ToObject<MsgLoginResult>()));
                     break;
                 case (short)MsgType.ScrennInfo:
                     if (EventScreenInfo != null)

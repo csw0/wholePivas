@@ -40,9 +40,9 @@
             this.label1.Location = new System.Drawing.Point(0, 35);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(292, 27);
+            this.label1.Size = new System.Drawing.Size(264, 27);
             this.label1.TabIndex = 0;
-            this.label1.Text = "MCC1.0.4.9(20180923)";
+            this.label1.Text = "MCC2.0.0(20181008)";
             // 
             // label2
             // 

@@ -8,7 +8,7 @@ namespace Communication.WindowsScreen
     /// <summary>
     /// 药师登录状态实体
     /// </summary>
-    public class MsgLoginStatus : MsgBase
+    public class MsgLoginResult : MsgBase
     {
         /// <summary>
         /// 药师登录状态，0未登录状态，1登录状态

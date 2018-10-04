@@ -13,6 +13,8 @@ using Communication;
 using PIVAsCommon;
 using Communication.DisplayTcp;
 using PIVAsCommon.Models;
+using Communication.screenTcp;
+using Communication.WindowsScreen;
 
 namespace PivasMcc
 {
@@ -24,8 +26,10 @@ namespace PivasMcc
         /// 同时这个端口比数据库中大4000
         /// </summary>
         int[] arrayPort;
-        private MOXAController moxaContrl = null;
-        private DisplayController displayController = null;
+        private MOXAController moxaContrl = null;//moxa控制
+        private DisplayController displayController = null;//迪文屏控制
+        private ScreenClientController screenClientController = null;//微软屏控制
+
         List<ListviewMain_Model> list_LvMain_Model = null;//配置台信息
         List<string[]> IsLogin = null; //配置台的登录信息
         private Queue<ControlLightCommand> lightQueue = null;//亮灯指令队列
@@ -41,7 +45,7 @@ namespace PivasMcc
         private bool opengreen = true;
         private string MoxaGroup = "";
 
-        private string screenType = "0";//0=安卓屏；1=迪文屏
+        private string screenType = StaticDictionary.ANDROID_SCREEN;//0=安卓屏；1=迪文屏；2：微软屏
 
         private const int SLEEP_TIME = 300;//灯亮关间隔时间,设置为（plc数*150+50）毫秒
         private string IsCharge = string.Empty;//在舱内核对时，是否进行计费
@@ -91,6 +95,11 @@ namespace PivasMcc
             displayController.Connected += DisplayController_Connected;
             displayController.Disconnected += DisplayController_Disconnected;
 
+            screenClientController = new ScreenClientController();
+            screenClientController.Connected += ScreenClientController_Connected;
+            screenClientController.Disconnected += ScreenClientController_Disconnected;
+            screenClientController.LabelNoReceived += ScreenClientController_LabelNoReceived;
+
             list_LvMain_Model = new List<ListviewMain_Model>();
             IsLogin = new List<string[]>();
             lightQueue = new Queue<ControlLightCommand>();
@@ -101,7 +110,7 @@ namespace PivasMcc
             (threadClearAllListView = new Thread(ClearAllListView)).Start();
             (threadGetLightData = new Thread(GetLightData)).Start();
             (threadSynLabelData = new Thread(SynLabelData)).Start();
-        }      
+        }        
 
         #region user32.dll
         [DllImport("user32.dll")]
@@ -116,7 +125,7 @@ namespace PivasMcc
         private void frmMcc_Load(object sender, EventArgs e)
         {
             LoadINI();
-            bool showScreen = screenType == "0" ? false : true;//0是安卓屏，不需界面操作
+            bool showScreen = screenType == StaticDictionary.ANDROID_SCREEN ? false : true;//0是安卓屏，不需界面操作
             舱内屏操作ToolStripMenuItem.Visible = showScreen;
             打开屏ToolStripMenuItem.Visible = showScreen;
             关闭屏连接ToolStripMenuItem.Visible = showScreen;
@@ -246,7 +255,7 @@ namespace PivasMcc
                     + labelData + "' and DelDT is null and b.IsValid=1 ").Tables[0];
                 if (dt.Rows.Count > 0)
                 {
-                    byte loginStatus = 0;//0未登录，1登陆成功
+                    byte loginStatus = (byte)StaticDictionary.DOCTOR_STATUS_FALSE;//0未登录，1登陆成功
                     string employeeID = string.Empty;
                     string employeeName = string.Empty;
 
@@ -262,9 +271,9 @@ namespace PivasMcc
                             { index, dt.Rows[0]["DEmployeeName"].ToString(), dt.Rows[0]["DEmployeeID"].ToString() });
                         });
 
-                        if (opengreen)
+                        if (opengreen)//微软屏不用红绿灯
                             EnqueueLightQueue(new ControlLightCommand(list_LvMain_Model[index].MoxaIP, list_LvMain_Model[index].MoxaPort, 2, 1,0));//开绿灯
-                        loginStatus = 1;
+                        loginStatus = (byte)StaticDictionary.DOCTOR_STATUS_TRUE;
                     }
                     else  //登出操作
                     {
@@ -275,21 +284,31 @@ namespace PivasMcc
                             UpdateListViewMainOfLogOut(index);
                         });
 
-                        if (CloseALLLight[index] == true)//关绿灯
+                        if (CloseALLLight[index] == true && opengreen)//关绿灯
                             EnqueueLightQueue(new ControlLightCommand(list_LvMain_Model[index].MoxaIP, list_LvMain_Model[index].MoxaPort, 2, 0,0));
 
                         if (arrayPort[index] >= 0 && openred)//登出后，判断端口打开，亮红灯，指示端口打开，但未登录,//开红灯
                             EnqueueLightQueue(new ControlLightCommand(list_LvMain_Model[index].MoxaIP, list_LvMain_Model[index].MoxaPort, 1, 1,0));
 
                         CloseALLLight[index] = false;
-                        loginStatus = 0;
+                        loginStatus = (byte)StaticDictionary.DOCTOR_STATUS_FALSE;
                     }
 
-                    if (screenType == "0")//安卓屏
-                        SaveLoginStatus(list_LvMain_Model[index].MoxaIP, list_LvMain_Model[index].MoxaPort, employeeName, employeeID);
-                    else//将登陆状态发给屏，迪文屏
+                    if (screenType == StaticDictionary.DIWEN_SCREEN)
+                    {
+                        //将登陆状态发给屏，迪文屏
                         ScreenInfoHandler.Instance.SendLoginStatus(displayController, list_LvMain_Model[index].ScreenIP,
                             list_LvMain_Model[index].ScreenPort, loginStatus);
+                    }
+                    else if(screenType == StaticDictionary.WINDOWS_SCREEN)
+                    {
+                        ScreenClientHandler.Instance.SendLoginStatus(screenClientController, list_LvMain_Model[index].ScreenIP,
+                            list_LvMain_Model[index].ScreenPort, loginStatus);
+                    }
+                    else//默认安卓屏
+                    {
+                        SaveLoginStatus(list_LvMain_Model[index].MoxaIP, list_LvMain_Model[index].MoxaPort, employeeName, employeeID);
+                    }
                 }
             }
             catch (Exception ex)
@@ -353,7 +372,7 @@ namespace PivasMcc
                             AddTodt(labelData);//标记是否已扫码且计费成功过
                         }
 
-                        if (screenType == "0")//安卓屏，最后根据计费结果，更新数据库表
+                        if (screenType == StaticDictionary.ANDROID_SCREEN)//安卓屏，最后根据计费结果，更新数据库表
                         {
                             string strSQL = String.Format("update ScreenDetail set DemployeeID='{0}',DemployeeName='{1}',LabelNo='{2}',Result='{3}',Msg='{4}' "
                                 +" where MoxaIP='{5}' and port='{6}'", IsLogin[index][1], IsLogin[index][0], labelData,
@@ -369,7 +388,8 @@ namespace PivasMcc
                 }
                 //根据计费结果，控制灯响应
                 InternalLogger.Log.Info(String.Format("瓶签号：{0},计费结果：{1}", labelData, chargeMsg));//这句日志是重要日志，可以据此查询计费结果
-                LightController(list_LvMain_Model[index].MoxaIP, list_LvMain_Model[index].MoxaPort, controlLightType);
+                if(!screenType.Equals(StaticDictionary.WINDOWS_SCREEN))//不是微软屏,才去控制红绿灯
+                    LightController(list_LvMain_Model[index].MoxaIP, list_LvMain_Model[index].MoxaPort, controlLightType);
             }
             catch (Exception ex)
             {
@@ -388,11 +408,20 @@ namespace PivasMcc
 
                 //UpdatelistViewMainOfResult会更新配置数量，直接用界面上listViewMain.Items[index].SubItems[7]的值
                 string count = listViewMain.Items[index].SubItems[7].Text.Trim();
-                if (screenType == "0")
-                    SaveLabelInfo(index,chargeRtnValue,chargeMsg,labelData, count);
-                else
+                if (screenType == StaticDictionary.DIWEN_SCREEN) //迪文屏
+                {
                     ScreenInfoHandler.Instance.SendInfoToScreen(displayController, list_LvMain_Model[index].ScreenIP,
-                        list_LvMain_Model[index].ScreenPort, labelData, chargeRtnValue, chargeMsg, this.IsLogin[index][0].Trim(),count);
+                        list_LvMain_Model[index].ScreenPort, labelData, chargeRtnValue, chargeMsg, this.IsLogin[index][0].Trim(), count);
+                }
+                else if(screenType == StaticDictionary.WINDOWS_SCREEN)//微软屏
+                {
+                    ScreenClientHandler.Instance.SendInfoToScreen(screenClientController, list_LvMain_Model[index].ScreenIP,
+                        list_LvMain_Model[index].ScreenPort, labelData, short.Parse(chargeRtnValue), chargeMsg, this.IsLogin[index][0].Trim(), count);
+                } 
+                else//默认安卓屏
+                {
+                    SaveLabelInfo(index, chargeRtnValue, chargeMsg, labelData, count);
+                }
             }
         }
 
@@ -993,7 +1022,7 @@ namespace PivasMcc
                         lvMain_Model.GreenLight = dt.Rows[i]["GreenLight"].ToString();
                         lvMain_Model.GreenLight = dt.Rows[i]["GreenLight"].ToString();
 
-                        if (screenType == "1")//1是迪文屏,0是安卓屏(不需要加载ip和端口，采用数据库做中转交互)
+                        if (screenType == StaticDictionary.DIWEN_SCREEN || screenType == StaticDictionary.WINDOWS_SCREEN)
                         {
                             if (string.IsNullOrEmpty(dt.Rows[i]["ScreenIP"].ToString()))
                             {
@@ -1003,7 +1032,8 @@ namespace PivasMcc
                                     return;
                             }
                             lvMain_Model.ScreenIP = dt.Rows[i]["ScreenIP"].ToString();
-                            lvMain_Model.ScreenPort = 8080;//新屏的端口写死
+                            int port = Int32.Parse(db.IniReadValuePivas("SCREEN", "ServerPort").Trim());
+                            lvMain_Model.ScreenPort = port;//新屏的端口配置死；迪文屏必须是8080端口
                         }
 
                         list_LvMain_Model.Add(lvMain_Model);
@@ -1171,11 +1201,18 @@ namespace PivasMcc
                     else
                         listViewMain.Items[i].BackColor = Color.Pink;
 
-                    if (screenType =="0")
-                        SaveLoginStatus(list_LvMain_Model[i].MoxaIP, list_LvMain_Model[i].MoxaPort,string.Empty,string.Empty);
-                    else //将登陆状态发给屏
+                    if (screenType == StaticDictionary.DIWEN_SCREEN)
+                    {
                         ScreenInfoHandler.Instance.SendLoginStatus(displayController, list_LvMain_Model[i].ScreenIP,
-                            list_LvMain_Model[i].ScreenPort, 0);
+                            list_LvMain_Model[i].ScreenPort, (ushort)StaticDictionary.DOCTOR_STATUS_FALSE);
+                    }
+                    else if (screenType == StaticDictionary.DIWEN_SCREEN)
+                    {
+                        ScreenClientHandler.Instance.SendLoginStatus(screenClientController, list_LvMain_Model[i].ScreenIP,
+                            list_LvMain_Model[i].ScreenPort, StaticDictionary.DOCTOR_STATUS_FALSE);
+                    }
+                    else
+                        SaveLoginStatus(list_LvMain_Model[i].MoxaIP, list_LvMain_Model[i].MoxaPort, string.Empty, string.Empty);
                 }
             }
             catch (Exception ex)
@@ -1204,11 +1241,19 @@ namespace PivasMcc
                 EnqueueLightQueue(new ControlLightCommand(list_LvMain_Model[i].MoxaIP, list_LvMain_Model[i].MoxaPort, 2, 1, 0));
             CloseALLLight[i] = true;//登陆成功，第一次扫描时需要先关灯
 
-            if (screenType == "0")
-                SaveLoginStatus(list_LvMain_Model[i].MoxaIP, list_LvMain_Model[i].MoxaPort, name, id);
-            else//将登陆状态发给屏
+            if (screenType == StaticDictionary.DIWEN_SCREEN)
+            {
                 ScreenInfoHandler.Instance.SendLoginStatus(displayController, list_LvMain_Model[i].ScreenIP,
-                list_LvMain_Model[i].ScreenPort, 1);
+                    list_LvMain_Model[i].ScreenPort, (ushort)StaticDictionary.DOCTOR_STATUS_TRUE);
+            }
+            else if (screenType == StaticDictionary.WINDOWS_SCREEN)
+            {
+                ScreenClientHandler.Instance.SendLoginStatus(screenClientController, list_LvMain_Model[i].ScreenIP,
+                            list_LvMain_Model[i].ScreenPort, StaticDictionary.DOCTOR_STATUS_TRUE);
+            }
+            else//默认安卓屏
+                SaveLoginStatus(list_LvMain_Model[i].MoxaIP, list_LvMain_Model[i].MoxaPort, name, id);
+
         }
 
         private void Panel_Max_None_MouseHover(object sender, EventArgs e)
@@ -1455,11 +1500,13 @@ namespace PivasMcc
                 opengreen = true;
             }
 
-            screenType = db.IniReadValuePivas("MOXA", "type");
-            if (screenType != "1" && screenType != "0")
+            screenType = db.IniReadValuePivas("SCREEN", "type");
+            if (screenType != StaticDictionary.ANDROID_SCREEN 
+                && screenType != StaticDictionary.DIWEN_SCREEN 
+                && screenType != StaticDictionary.WINDOWS_SCREEN)
             {
                 MessageBox.Show("屏类型未设置，默认使用旧版");
-                db.IniWriteValuePivas("MOXA", "type", "0");
+                db.IniWriteValuePivas("SCREEN", "type", "0");
             }
 
             MoxaGroup = db.IniReadValuePivas("MOXA", "Group");
@@ -1668,9 +1715,12 @@ namespace PivasMcc
         {
             try
             {
-                lock (lightQueue)
+                if (screenType != StaticDictionary.WINDOWS_SCREEN)//微软屏不用红绿灯
                 {
-                    lightQueue.Enqueue(lightmodel);
+                    lock (lightQueue)
+                    {
+                        lightQueue.Enqueue(lightmodel);
+                    }
                 }
             }
             catch (Exception ex)
@@ -1757,6 +1807,67 @@ namespace PivasMcc
             }
         }
         #endregion
+
+        #region 微软屏事件
+        private void ScreenClientController_LabelNoReceived(object sender, PivasEventArgs<TCPMessage> e)
+        {
+            try
+            {
+                for (int index = 0; index < listViewMain.Items.Count; index++)
+                {
+                    if (list_LvMain_Model[index].ScreenIP.Trim().Equals(e.Value.ServerIp.Trim())
+                        && list_LvMain_Model[index].ScreenPort.ToString().Equals(e.Value.ServerPort.ToString()))//匹配到某项
+                    {
+                        string screenData = e.Value.TcpData;
+                        InternalLogger.Log.Info(String.Format("从[{0}:{1}]读取到数据{2}",
+                            list_LvMain_Model[index].ScreenIP, list_LvMain_Model[index].ScreenPort, screenData));
+
+                        String labelData = String.Empty;
+                        if (IsLogionData(screenData, out labelData)) //员工登录
+                        {
+                            InternalLogger.Log.Debug(screenData + "被判断为登录信息,因7777开头且长度为22");
+                            CheckInOut(index, labelData);//登录处理
+                        }
+                        else if (IsLabelNo(screenData, out labelData))//只对今天和明天的瓶签计费；并校验瓶签长度和瓶签标识
+                        {
+                            InternalLogger.Log.Debug(screenData + "被判断瓶签数据");
+                            CheckLabelNo(index, labelData);
+                        }
+                        else
+                        {
+                            InternalLogger.Log.Warn(screenData + "被判断为非法Screen数据，不做处理也不显示");
+                            return; //跳出数据接收处理方法
+                        }
+
+                        //合法moxa数据时，更新UI
+                        this.SafeAction(() =>
+                        {
+                            UpdateListViewDeskInfo(listViewMain.Items[index].SubItems[0].Text,
+                                listViewMain.Items[index].SubItems[2].Text, labelData);
+                            listViewMain.Items[index].SubItems[5].Text = labelData;
+                        });
+                        break;//跳出for
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                InternalLogger.Log.Error("接收到LabelNo数据，处理出错：" + ex.Message);
+            }
+        }
+
+        private void ScreenClientController_Disconnected(object sender, PivasEventArgs<TCPMessage> e)
+        {
+            UpdateListViewPort(string.Format("屏 IP:{0}；端口:{1}；因网络或设备原因，造成连接断开",
+                   e.Value.ServerIp, e.Value.ServerPort));
+        }
+
+        private void ScreenClientController_Connected(object sender, PivasEventArgs<TCPMessage> e)
+        {
+            UpdateListViewPort(string.Format("屏 IP:{0}；端口:{1}；连接成功",
+                   e.Value.ServerIp, e.Value.ServerPort));
+        }
+        #endregion 微软屏事件
 
         private void ClearThread()
         {

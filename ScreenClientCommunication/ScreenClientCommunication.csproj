@@ -4,19 +4,20 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{824C7A75-963F-4C62-8B0B-6F561FB006D7}</ProjectGuid>
+    <ProjectGuid>{20CBD385-9C7C-4AC7-A061-786325052E8D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Communication</RootNamespace>
-    <AssemblyName>Communication</AssemblyName>
+    <RootNamespace>ScreenClientCommunication</RootNamespace>
+    <AssemblyName>ScreenClientCommunication</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\11Output\CommonDll\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -30,8 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net">
-      <HintPath>..\Log4net\net35-full\log4net.dll</HintPath>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\10Common\Log4net\net35-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="SmartThreadPool">
+      <HintPath>..\10Common\SmartThreadPool\SmartThreadPool.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -41,32 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DisplayTcp\DisplayController.cs" />
-    <Compile Include="DisplayTcp\DisplayTcpClient.cs" />
-    <Compile Include="DisplayTcp\MsgLoginStatus.cs" />
-    <Compile Include="DisplayTcp\MsgDrugMixMethod.cs" />
-    <Compile Include="DisplayTcp\MsgDEmployeeRow.cs" />
-    <Compile Include="DisplayTcp\MsgGeneral.cs" />
-    <Compile Include="DisplayTcp\MsgDrugRow.cs" />
-    <Compile Include="DisplayTcp\MsgPatientRow.cs" />
-    <Compile Include="DisplayTcp\MsgChareResRow.cs" />
-    <Compile Include="DisplayTcp\ScreenMsgType.cs" />
-    <Compile Include="MOXATcp\MOXATcpClient.cs" />
-    <Compile Include="MOXATcp\MOXAController.cs" />
-    <Compile Include="TCPMessageEx.cs" />
-    <Compile Include="TCPMessage.cs" />
-    <Compile Include="PLCCom\BL_PLCSerialPort.cs" />
-    <Compile Include="PLCCom\WinAPI_ServialPort.cs" />
+    <Compile Include="ScreenClientController.cs" />
+    <Compile Include="ScreenClientHandler.cs" />
+    <Compile Include="ScreenTcpClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WindowsScreen\MsgBase.cs" />
-    <Compile Include="WindowsScreen\MsgDrugRowInfo.cs" />
-    <Compile Include="WindowsScreen\MsgLoginResult.cs" />
-    <Compile Include="WindowsScreen\MsgScreenInfo.cs" />
-    <Compile Include="WindowsScreen\MsgType.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\PIVAsCommon\PIVAsCommon.csproj">
+    <ProjectReference Include="..\10Common\Communication\Communication.csproj">
+      <Project>{824C7A75-963F-4C62-8B0B-6F561FB006D7}</Project>
+      <Name>Communication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\10Common\PIVAsCommon\PIVAsCommon.csproj">
       <Project>{FAB76740-C6E8-42B0-8E97-52DBC3BFB8F1}</Project>
       <Name>PIVAsCommon</Name>
     </ProjectReference>

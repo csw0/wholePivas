@@ -879,20 +879,23 @@ namespace PivasMcc
 
         public void LoadINI()
         {
-            string Moxa = DB.IniReadValuePivas("MOXA", "type");
-            if (Moxa == "1")
+            string Moxa = DB.IniReadValuePivas("SCREEN", "type");
+            switch (Moxa)
             {
-                cbxScreenType.SelectedIndex = 1;
-            }
-            else if (Moxa == "0")
-            {
-                cbxScreenType.SelectedIndex = 0;
-            }
-            else
-            {
-                MessageBox.Show("屏版本未设置，默认使用旧版");
-                cbxScreenType.SelectedIndex = 0;
-                DB.IniWriteValuePivas("MOXA", "type", "0");
+                case "0":
+                    cbxScreenType.SelectedIndex = 0;
+                    break;
+                case "1": 
+                    cbxScreenType.SelectedIndex = 1;
+                    break;
+                case "2":
+                    cbxScreenType.SelectedIndex = 2;
+                    break;
+                default:
+                    MessageBox.Show("屏版本未设置，默认使用旧版");
+                    cbxScreenType.SelectedIndex = 0;
+                    DB.IniWriteValuePivas("SCREEN", "type", "0");
+                    break;
             }
 
             string RedValue = DB.IniReadValuePivas("doublelight", "openred");
@@ -1004,7 +1007,7 @@ namespace PivasMcc
 
         private void cbxScreenType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DB.IniWriteValuePivas("MOXA", "type", cbxScreenType.SelectedIndex.ToString());
+            DB.IniWriteValuePivas("SCREEN", "type", cbxScreenType.SelectedIndex.ToString());
         }
     }
 }

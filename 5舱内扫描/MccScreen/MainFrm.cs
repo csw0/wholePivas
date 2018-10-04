@@ -34,6 +34,17 @@ namespace MccScreen
             {
                 tbLabel.Text = codes.Result;
             });
+            //发送瓶签号给客户端去处理
+            if (tcpServer != null)
+            {
+                tcpServer.Send(codes.Result.Trim());
+            }
+            else
+            {
+                string str = "TCP链路断开，请重启";
+                InternalLogger.Log.Warn(str);
+                UpdateLabelResult(str);
+            }
         }
 
         private void MainFrm_Load(object sender, EventArgs e)
@@ -46,7 +57,7 @@ namespace MccScreen
 
                 listener.Start();
 
-                int port = Int32.Parse(db.IniReadValueHIS("SCREEN", "ServerPort").Trim());
+                int port = Int32.Parse(db.IniReadValuePivas("SCREEN", "ServerPort").Trim());
                 tcpServer = new ScreenTcpServer(port);
                 tcpServer.Connected += TcpServer_Connected;
                 tcpServer.Disconnected += TcpServer_Disconnected;
@@ -166,7 +177,7 @@ namespace MccScreen
             UpdateLabelResult("端口监听已开启");
         }
 
-        private void TcpServer_EventScreenInfo(object sender, PivasEventArgs<Communication.WindowsScreen.MsgScreenInfo> e)
+        private void TcpServer_EventScreenInfo(object sender, PivasEventArgs<MsgScreenInfo> e)
         {
             try
             {
@@ -192,10 +203,10 @@ namespace MccScreen
             }
         }
 
-        private void TcpServer_EventLogin(object sender, PivasEventArgs<Communication.WindowsScreen.MsgLoginStatus> e)
+        private void TcpServer_EventLogin(object sender, PivasEventArgs<MsgLoginResult> e)
         {
             //0未登录状态，1登录状态
-            if (e.Value.Status == 0)//未登录
+            if (e.Value.Status == StaticDictionary.DOCTOR_STATUS_FALSE)//未登录
             {
                 HideShow(true);
                 UpdateLabelResult("请扫描登录");

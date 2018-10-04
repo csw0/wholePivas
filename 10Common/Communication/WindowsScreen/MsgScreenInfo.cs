@@ -57,5 +57,9 @@ namespace Communication.WindowsScreen
         /// 计费后的结果消息
         /// </summary>
         public string ChargeMessage { get; set; }
+        /// <summary>
+        /// 计费成功与否
+        /// </summary>
+        public short ChargeResult { get; set; }
     }
 }

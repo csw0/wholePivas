@@ -254,6 +254,10 @@
       <Project>{0aa4a583-d586-4093-b23d-0d016e8253a2}</Project>
       <Name>ChargeInterface</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\ScreenClientCommunication\ScreenClientCommunication.csproj">
+      <Project>{20cbd385-9c7c-4ac7-a061-786325052e8d}</Project>
+      <Name>ScreenClientCommunication</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
