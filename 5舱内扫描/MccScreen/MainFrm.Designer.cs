@@ -57,14 +57,14 @@
             this.colDrugDose = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colDrugCount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panelBlank = new System.Windows.Forms.Panel();
+            this.panelMainClose = new System.Windows.Forms.Panel();
             this.panelMain = new System.Windows.Forms.Panel();
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.panelLogin = new System.Windows.Forms.Panel();
-            this.lblLoginResult = new System.Windows.Forms.Label();
             this.panelLoginTopClose = new System.Windows.Forms.Panel();
             this.panelLoginClose = new System.Windows.Forms.Panel();
-            this.panelMainClose = new System.Windows.Forms.Panel();
+            this.lblLoginResult = new System.Windows.Forms.Label();
             this.panelLabel.SuspendLayout();
             this.panelResult.SuspendLayout();
             this.panelMethod.SuspendLayout();
@@ -378,6 +378,17 @@
             this.panelBlank.Size = new System.Drawing.Size(1328, 24);
             this.panelBlank.TabIndex = 9;
             // 
+            // panelMainClose
+            // 
+            this.panelMainClose.BackgroundImage = global::MccScreen.Properties.Resources.erase;
+            this.panelMainClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelMainClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelMainClose.Location = new System.Drawing.Point(1304, 0);
+            this.panelMainClose.Name = "panelMainClose";
+            this.panelMainClose.Size = new System.Drawing.Size(24, 24);
+            this.panelMainClose.TabIndex = 0;
+            this.panelMainClose.Click += new System.EventHandler(this.panelMainClose_Click);
+            // 
             // panelMain
             // 
             this.panelMain.Controls.Add(this.splitter2);
@@ -420,18 +431,6 @@
             this.panelLogin.Size = new System.Drawing.Size(377, 117);
             this.panelLogin.TabIndex = 13;
             // 
-            // lblLoginResult
-            // 
-            this.lblLoginResult.AutoSize = true;
-            this.lblLoginResult.BackColor = System.Drawing.Color.Transparent;
-            this.lblLoginResult.Font = new System.Drawing.Font("宋体", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblLoginResult.ForeColor = System.Drawing.Color.Red;
-            this.lblLoginResult.Location = new System.Drawing.Point(21, 36);
-            this.lblLoginResult.Name = "lblLoginResult";
-            this.lblLoginResult.Size = new System.Drawing.Size(330, 60);
-            this.lblLoginResult.TabIndex = 0;
-            this.lblLoginResult.Text = "请扫描登录";
-            // 
             // panelLoginTopClose
             // 
             this.panelLoginTopClose.BackColor = System.Drawing.Color.Transparent;
@@ -453,16 +452,17 @@
             this.panelLoginClose.TabIndex = 0;
             this.panelLoginClose.Click += new System.EventHandler(this.panelLoginClose_Click);
             // 
-            // panelMainClose
+            // lblLoginResult
             // 
-            this.panelMainClose.BackgroundImage = global::MccScreen.Properties.Resources.erase;
-            this.panelMainClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelMainClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelMainClose.Location = new System.Drawing.Point(1304, 0);
-            this.panelMainClose.Name = "panelMainClose";
-            this.panelMainClose.Size = new System.Drawing.Size(24, 24);
-            this.panelMainClose.TabIndex = 0;
-            this.panelMainClose.Click += new System.EventHandler(this.panelMainClose_Click);
+            this.lblLoginResult.AutoSize = true;
+            this.lblLoginResult.BackColor = System.Drawing.Color.Transparent;
+            this.lblLoginResult.Font = new System.Drawing.Font("宋体", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblLoginResult.ForeColor = System.Drawing.Color.Red;
+            this.lblLoginResult.Location = new System.Drawing.Point(21, 36);
+            this.lblLoginResult.Name = "lblLoginResult";
+            this.lblLoginResult.Size = new System.Drawing.Size(330, 60);
+            this.lblLoginResult.TabIndex = 0;
+            this.lblLoginResult.Text = "请扫描登录";
             // 
             // MainFrm
             // 
@@ -472,8 +472,10 @@
             this.Controls.Add(this.panelLogin);
             this.Controls.Add(this.panelMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainFrm";
             this.TopMost = true;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainFrm_FormClosed);
             this.Load += new System.EventHandler(this.MainFrm_Load);
             this.panelLabel.ResumeLayout(false);

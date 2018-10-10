@@ -1013,6 +1013,14 @@ namespace PivasMcc
             DataTable dt = new DataTable();
             try
             {
+                try
+                {
+                    string sqlAdd = "if not exists (select name from syscolumns where id=object_id('MOXACon') and name='Group')"
+                   + " alter table MOXACon add[Group] int ";
+                    db.GetPIVAsDB(sqlAdd);
+                }
+                catch (Exception) { }              
+
                 string sql = "select * from MOXACon where MOXAPort is not null and [Group]='" + MoxaGroup + "'";
                 dt = db.GetPIVAsDB(sql).Tables[0];
 
@@ -1464,35 +1472,50 @@ namespace PivasMcc
 
         private void GetLightRule()
         {
-            string SQL = "SELECT * from LightModel WHere DeskNo = '默认设置'";
+            try
+            {
+                string SQL = "SELECT * from LightModel WHere DeskNo = '默认设置'";
                 DataSet ds = db.GetPIVAsDB(SQL);
 
-                Slong = Convert.ToInt32( ds.Tables[0].Rows[0]["SLong"].ToString());
-                Flong = Convert.ToInt32( ds.Tables[0].Rows[0]["FLong"].ToString());
-                Blong = Convert.ToInt32( ds.Tables[0].Rows[0]["BLong"].ToString());
+                Slong = Convert.ToInt32(ds.Tables[0].Rows[0]["SLong"].ToString());
+                Flong = Convert.ToInt32(ds.Tables[0].Rows[0]["FLong"].ToString());
+                Blong = Convert.ToInt32(ds.Tables[0].Rows[0]["BLong"].ToString());
 
-                Stwin = Convert.ToInt32( ds.Tables[0].Rows[0]["STwinkle"].ToString());
-                Ftwin = Convert.ToInt32( ds.Tables[0].Rows[0]["FTwinkle"].ToString());
-                Btwin = Convert.ToInt32( ds.Tables[0].Rows[0]["BTwinkle"].ToString());
+                Stwin = Convert.ToInt32(ds.Tables[0].Rows[0]["STwinkle"].ToString());
+                Ftwin = Convert.ToInt32(ds.Tables[0].Rows[0]["FTwinkle"].ToString());
+                string temp = ds.Tables[0].Rows[0]["BTwinkle"].ToString();
+                if (string.IsNullOrEmpty(temp))
+                {
+                    Btwin = 0;
+                } else
+                {
+                    Btwin = Convert.ToInt32(temp);
+                }
+                
 
-                STime = Convert.ToInt32( ds.Tables[0].Rows[0]["STimes"].ToString());
-                FTime = Convert.ToInt32( ds.Tables[0].Rows[0]["FTimes"].ToString());
-                BTime = Convert.ToInt32( ds.Tables[0].Rows[0]["BTimes"].ToString());
+                STime = Convert.ToInt32(ds.Tables[0].Rows[0]["STimes"].ToString());
+                FTime = Convert.ToInt32(ds.Tables[0].Rows[0]["FTimes"].ToString());
+                BTime = Convert.ToInt32(ds.Tables[0].Rows[0]["BTimes"].ToString());
 
                 if (ds.Tables[0].Rows[0]["SRemind"].ToString() == "True")
                     SUseLong = false;
                 else
-                    SUseLong = true ;
+                    SUseLong = true;
 
                 if (ds.Tables[0].Rows[0]["FRemind"].ToString() == "True")
                     FUseLong = false;
                 else
-                    FUseLong= true;
+                    FUseLong = true;
 
                 if (ds.Tables[0].Rows[0]["BRemind"].ToString() == "True")
                     BUseLong = false;
                 else
                     BUseLong = true;
+            }
+            catch (Exception ex)
+            {
+                InternalLogger.Log.Error("初始化默认参数配置出错，请配置LightModel表中默认参数行，"+ex.Message);
+            }
         }
 
         public void LoadINI()
