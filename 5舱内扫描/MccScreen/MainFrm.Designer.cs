@@ -82,11 +82,11 @@
             this.tbLabel.BackColor = System.Drawing.SystemColors.Highlight;
             this.tbLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbLabel.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tbLabel.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tbLabel.ForeColor = System.Drawing.Color.White;
             this.tbLabel.Location = new System.Drawing.Point(241, 0);
             this.tbLabel.Name = "tbLabel";
-            this.tbLabel.Size = new System.Drawing.Size(1087, 46);
+            this.tbLabel.Size = new System.Drawing.Size(837, 39);
             this.tbLabel.TabIndex = 0;
             this.tbLabel.Text = "20181010123456";
             // 
@@ -97,18 +97,18 @@
             this.panelLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLabel.Location = new System.Drawing.Point(0, 0);
             this.panelLabel.Name = "panelLabel";
-            this.panelLabel.Size = new System.Drawing.Size(1328, 46);
+            this.panelLabel.Size = new System.Drawing.Size(1078, 38);
             this.panelLabel.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.SystemColors.Highlight;
             this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(241, 46);
+            this.label1.Size = new System.Drawing.Size(241, 38);
             this.label1.TabIndex = 2;
             this.label1.Text = "瓶签扫描:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -121,7 +121,7 @@
             this.panelResult.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelResult.Location = new System.Drawing.Point(0, 24);
             this.panelResult.Name = "panelResult";
-            this.panelResult.Size = new System.Drawing.Size(1328, 171);
+            this.panelResult.Size = new System.Drawing.Size(1078, 143);
             this.panelResult.TabIndex = 2;
             // 
             // lblResult
@@ -129,9 +129,9 @@
             this.lblResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblResult.Font = new System.Drawing.Font("微软雅黑", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblResult.ForeColor = System.Drawing.Color.Green;
-            this.lblResult.Location = new System.Drawing.Point(0, 46);
+            this.lblResult.Location = new System.Drawing.Point(0, 38);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(1328, 125);
+            this.lblResult.Size = new System.Drawing.Size(1078, 105);
             this.lblResult.TabIndex = 0;
             this.lblResult.Text = "计费成功";
             this.lblResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -141,9 +141,9 @@
             this.panelMethod.Controls.Add(this.listViewConfigMethod);
             this.panelMethod.Controls.Add(this.panelDoctor);
             this.panelMethod.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelMethod.Location = new System.Drawing.Point(0, 330);
+            this.panelMethod.Location = new System.Drawing.Point(0, 255);
             this.panelMethod.Name = "panelMethod";
-            this.panelMethod.Size = new System.Drawing.Size(1328, 220);
+            this.panelMethod.Size = new System.Drawing.Size(1078, 220);
             this.panelMethod.TabIndex = 3;
             // 
             // listViewConfigMethod
@@ -151,9 +151,9 @@
             this.listViewConfigMethod.BackColor = System.Drawing.Color.White;
             this.listViewConfigMethod.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewConfigMethod.Font = new System.Drawing.Font("宋体", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.listViewConfigMethod.Location = new System.Drawing.Point(0, 49);
+            this.listViewConfigMethod.Location = new System.Drawing.Point(0, 38);
             this.listViewConfigMethod.Name = "listViewConfigMethod";
-            this.listViewConfigMethod.Size = new System.Drawing.Size(1328, 171);
+            this.listViewConfigMethod.Size = new System.Drawing.Size(1078, 182);
             this.listViewConfigMethod.TabIndex = 1;
             this.listViewConfigMethod.UseCompatibleStateImageBehavior = false;
             this.listViewConfigMethod.View = System.Windows.Forms.View.List;
@@ -170,7 +170,7 @@
             this.panelDoctor.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelDoctor.Location = new System.Drawing.Point(0, 0);
             this.panelDoctor.Name = "panelDoctor";
-            this.panelDoctor.Size = new System.Drawing.Size(1328, 49);
+            this.panelDoctor.Size = new System.Drawing.Size(1078, 38);
             this.panelDoctor.TabIndex = 4;
             // 
             // lblTimeMark
@@ -178,9 +178,9 @@
             this.lblTimeMark.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTimeMark.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblTimeMark.ForeColor = System.Drawing.Color.White;
-            this.lblTimeMark.Location = new System.Drawing.Point(821, 0);
+            this.lblTimeMark.Location = new System.Drawing.Point(639, 0);
             this.lblTimeMark.Name = "lblTimeMark";
-            this.lblTimeMark.Size = new System.Drawing.Size(150, 49);
+            this.lblTimeMark.Size = new System.Drawing.Size(147, 38);
             this.lblTimeMark.TabIndex = 6;
             this.lblTimeMark.Text = "时间:";
             this.lblTimeMark.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -188,11 +188,11 @@
             // lblTime
             // 
             this.lblTime.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblTime.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblTime.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblTime.ForeColor = System.Drawing.Color.White;
-            this.lblTime.Location = new System.Drawing.Point(971, 0);
+            this.lblTime.Location = new System.Drawing.Point(786, 0);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(357, 49);
+            this.lblTime.Size = new System.Drawing.Size(292, 38);
             this.lblTime.TabIndex = 5;
             this.lblTime.Text = "16:05:30 10/3";
             this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -200,23 +200,23 @@
             // lblConfigCount
             // 
             this.lblConfigCount.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblConfigCount.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblConfigCount.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblConfigCount.ForeColor = System.Drawing.Color.White;
-            this.lblConfigCount.Location = new System.Drawing.Point(673, 0);
+            this.lblConfigCount.Location = new System.Drawing.Point(517, 0);
             this.lblConfigCount.Name = "lblConfigCount";
-            this.lblConfigCount.Size = new System.Drawing.Size(148, 49);
+            this.lblConfigCount.Size = new System.Drawing.Size(122, 38);
             this.lblConfigCount.TabIndex = 4;
-            this.lblConfigCount.Text = "143";
+            this.lblConfigCount.Text = "10000";
             this.lblConfigCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblConfigCountMark
             // 
             this.lblConfigCountMark.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblConfigCountMark.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblConfigCountMark.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblConfigCountMark.ForeColor = System.Drawing.Color.White;
-            this.lblConfigCountMark.Location = new System.Drawing.Point(495, 0);
+            this.lblConfigCountMark.Location = new System.Drawing.Point(367, 0);
             this.lblConfigCountMark.Name = "lblConfigCountMark";
-            this.lblConfigCountMark.Size = new System.Drawing.Size(178, 49);
+            this.lblConfigCountMark.Size = new System.Drawing.Size(150, 38);
             this.lblConfigCountMark.TabIndex = 3;
             this.lblConfigCountMark.Text = "配置量:";
             this.lblConfigCountMark.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -224,23 +224,23 @@
             // lblDoctor
             // 
             this.lblDoctor.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblDoctor.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblDoctor.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblDoctor.ForeColor = System.Drawing.Color.White;
-            this.lblDoctor.Location = new System.Drawing.Point(144, 0);
+            this.lblDoctor.Location = new System.Drawing.Point(115, 0);
             this.lblDoctor.Name = "lblDoctor";
-            this.lblDoctor.Size = new System.Drawing.Size(351, 49);
+            this.lblDoctor.Size = new System.Drawing.Size(252, 38);
             this.lblDoctor.TabIndex = 2;
-            this.lblDoctor.Text = "田家骏";
+            this.lblDoctor.Text = "LaennecSystem";
             this.lblDoctor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblDoctorMark
             // 
             this.lblDoctorMark.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblDoctorMark.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblDoctorMark.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblDoctorMark.ForeColor = System.Drawing.Color.White;
             this.lblDoctorMark.Location = new System.Drawing.Point(0, 0);
             this.lblDoctorMark.Name = "lblDoctorMark";
-            this.lblDoctorMark.Size = new System.Drawing.Size(144, 49);
+            this.lblDoctorMark.Size = new System.Drawing.Size(115, 38);
             this.lblDoctorMark.TabIndex = 1;
             this.lblDoctorMark.Text = "药师:";
             this.lblDoctorMark.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -256,7 +256,7 @@
             this.panelPatient.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelPatient.Location = new System.Drawing.Point(0, 0);
             this.panelPatient.Name = "panelPatient";
-            this.panelPatient.Size = new System.Drawing.Size(1328, 49);
+            this.panelPatient.Size = new System.Drawing.Size(1078, 38);
             this.panelPatient.TabIndex = 5;
             // 
             // lblLabelNoMark
@@ -264,9 +264,9 @@
             this.lblLabelNoMark.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblLabelNoMark.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblLabelNoMark.ForeColor = System.Drawing.Color.White;
-            this.lblLabelNoMark.Location = new System.Drawing.Point(821, 0);
+            this.lblLabelNoMark.Location = new System.Drawing.Point(640, 0);
             this.lblLabelNoMark.Name = "lblLabelNoMark";
-            this.lblLabelNoMark.Size = new System.Drawing.Size(157, 49);
+            this.lblLabelNoMark.Size = new System.Drawing.Size(140, 38);
             this.lblLabelNoMark.TabIndex = 5;
             this.lblLabelNoMark.Text = "瓶签:";
             this.lblLabelNoMark.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -274,11 +274,11 @@
             // lblLabelNo
             // 
             this.lblLabelNo.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblLabelNo.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblLabelNo.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblLabelNo.ForeColor = System.Drawing.Color.White;
-            this.lblLabelNo.Location = new System.Drawing.Point(978, 0);
+            this.lblLabelNo.Location = new System.Drawing.Point(780, 0);
             this.lblLabelNo.Name = "lblLabelNo";
-            this.lblLabelNo.Size = new System.Drawing.Size(350, 49);
+            this.lblLabelNo.Size = new System.Drawing.Size(298, 38);
             this.lblLabelNo.TabIndex = 3;
             this.lblLabelNo.Text = "20181010123456";
             this.lblLabelNo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -286,23 +286,23 @@
             // lblPatientName
             // 
             this.lblPatientName.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblPatientName.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblPatientName.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblPatientName.ForeColor = System.Drawing.Color.White;
-            this.lblPatientName.Location = new System.Drawing.Point(646, 0);
+            this.lblPatientName.Location = new System.Drawing.Point(482, 0);
             this.lblPatientName.Name = "lblPatientName";
-            this.lblPatientName.Size = new System.Drawing.Size(175, 49);
+            this.lblPatientName.Size = new System.Drawing.Size(158, 38);
             this.lblPatientName.TabIndex = 4;
-            this.lblPatientName.Text = "王进军";
+            this.lblPatientName.Text = "王进军骏";
             this.lblPatientName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblPatientNameMark
             // 
             this.lblPatientNameMark.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblPatientNameMark.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblPatientNameMark.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblPatientNameMark.ForeColor = System.Drawing.Color.White;
-            this.lblPatientNameMark.Location = new System.Drawing.Point(495, 0);
+            this.lblPatientNameMark.Location = new System.Drawing.Point(367, 0);
             this.lblPatientNameMark.Name = "lblPatientNameMark";
-            this.lblPatientNameMark.Size = new System.Drawing.Size(151, 49);
+            this.lblPatientNameMark.Size = new System.Drawing.Size(115, 38);
             this.lblPatientNameMark.TabIndex = 1;
             this.lblPatientNameMark.Text = "患者:";
             this.lblPatientNameMark.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -310,11 +310,11 @@
             // lblWardName
             // 
             this.lblWardName.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblWardName.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblWardName.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblWardName.ForeColor = System.Drawing.Color.White;
             this.lblWardName.Location = new System.Drawing.Point(0, 0);
             this.lblWardName.Name = "lblWardName";
-            this.lblWardName.Size = new System.Drawing.Size(495, 49);
+            this.lblWardName.Size = new System.Drawing.Size(367, 38);
             this.lblWardName.TabIndex = 0;
             this.lblWardName.Text = "神经外科";
             this.lblWardName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -324,9 +324,9 @@
             this.panelDrug.Controls.Add(this.listViewDrug);
             this.panelDrug.Controls.Add(this.panelPatient);
             this.panelDrug.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDrug.Location = new System.Drawing.Point(0, 195);
+            this.panelDrug.Location = new System.Drawing.Point(0, 167);
             this.panelDrug.Name = "panelDrug";
-            this.panelDrug.Size = new System.Drawing.Size(1328, 135);
+            this.panelDrug.Size = new System.Drawing.Size(1078, 88);
             this.panelDrug.TabIndex = 6;
             // 
             // listViewDrug
@@ -339,10 +339,10 @@
             this.colDrugDose,
             this.colDrugCount});
             this.listViewDrug.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listViewDrug.Font = new System.Drawing.Font("宋体", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.listViewDrug.Location = new System.Drawing.Point(0, 49);
+            this.listViewDrug.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.listViewDrug.Location = new System.Drawing.Point(0, 38);
             this.listViewDrug.Name = "listViewDrug";
-            this.listViewDrug.Size = new System.Drawing.Size(1328, 86);
+            this.listViewDrug.Size = new System.Drawing.Size(1078, 50);
             this.listViewDrug.TabIndex = 0;
             this.listViewDrug.UseCompatibleStateImageBehavior = false;
             this.listViewDrug.View = System.Windows.Forms.View.Details;
@@ -375,7 +375,7 @@
             this.panelBlank.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBlank.Location = new System.Drawing.Point(0, 0);
             this.panelBlank.Name = "panelBlank";
-            this.panelBlank.Size = new System.Drawing.Size(1328, 24);
+            this.panelBlank.Size = new System.Drawing.Size(1078, 24);
             this.panelBlank.TabIndex = 9;
             // 
             // panelMainClose
@@ -383,7 +383,7 @@
             this.panelMainClose.BackgroundImage = global::MccScreen.Properties.Resources.erase;
             this.panelMainClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelMainClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelMainClose.Location = new System.Drawing.Point(1304, 0);
+            this.panelMainClose.Location = new System.Drawing.Point(1054, 0);
             this.panelMainClose.Name = "panelMainClose";
             this.panelMainClose.Size = new System.Drawing.Size(24, 24);
             this.panelMainClose.TabIndex = 0;
@@ -397,26 +397,26 @@
             this.panelMain.Controls.Add(this.panelResult);
             this.panelMain.Controls.Add(this.panelBlank);
             this.panelMain.Controls.Add(this.panelMethod);
-            this.panelMain.Location = new System.Drawing.Point(12, 12);
+            this.panelMain.Location = new System.Drawing.Point(0, 12);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1328, 550);
+            this.panelMain.Size = new System.Drawing.Size(1078, 475);
             this.panelMain.TabIndex = 12;
             // 
             // splitter2
             // 
             this.splitter2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.splitter2.Location = new System.Drawing.Point(0, 195);
+            this.splitter2.Location = new System.Drawing.Point(0, 167);
             this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(1328, 3);
+            this.splitter2.Size = new System.Drawing.Size(1078, 3);
             this.splitter2.TabIndex = 11;
             this.splitter2.TabStop = false;
             // 
             // splitter1
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitter1.Location = new System.Drawing.Point(0, 327);
+            this.splitter1.Location = new System.Drawing.Point(0, 252);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(1328, 3);
+            this.splitter1.Size = new System.Drawing.Size(1078, 3);
             this.splitter1.TabIndex = 10;
             this.splitter1.TabStop = false;
             // 
@@ -426,7 +426,7 @@
             this.panelLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelLogin.Controls.Add(this.panelLoginTopClose);
             this.panelLogin.Controls.Add(this.lblLoginResult);
-            this.panelLogin.Location = new System.Drawing.Point(307, 583);
+            this.panelLogin.Location = new System.Drawing.Point(300, 493);
             this.panelLogin.Name = "panelLogin";
             this.panelLogin.Size = new System.Drawing.Size(377, 117);
             this.panelLogin.TabIndex = 13;
@@ -468,7 +468,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1333, 698);
+            this.ClientSize = new System.Drawing.Size(1078, 625);
             this.Controls.Add(this.panelLogin);
             this.Controls.Add(this.panelMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

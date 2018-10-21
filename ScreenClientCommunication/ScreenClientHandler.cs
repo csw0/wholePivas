@@ -89,7 +89,7 @@ namespace Communication.screenTcp
                             mixMethods += GetMixMethodByDrugCode(uniPreparationID);
 
                             MsgDrugRowInfo msgDrugRowInfo = new MsgDrugRowInfo();
-                            msgDrugRowInfo.DrugIndex = listIndex[i + 1];//从1开始
+                            msgDrugRowInfo.DrugIndex = listIndex[i];//从A开始
                             msgDrugRowInfo.DrugName = dsLableInfo.Tables[0].Rows[i]["DrugName"].ToString().Trim();
                             msgDrugRowInfo.DrugSpec = dsLableInfo.Tables[0].Rows[i]["Spec"].ToString().Trim();
                             msgDrugRowInfo.DrugDose = dsLableInfo.Tables[0].Rows[i]["Dosage"].ToString().Trim();

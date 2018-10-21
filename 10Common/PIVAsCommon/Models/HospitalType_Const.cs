@@ -19,6 +19,7 @@ namespace PIVAsCommon.Models
         public const string NBDY = "NBDY";//宁波第一医院
         public const string SHLYD = "SHLYD";//上海六院东
         public const string GDHQ = "GDHQ";//广东华侨医院
+        public const string CZ = "CZ";//CZ医院
     }
 
     /// <summary>

@@ -42,7 +42,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(264, 27);
             this.label1.TabIndex = 0;
-            this.label1.Text = "MCC2.0.0(20181008)";
+            this.label1.Text = "MCC2.0.1(20181121)";
             // 
             // label2
             // 

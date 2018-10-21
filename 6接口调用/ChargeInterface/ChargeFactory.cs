@@ -48,6 +48,9 @@ namespace ChargeInterface
                     case HospitalType_Const.GDHQ:
                         iCharge = Activator.CreateInstance(Type.GetType("ChargeInterface.ChargeGDHQService.ChargeGDHQ")) as ICharge;
                         break;
+                    case HospitalType_Const.CZ:
+                        iCharge = Activator.CreateInstance(Type.GetType("ChargeInterface.ChargeCZService.ChargeCZ")) as ICharge;
+                        break;
                     default:
                         iCharge = Activator.CreateInstance(Type.GetType("ChargeInterface.ChargeOrigin")) as ICharge;
                         break;

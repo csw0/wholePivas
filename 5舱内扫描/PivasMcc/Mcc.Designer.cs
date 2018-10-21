@@ -126,7 +126,7 @@
             this.listViewMain.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.listViewMain.FullRowSelect = true;
             this.listViewMain.Location = new System.Drawing.Point(0, 0);
-            this.listViewMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewMain.Margin = new System.Windows.Forms.Padding(4);
             this.listViewMain.MultiSelect = false;
             this.listViewMain.Name = "listViewMain";
             this.listViewMain.Size = new System.Drawing.Size(1387, 271);
@@ -229,9 +229,9 @@
             this.listViewPort.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.listViewPort.FullRowSelect = true;
             this.listViewPort.Location = new System.Drawing.Point(4, 4);
-            this.listViewPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewPort.Margin = new System.Windows.Forms.Padding(4);
             this.listViewPort.Name = "listViewPort";
-            this.listViewPort.Size = new System.Drawing.Size(1371, 228);
+            this.listViewPort.Size = new System.Drawing.Size(1371, 230);
             this.listViewPort.TabIndex = 3;
             this.listViewPort.UseCompatibleStateImageBehavior = false;
             this.listViewPort.View = System.Windows.Forms.View.Details;
@@ -262,7 +262,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1387, 64);
             this.label1.TabIndex = 4;
-            this.label1.Text = "  舱内扫描";
+            this.label1.Text = "  舱内扫描2.0.1";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.DoubleClick += new System.EventHandler(this.label1_DoubleClick);
             this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
@@ -397,7 +397,7 @@
             // ToolStripMenuItemAbout
             // 
             this.ToolStripMenuItemAbout.Name = "ToolStripMenuItemAbout";
-            this.ToolStripMenuItemAbout.Size = new System.Drawing.Size(149, 26);
+            this.ToolStripMenuItemAbout.Size = new System.Drawing.Size(181, 26);
             this.ToolStripMenuItemAbout.Text = "关于MCC";
             this.ToolStripMenuItemAbout.Click += new System.EventHandler(this.ToolStripMenuItemAbout_Click);
             // 
@@ -417,9 +417,9 @@
             this.columnHeader12});
             this.listViewDeskInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewDeskInfo.Location = new System.Drawing.Point(0, 0);
-            this.listViewDeskInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewDeskInfo.Margin = new System.Windows.Forms.Padding(4);
             this.listViewDeskInfo.Name = "listViewDeskInfo";
-            this.listViewDeskInfo.Size = new System.Drawing.Size(698, 228);
+            this.listViewDeskInfo.Size = new System.Drawing.Size(698, 230);
             this.listViewDeskInfo.TabIndex = 17;
             this.listViewDeskInfo.UseCompatibleStateImageBehavior = false;
             this.listViewDeskInfo.View = System.Windows.Forms.View.Details;
@@ -460,9 +460,9 @@
             this.columnHeader19});
             this.listViewSendPLCInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewSendPLCInfo.Location = new System.Drawing.Point(0, 0);
-            this.listViewSendPLCInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewSendPLCInfo.Margin = new System.Windows.Forms.Padding(4);
             this.listViewSendPLCInfo.Name = "listViewSendPLCInfo";
-            this.listViewSendPLCInfo.Size = new System.Drawing.Size(668, 228);
+            this.listViewSendPLCInfo.Size = new System.Drawing.Size(668, 230);
             this.listViewSendPLCInfo.TabIndex = 18;
             this.listViewSendPLCInfo.UseCompatibleStateImageBehavior = false;
             this.listViewSendPLCInfo.View = System.Windows.Forms.View.Details;
@@ -504,7 +504,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1387, 267);
@@ -514,9 +514,9 @@
             // 
             this.tabPage3.Controls.Add(this.listViewLabelScan);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage3.Size = new System.Drawing.Size(1379, 238);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "瓶签扫描信息";
@@ -532,7 +532,7 @@
             this.listViewLabelScan.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.listViewLabelScan.FullRowSelect = true;
             this.listViewLabelScan.Location = new System.Drawing.Point(4, 4);
-            this.listViewLabelScan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewLabelScan.Margin = new System.Windows.Forms.Padding(4);
             this.listViewLabelScan.Name = "listViewLabelScan";
             this.listViewLabelScan.Size = new System.Drawing.Size(1371, 230);
             this.listViewLabelScan.TabIndex = 4;
@@ -558,10 +558,10 @@
             // 
             this.tabPage1.Controls.Add(this.listViewPort);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage1.Size = new System.Drawing.Size(1379, 236);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Size = new System.Drawing.Size(1379, 238);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "操作信息";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -570,10 +570,10 @@
             // 
             this.tabPage2.Controls.Add(this.splitContainerPLC);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage2.Size = new System.Drawing.Size(1379, 236);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Size = new System.Drawing.Size(1379, 238);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "磨砂/PLC";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -582,7 +582,7 @@
             // 
             this.splitContainerPLC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerPLC.Location = new System.Drawing.Point(4, 4);
-            this.splitContainerPLC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainerPLC.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainerPLC.Name = "splitContainerPLC";
             // 
             // splitContainerPLC.Panel1
@@ -592,7 +592,7 @@
             // splitContainerPLC.Panel2
             // 
             this.splitContainerPLC.Panel2.Controls.Add(this.listViewSendPLCInfo);
-            this.splitContainerPLC.Size = new System.Drawing.Size(1371, 228);
+            this.splitContainerPLC.Size = new System.Drawing.Size(1371, 230);
             this.splitContainerPLC.SplitterDistance = 698;
             this.splitContainerPLC.SplitterWidth = 5;
             this.splitContainerPLC.TabIndex = 19;
@@ -604,7 +604,7 @@
             this.panel2.BackgroundImage = global::PivasMcc.Properties.Resources.最小化;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel2.Location = new System.Drawing.Point(1288, -1);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(32, 35);
             this.panel2.TabIndex = 7;
@@ -619,7 +619,7 @@
             this.panel1.BackgroundImage = global::PivasMcc.Properties.Resources._211;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel1.Location = new System.Drawing.Point(1352, -1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(32, 35);
             this.panel1.TabIndex = 6;
@@ -635,7 +635,7 @@
             this.Panel_Max_None.BackgroundImage = global::PivasMcc.Properties.Resources._20;
             this.Panel_Max_None.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Panel_Max_None.Location = new System.Drawing.Point(1323, -1);
-            this.Panel_Max_None.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Panel_Max_None.Margin = new System.Windows.Forms.Padding(4);
             this.Panel_Max_None.Name = "Panel_Max_None";
             this.Panel_Max_None.Size = new System.Drawing.Size(32, 35);
             this.Panel_Max_None.TabIndex = 16;
@@ -647,7 +647,7 @@
             // 
             this.splitContainerMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerMain.Location = new System.Drawing.Point(0, 92);
-            this.splitContainerMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainerMain.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainerMain.Name = "splitContainerMain";
             this.splitContainerMain.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -678,7 +678,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMcc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "舱内扫描";

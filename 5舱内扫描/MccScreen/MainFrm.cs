@@ -47,7 +47,7 @@ namespace MccScreen
                 {
                     string str = "TCP链路断开，请重启";
                     InternalLogger.Log.Warn(str);
-                    UpdateLabelResult(str);
+                    UpdateLabelResult(str,Color.Red);
                 }
             }).Start();
         }
@@ -73,10 +73,9 @@ namespace MccScreen
                 controller = new ScreenController(tcpServer);
                 controller.ListenStarted += TcpServer_Started;
                 controller.ListenStoped += TcpServer_Stopped;
-
-                InitListview();
-                ShowTipCenter();
-                this.lblLoginResult.Invalidate(true);
+                foreach (ColumnHeader ch in listViewDrug.Columns) { ch.Width = -2; }
+                //InitListview();
+                //ShowTipCenter();
             }
             catch (Exception ex)
             {
@@ -91,20 +90,46 @@ namespace MccScreen
         #endregion 扫描枪键盘钩子
 
         #region 更新UI
+        private void ClearAll(bool clearScanLabelno)
+        {
+            this.SafeAction(() =>
+            {
+                if (clearScanLabelno)
+                    tbLabel.Text = string.Empty;//扫描瓶签编辑框
+                
+                lblResult.Text = string.Empty;//扫描结果
+
+                lblWardName.Text = string.Empty;//病区
+                lblPatientName.Text = string.Empty;//病人
+                lblLabelNo.Text = string.Empty;//瓶签号
+                
+                this.listViewDrug.Items.Clear();//先清空所有list的数据
+
+                lblDoctor.Text = string.Empty;//药师
+                lblConfigCount.Text = string.Empty;//配置量
+                lblTime.Text = string.Empty;//时间
+
+                this.listViewConfigMethod.Items.Clear();//先清空所有行
+            });
+            
+        }
         /// <summary>
         /// 更新结果行
         /// </summary>
         /// <param name="text"></param>
-        private void UpdateLabelResult(string text)
+        private void UpdateLabelResult(string text,Color color)
         {
             this.SafeAction(() =>
             {
                 if (panelLogin.Visible)
                 {
+                    lblLoginResult.ForeColor = color;
                     lblLoginResult.Text = text;
+                    ShowTipCenter();
                 }
                 else
                 {
+                    lblResult.ForeColor = color;
                     lblResult.Text = text;
                 }
             });
@@ -117,15 +142,15 @@ namespace MccScreen
         private void UpdateListviewDrug(List<MsgDrugRowInfo> list)
         {
             this.listViewDrug.BeginUpdate();   //数据更新，UI暂时挂起，直到EndUpdate绘制控件，可以有效避免闪烁并大大提高加载速度    
-            string emptyEnd = " ".PadRight(5);
+            string emptyEnd = " ".PadRight(4);
             foreach (var drugRow in list)
             {
                 ListViewItem lvi = new ListViewItem();
                 lvi.Text = drugRow.DrugIndex + emptyEnd;
                 lvi.SubItems.Add(drugRow.DrugName + emptyEnd);
                 lvi.SubItems.Add(drugRow.DrugSpec + emptyEnd);
-                lvi.SubItems.Add(drugRow.DrugDose + emptyEnd);
-                lvi.SubItems.Add(drugRow.DrugCount + emptyEnd);
+                lvi.SubItems.Add(drugRow.DrugDose + emptyEnd + emptyEnd);
+                lvi.SubItems.Add(drugRow.DrugCount + emptyEnd+ emptyEnd);
                 this.listViewDrug.Items.Add(lvi);
             }
             foreach (ColumnHeader ch in listViewDrug.Columns) { ch.Width = -1; }
@@ -161,6 +186,7 @@ namespace MccScreen
             tipPoint.X = this.panelLogin.Width / 2 - lblLoginResult.Width / 2;
             tipPoint.Y = this.panelLogin.Height / 5;
             lblLoginResult.Location = tipPoint;
+            this.lblLoginResult.Invalidate(true);
         }
 
         /// <summary>
@@ -184,23 +210,25 @@ namespace MccScreen
 
         private void TcpServer_Stopped(object sender, EventArgs e)
         {
-            UpdateLabelResult("端口监听已停止");
+            UpdateLabelResult("端口监听已停止",Color.Red);
         }
 
         private void TcpServer_Started(object sender, EventArgs e)
         {
-            UpdateLabelResult("端口监听已开启");
+            UpdateLabelResult("端口监听已开启",Color.Green);
         }
 
         private void TcpServer_EventScreenInfo(object sender, PivasEventArgs<MsgScreenInfo> e)
         {
             try
             {
+                ClearAll(false);
+
                 this.SafeAction(() =>
                 {
                     //更换结果颜色
-                    lblResult.ForeColor = e.Value.ChargeResult == StaticDictionary.CHARGE_RESULT_SUCCESS ? Color.Green : Color.Red;
-                    UpdateLabelResult(e.Value.ChargeMessage);
+                    Color color = e.Value.ChargeResult == StaticDictionary.CHARGE_RESULT_SUCCESS ? Color.Green : Color.Red;
+                    UpdateLabelResult(e.Value.ChargeMessage, color);
 
                     this.lblWardName.Text = e.Value.WardName;
                     this.lblPatientName.Text = e.Value.PatientName;
@@ -226,27 +254,28 @@ namespace MccScreen
             if (e.Value.Status == StaticDictionary.DOCTOR_STATUS_FALSE)//未登录
             {
                 HideShow(true);
-                UpdateLabelResult("请扫描登录");
+                UpdateLabelResult("请扫描登录",Color.Red);
             }
             else
             {
                 HideShow(false);
+                ClearAll(true);
             }
         }
 
         private void TcpServer_ErrorOccurred(object sender, PivasEventArgs<string> e)
         {
-            UpdateLabelResult(e.Value);
+            UpdateLabelResult(e.Value,Color.Red);
         }
 
         private void TcpServer_Disconnected(object sender, EventArgs e)
         {
-            UpdateLabelResult("客户端已断开连接");
+            UpdateLabelResult("客户端已断开连接",Color.Red);
         }
 
         private void TcpServer_Connected(object sender, EventArgs e)
         {
-            UpdateLabelResult("客户端已连接成功");
+            UpdateLabelResult("客户端已连接成功",Color.Green);
         }
         #endregion TcpServer和Controller事件
 
@@ -268,11 +297,12 @@ namespace MccScreen
             };
             string[] dosageArray = new string[5]
             {
-                "2g", "10ml", "10ml", "2.5g", "30单位"
+                //"2g", "10ml", "10ml", "2.5g", "30单位"
+                "2", "10", "10", "2", "30"
             };
             string[] countArray = new string[5]
             {
-                "2", "1", "7", "8", "20"
+                "2", "1", "7", "8", "2"
             };
 
             string[] methodArray = new string[5]
@@ -281,19 +311,19 @@ namespace MccScreen
                 "2、分别将B、C、D加入",
                 "3、将D和E混合加入A中，摇匀",
                 "4、再将H加入，摇匀，静置",
-                "5、M加入后，观察是否与气泡，待无气泡后与A、B、C、D、E反复摇15秒后，静置"
+                "5、M加入后，观察是否与气泡，待无气泡后与D、E反复摇15秒后静置"
             };
 
             this.listViewDrug.BeginUpdate();   //数据更新，UI暂时挂起，直到EndUpdate绘制控件，可以有效避免闪烁并大大提高加载速度    
-            string emptyEnd = " ".PadRight(5);
+            string emptyEnd = " ".PadRight(4);
             for (int i = 0; i < 5; i++)   //添加10行数据  
             {
                 ListViewItem lvi = new ListViewItem();
                 lvi.Text = indexArray[i] + emptyEnd;
                 lvi.SubItems.Add(drugArray[i] + emptyEnd);
                 lvi.SubItems.Add(specArray[i] + emptyEnd);
-                lvi.SubItems.Add(dosageArray[i] + emptyEnd);
-                lvi.SubItems.Add(countArray[i] + emptyEnd);
+                lvi.SubItems.Add(dosageArray[i] + emptyEnd+ emptyEnd);
+                lvi.SubItems.Add(countArray[i] + emptyEnd + emptyEnd);
                 this.listViewDrug.Items.Add(lvi);
             }
             foreach (ColumnHeader ch in listViewDrug.Columns) { ch.Width = -1; }
