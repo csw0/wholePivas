@@ -250,13 +250,13 @@
       <Project>{fab76740-c6e8-42b0-8e97-52dbc3bfb8f1}</Project>
       <Name>PIVAsCommon</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\10Common\ScreenClientCommunication\ScreenClientCommunication.csproj">
+      <Project>{20cbd385-9c7c-4ac7-a061-786325052e8d}</Project>
+      <Name>ScreenClientCommunication</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\6接口调用\ChargeInterface\ChargeInterface.csproj">
       <Project>{0aa4a583-d586-4093-b23d-0d016e8253a2}</Project>
       <Name>ChargeInterface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\ScreenClientCommunication\ScreenClientCommunication.csproj">
-      <Project>{20cbd385-9c7c-4ac7-a061-786325052e8d}</Project>
-      <Name>ScreenClientCommunication</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

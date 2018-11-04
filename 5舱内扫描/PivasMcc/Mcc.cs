@@ -14,7 +14,6 @@ using PIVAsCommon;
 using Communication.DisplayTcp;
 using PIVAsCommon.Models;
 using Communication.screenTcp;
-using Communication.WindowsScreen;
 
 namespace PivasMcc
 {
@@ -1693,6 +1692,12 @@ namespace PivasMcc
                             listViewDeskInfo.Items.Clear();
                             listViewSendPLCInfo.Items.Clear();
                         });
+
+                        //长时间运行，会造成内存耗尽，这里做清空
+                        lock (dtCheckResult.Rows.SyncRoot)
+                        {
+                            dtCheckResult.Rows.Clear();
+                        }
                     }
                 }
                 catch (Exception ex)

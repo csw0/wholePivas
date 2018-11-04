@@ -63,9 +63,6 @@ namespace PivasMcc
 
                     string mixMethods = string.Empty;
 
-                    #region csw模拟测试
-                    //labelNo = "20171209100165";
-                    #endregion
                     DataSet dsLableInfo = dbHelp.GetPIVAsDB(GET_LABELINFO + labelNo);
                     if (dsLableInfo.Tables.Count > 0 && dsLableInfo.Tables[0].Rows.Count > 0)
                     {
