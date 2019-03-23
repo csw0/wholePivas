@@ -31,21 +31,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CommonUI">
-      <HintPath>..\TestAilong\ImportDll\CommonUI.dll</HintPath>
-    </Reference>
-    <Reference Include="GenerateKey">
-      <HintPath>..\TestAilong\ImportDll\GenerateKey.exe</HintPath>
-    </Reference>
-    <Reference Include="log4net">
-      <HintPath>..\10Common\Log4net\net35-full\log4net.dll</HintPath>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\10Common\Log4net\net35-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\10Common\Newtonsoft\6.0.5\net35\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\10Common\Newtonsoft\6.0.5\net35\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="PivasInfor">
-      <HintPath>..\TestAilong\ImportDll\PivasInfor.exe</HintPath>
+    <Reference Include="PIVAsCommon, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\11Output\安装包\ChargeInterface\ImportDll\PIVAsCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="PivasInfor, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\11Output\CommonDll\PivasInfor.exe</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -64,23 +64,31 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\10Common\PIVAsCommon\PIVAsCommon.csproj">
-      <Project>{FAB76740-C6E8-42B0-8E97-52DBC3BFB8F1}</Project>
-      <Name>PIVAsCommon</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ChargeInterface\ChargeInterface.csproj">
-      <Project>{0AA4A583-D586-4093-B23D-0D016E8253A2}</Project>
-      <Name>ChargeInterface</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="..\ChargeInterface\app.config">
       <Link>app.config</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="IMEQPIVAs.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="IMEQPIVAsHIS.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\10Common\CommonUI\CommonUI.csproj">
+      <Project>{76422bb2-27fa-4e76-9543-31de5c21351b}</Project>
+      <Name>CommonUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\10Common\GenerateKey\GenerateKey.csproj">
+      <Project>{ed17c82e-aeb9-4fe3-bd02-8d6ea466d9a7}</Project>
+      <Name>GenerateKey</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChargeInterface\ChargeInterface.csproj">
+      <Project>{0aa4a583-d586-4093-b23d-0d016e8253a2}</Project>
+      <Name>ChargeInterface</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
