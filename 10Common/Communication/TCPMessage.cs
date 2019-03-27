@@ -7,6 +7,7 @@ namespace Communication
     /// </summary>
     public class TCPMessage
     {
+
         public TCPMessage(string serverIp, int serverPort, string moxaData)
         {
             this.serverIp = serverIp;
